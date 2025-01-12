@@ -1,7 +1,7 @@
+
 export const HomePage = () => {
   return (
-    <div>
-        
+    <div className="w-full">
     </div>
-  )
+  );
 };
