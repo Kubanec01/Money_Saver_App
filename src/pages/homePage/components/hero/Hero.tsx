@@ -1,8 +1,9 @@
 import style from "./hero.module.scss";
+import img1 from "../../../../assets/human-img.jpg"
 
 export const Hero = () => {
   return (
-    <div className="mx-auto w-[90%] max-w-[1100px] flex justify-center items-center mt-[320px]">
+    <div className="mx-auto w-[90%] max-w-[1100px] flex justify-center items-center mt-[220px]">
       {/* LEFT */}
       <div className="h-full w-[50%] font-medium">
         <h1 className={`${style.title} text-white text-6xl tracking-tight`}>
@@ -26,7 +27,11 @@ export const Hero = () => {
         </p>
       </div>
       {/* RIGHT */}
-      <div className="h-full w-[50%]"></div>
+      <div className="h-full flex justify-end items-center w-[50%]">
+        <img
+        className="w-[500px] h-[560px] object-cover rounded-[20px]"
+        src={img1} alt="planet-img" />
+      </div>
     </div>
   );
 };
