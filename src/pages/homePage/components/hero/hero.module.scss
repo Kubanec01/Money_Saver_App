@@ -2,6 +2,8 @@
   text-shadow: 0 2px 20px #d6eff7e3;
 }
 
-.title2{
-    
+.title2 {
+  background-image: linear-gradient(to right, white, rgba(197, 196, 196, 0.885) 40%, rgba(245, 245, 245, 0.748) 70%,);
+  -webkit-background-clip: text;
+  color: transparent; 
 }
