@@ -22,21 +22,16 @@ export const quotesData: quotesDataProps[] = [
   },
   {
     id: 4,
-    text: "The habit of saving is itself an education; it fosters every virtue, teaches self-denial, cultivates the sense of order, and broadens the mind.",
-    author: "T.T. Munger",
-  },
-  {
-    id: 5,
     text: "It’s not about how much money you make, but how much you save.",
     author: "Anonymous",
   },
   {
-    id: 6,
+    id: 5,
     text: "Small daily savings add up to big dreams achieved.",
     author: "Anonymous",
   },
   {
-    id: 7,
+    id: 6,
     text: "Financial freedom comes to those who save consistently, not those who spend impulsively.",
     author: "Anonymous",
   },

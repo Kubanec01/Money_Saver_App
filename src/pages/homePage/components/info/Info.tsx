@@ -1,3 +1,5 @@
+import { QuotesGenerator } from "./components/quotesGenerator/QuotesGenerator";
+
 export const Info = () => {
   return (
     <div className="w-[90%] max-w-[1100px] mx-auto mt-[160px] mb-[1000px]">
@@ -13,7 +15,7 @@ export const Info = () => {
       <div className="w-[90%] mx-auto mt-[46px] flex justify-between">
         {/* LEFT */}
         <div className="w-[55%]">
-          <div className="w-[98%] h-[320px] rounded-[20px] border"></div>
+          <QuotesGenerator />
         </div>
         {/* RIGHT */}
         <div className="w-[45%] flex justify-between flex-col items-end">
