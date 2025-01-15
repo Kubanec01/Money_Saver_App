@@ -1,3 +1,4 @@
+import { DateGenerator } from "./components/dateGenerator/DateGenerator";
 import { QuotesGenerator } from "./components/quotesGenerator/QuotesGenerator";
 import { WeatherGenerator } from "./components/weatherGenerator/WeatherGenerator";
 
@@ -21,7 +22,7 @@ export const Info = () => {
         {/* RIGHT */}
         <div className="w-[45%] flex justify-between flex-col items-end">
           <WeatherGenerator />
-          <div className="w-[98%] border rounded-[20px] h-[47%]"></div>
+          <DateGenerator />
         </div>
       </div>
     </div>

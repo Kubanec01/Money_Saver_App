@@ -15,7 +15,7 @@ export const WeatherGenerator = () => {
         </div>
         <div className="w-[50%] h-full flex items-center justify-start">
           <img
-          className="object-cover aspect-square ml-4 -mt-2 w-[64px] opacity-90"
+          className="object-cover aspect-square ml-3 -mt-2 w-[60px] opacity-90"
           src={testImg} alt="test-img" />
         </div>
       </div>
