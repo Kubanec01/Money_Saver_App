@@ -1,4 +1,5 @@
 import { QuotesGenerator } from "./components/quotesGenerator/QuotesGenerator";
+import { WeatherGenerator } from "./components/weatherGenerator/WeatherGenerator";
 
 export const Info = () => {
   return (
@@ -12,14 +13,14 @@ export const Info = () => {
         </h2>
       </div>
       {/* BARS */}
-      <div className="w-[90%] mx-auto mt-[46px] flex justify-between">
+      <div className="w-[87%] mx-auto mt-[46px] flex justify-between">
         {/* LEFT */}
         <div className="w-[55%]">
           <QuotesGenerator />
         </div>
         {/* RIGHT */}
         <div className="w-[45%] flex justify-between flex-col items-end">
-          <div className="w-[98%] border rounded-[20px] h-[47%]"></div>
+          <WeatherGenerator />
           <div className="w-[98%] border rounded-[20px] h-[47%]"></div>
         </div>
       </div>

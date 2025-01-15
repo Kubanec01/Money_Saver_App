@@ -8,13 +8,13 @@ export const QuotesGenerator = () => {
       <div className={`${style.body} w-[98%] h-[320px] rounded-[20px]`}>
         <div className="text-[#f9f7f7] w-full h-full flex flex-col justify-between p-6">
           {/* QUOTE TEXT */}
-          <h1 className="text-4xl w-[90%] font-medium">
+          <h1 className="text-4xl w-[94%] font-medium">
             Financial freedom comes to those who save consistently, not those
             who spend impulsively.🔥
           </h1>
           {/* AUTHOR TEXT */}
           <div className="text-xl text-[#f9f7f7]">
-            <p>•Anonymous•</p>
+            <p>• Anonymous •</p>
           </div>
         </div>
       </div>
