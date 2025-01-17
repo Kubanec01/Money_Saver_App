@@ -35,7 +35,7 @@ export const Navbar = () => {
         </div>
         {/* RIGHT */}
         <div className="h-full w-[50%]">
-          <ul className="flex h-full items-center justify-end text-white mr-10 gap-20">
+          <ul className="flex h-full items-center justify-end text-white mr-10 gap-16">
             <li className="text-xl text-[#b7cef7]">
               <button
                 className={`${style.currencyBtn} px-4 py-[4px] rounded-[10px]`}
@@ -44,7 +44,7 @@ export const Navbar = () => {
               </button>
             </li>
             <li className="-mb-2 mr-4">
-              <button className="text-4xl text-[#b7cff7d8]">
+              <button className={`${style.helpButton} text-4xl text-[#b7cff7d8]`}>
                 <HiOutlineQuestionMarkCircle />
               </button>
             </li>
@@ -61,5 +61,3 @@ export const Navbar = () => {
     </div>
   );
 };
-
-// ! Right passage bude treba este doladit

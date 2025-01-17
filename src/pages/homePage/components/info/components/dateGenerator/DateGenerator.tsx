@@ -11,7 +11,7 @@ export const DateGenerator = () => {
         className="flex items-center justify-center"
         >
             <div
-            className="flex items-center text-[white] text-5xl font-medium"
+            className="flex items-center text-customWhite text-5xl font-medium"
             >
                 <span>15/</span>
                 <span>01/</span>
