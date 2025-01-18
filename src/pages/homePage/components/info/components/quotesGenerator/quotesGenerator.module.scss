@@ -5,3 +5,21 @@
         #6b72803d 64%
     );
 }
+
+.quoteText{
+    animation: Opacity 14s ease-in-out infinite;
+}
+
+@keyframes Opacity {
+    0%{
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 100;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
