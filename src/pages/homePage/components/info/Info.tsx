@@ -4,11 +4,11 @@ import { TimeGenerator } from "./components/timeGenerator/TimeGenerator";
 
 export const Info = () => {
   return (
-    <div className="w-[90%] max-w-[1100px] mx-auto mt-[160px] mb-[1000px]">
+    <div className="w-[90%] max-w-[1100px] mx-auto mt-[160px]">
       {/* TEXT */}
       <div className="text-white w-[80%] mx-auto">
-        <h1 className="text-xl uppercase text-[#a7b4fb]">Core Coords</h1>
-        <h2 className="text-3xl w-[80%] font-medium mt-[6px] text-[#eceefa]">
+        <h1 className="text-xl uppercase text-spaceBlue">Core Coords</h1>
+        <h2 className="text-3xl w-[80%] font-medium mt-[6px] text-spaceWhite">
           Today, we’re in the perfect position and at the right level to kick
           off a successful savings plan.
         </h2>

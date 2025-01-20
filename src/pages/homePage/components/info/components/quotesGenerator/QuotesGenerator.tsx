@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { quotesData } from "../../../../../../data/quotes";
 import style from "./quotesGenerator.module.scss";
+import { motion } from "motion/react";
 
 export const QuotesGenerator = () => {
   const [currQuoteIndex, setCurrQuoteIndex] = useState(0);
@@ -18,7 +19,20 @@ export const QuotesGenerator = () => {
   const data = quotesData[currQuoteIndex];
 
   return (
-    <div className={`${style.body} w-[98%] h-[320px] rounded-[20px]`}>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        amount: 0.5,
+      }}
+      transition={{ duration: 0.8 }}
+      variants={{
+        hidden: { opacity: 0, filter: "blur(8px)" },
+        visible: { opacity: 1, filter: "blur(0px)"},
+      }}
+      className={`${style.body} w-[98%] h-[320px] rounded-[20px]`}
+    >
       <div
         id={data.id.toString()}
         className={`${style.quoteText} text-customWhite w-full h-full flex flex-col justify-between p-6`}
@@ -30,6 +44,6 @@ export const QuotesGenerator = () => {
           <p>• {data.author} •</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
