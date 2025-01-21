@@ -1,0 +1,24 @@
+.budgetBar {
+  background: linear-gradient(170deg, #5f0fb0b4, #5f0fb074 40%, #c868c831 70%);
+}
+
+.goalBar {
+  background: linear-gradient(
+    190deg,
+    #f6a52346, /* Zlatisto-oranžová s jemnou priehľadnosťou */
+    #f6a52346 40%, /* Svetlejšia zlatá s nižšou priehľadnosťou */
+    #77709231 70% /* Svetlý odtieň béžovo-zlatej */
+  );
+  }
+
+.numberInput {
+  &::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}

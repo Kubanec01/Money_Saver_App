@@ -1,6 +1,8 @@
+import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/BudgetAndGoalInputs";
+
 export const SaverSection = () => {
   return (
-    <div className="border-white w-[90%] max-w-[1300px] mx-auto h-[1200px] mt-[250px]">
+    <div className="border-white w-[90%] max-w-[1300px] mx-auto mt-[200px] mb-[400px]">
       {/* TEXT */}
       <div className="mx-auto w-[68%]">
         <h1 className="uppercase text-xl text-spaceBlue">Let's Set Goals</h1>
@@ -16,6 +18,7 @@ export const SaverSection = () => {
           dose of motivation.
         </p>
       </div>
+      < BudgetAndGoalInputs />
     </div>
   );
 };
