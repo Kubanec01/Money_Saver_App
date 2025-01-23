@@ -1,4 +1,5 @@
 import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/BudgetAndGoalInputs";
+import { FinanceBars } from "./components/financeBars/FinanceBars";
 
 export const SaverSection = () => {
   return (
@@ -19,6 +20,7 @@ export const SaverSection = () => {
         </p>
       </div>
       < BudgetAndGoalInputs />
+      <FinanceBars />
     </div>
   );
 };

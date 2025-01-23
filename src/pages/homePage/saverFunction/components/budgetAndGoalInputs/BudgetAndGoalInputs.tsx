@@ -2,7 +2,7 @@ import style from "./budgetAndGoalInputs.module.scss";
 
 export const BudgetAndGoalInputs = () => {
   return (
-    <div className="mt-[50px] mx-auto w-[76%] flex justify-between items-center">
+    <div className="mt-[54px] mx-auto w-[76%] flex justify-between items-center">
       {/* LEFT */}
       {/* BUDGET BAR */}
       <div className={`${style.budgetBar} w-[400px] h-[140px] rounded-[20px]`}>
@@ -17,7 +17,7 @@ export const BudgetAndGoalInputs = () => {
         <div className="w-full flex">
           <input
             style={{
-              borderBottom: "3px solid #fffffff0",
+              borderBottom: "3px solid rgba(255, 255, 255, 0.7)",
               borderRadius: "2px",
             }}
             id="budget"
@@ -31,7 +31,7 @@ export const BudgetAndGoalInputs = () => {
         <div className="w-full flex">
           <label
             htmlFor="goal"
-            className="text-3xl font-semibold text-[#fffffff0] text-nowrap mx-auto mt-[18px]"
+            className="text-3xl font-semibold text-[#fffffff5] text-nowrap mx-auto mt-[18px]"
           >
             Your Goal
           </label>
@@ -39,7 +39,7 @@ export const BudgetAndGoalInputs = () => {
         <div className="w-full flex">
           <input
             style={{
-              borderBottom: "3px solid #fffffff0",
+              borderBottom: "3px solid rgba(255, 255, 255, 0.7)",
               borderRadius: "2px",
             }}
             id="goal"

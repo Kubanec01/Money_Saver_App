@@ -1,15 +1,14 @@
+$border-color: #f5f5f593;
+
 .budgetBar {
-  background: linear-gradient(170deg, #5f0fb0b4, #5f0fb074 40%, #c868c831 70%);
+  background: linear-gradient(170deg, #943eeab4, #8633d974 40%, #cf6dcf3f 70%);
+  border: 2px solid $border-color;
 }
 
 .goalBar {
-  background: linear-gradient(
-    190deg,
-    #f6a52346, /* Zlatisto-oranžová s jemnou priehľadnosťou */
-    #f6a52346 40%, /* Svetlejšia zlatá s nižšou priehľadnosťou */
-    #77709231 70% /* Svetlý odtieň béžovo-zlatej */
-  );
-  }
+  background: linear-gradient(190deg, #b78df245, #f6b3fe73 110%);
+  border: 2px solid $border-color;
+}
 
 .numberInput {
   &::-webkit-inner-spin-button,
