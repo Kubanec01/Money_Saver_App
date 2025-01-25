@@ -1,16 +1,31 @@
-.body{
-    border-bottom: 2px solid white;
+$color-primary: #ffffff7a;
+
+$button-color-primary: #ffffff69;
+$button-color-secondary: #a7b4fb;
+
+.body {
+  border-bottom: 2px solid $color-primary;
+  border-radius: 2px;
 }
 
-
 .input {
-    &::-webkit-inner-spin-button,
-    ::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    &:focus {
-      outline: none;
-      border: none;
-    }
+  &::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+.button {
+  color: $button-color-primary;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $button-color-secondary;
+    transform: scale(1.05);
+  }
+}

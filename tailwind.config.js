@@ -6,9 +6,12 @@ export default {
       colors: {
         customWhite: "#f8f7f7",
         customWhite300: "#fffffff7",
+        darkSHadow: "",
         whiteShadow500: "#ffffffae",
         spaceBlue: "#a7b4fb",
+        spaceNeonBlue: "#7387fa",
         spaceWhite: "#eceefa",
+        spaceGray: "#6b72803d",
       },
     },
   },

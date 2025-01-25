@@ -1,3 +1,11 @@
-.body{
-    background: transparent;
+$body-color-primary: #bc245c42;
+$body-color-secondary: #6b728039;
+
+.body {
+  background: linear-gradient(
+    194deg,
+    $body-color-primary,
+    $body-color-secondary 70%
+  );
+  backdrop-filter: blur(3px);
 }

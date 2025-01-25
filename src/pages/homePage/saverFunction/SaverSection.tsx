@@ -1,5 +1,6 @@
 import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/BudgetAndGoalInputs";
 import { FinanceBars } from "./components/financeBars/FinanceBars";
+import { FinanceResults } from "./components/financeResults/FinanceResults";
 
 export const SaverSection = () => {
   return (
@@ -13,7 +14,7 @@ export const SaverSection = () => {
           the end of your deadline.
         </h2>
         <p
-        className="text-xl text-[#7387fa] mt-[10px] w-[50%]"
+        className="text-xl text-spaceNeonBlue mt-[10px] w-[50%]"
         >
           This step is essential for achieving your goal and gaining a strong
           dose of motivation.
@@ -21,6 +22,7 @@ export const SaverSection = () => {
       </div>
       < BudgetAndGoalInputs />
       <FinanceBars />
+      <FinanceResults />
     </div>
   );
 };
