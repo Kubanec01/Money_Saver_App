@@ -1,3 +1,4 @@
+import { ResultBar } from "../../../../../components/resultBar/ResultBar";
 import style from "./financeResults.module.scss";
 
 export const FinanceResults = () => {
@@ -16,7 +17,24 @@ export const FinanceResults = () => {
           <span className="text-white text-xl">🚀</span>
         </h2>
       </div>
-      <div></div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateRows: "auto auto",
+          alignItems: "center",
+          gap: "40px",
+          justifyItems: "center",
+        }}
+        className="flex justify-center items-center mt-[60px]"
+      >
+        <ResultBar id={"rent"} name={"Rent"} result={100} currency={"eur"} />
+        <ResultBar id={"home"} name={"Home"} result={600} currency={"eur"} />
+        <ResultBar id={"car"} name={"Car"} result={80} currency={"eur"} />
+        <ResultBar id={"hobby"} name={"Hobby"} result={30} currency={"eur"} />
+        <ResultBar id={"fun"} name={"Fun"} result={100} currency={"eur"} />
+        <ResultBar id={"other"} name={"Other"} result={500} currency={"eur"} />
+      </div>
     </div>
   );
 };
