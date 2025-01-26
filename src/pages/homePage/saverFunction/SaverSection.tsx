@@ -1,10 +1,11 @@
 import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/BudgetAndGoalInputs";
 import { FinanceBars } from "./components/financeBars/FinanceBars";
+import { FinanceGrafs } from "./components/financeGrafs/FinanceGrafs";
 import { FinanceResults } from "./components/financeResults/FinanceResults";
 
 export const SaverSection = () => {
   return (
-    <div className="border-white w-[90%] max-w-[1300px] mx-auto mt-[200px] mb-[400px]">
+    <div className="border-white w-[90%] max-w-[1300px] mx-auto mt-[200px]">
       {/* TEXT */}
       <div className="mx-auto w-[68%]">
         <h1 className="uppercase text-xl text-spaceBlue">Let's Set Goals</h1>
@@ -23,6 +24,7 @@ export const SaverSection = () => {
       < BudgetAndGoalInputs />
       <FinanceBars />
       <FinanceResults />
+      <FinanceGrafs />
     </div>
   );
 };

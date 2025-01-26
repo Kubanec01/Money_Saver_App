@@ -23,10 +23,10 @@ export const FinanceResults = () => {
           gridTemplateColumns: "repeat(3, 1fr)",
           gridTemplateRows: "auto auto",
           alignItems: "center",
-          gap: "40px",
+          gap: "30px",
           justifyItems: "center",
         }}
-        className="flex justify-center items-center mt-[60px]"
+        className="flex justify-center items-center mt-[44px] w-[90%] mx-auto"
       >
         <ResultBar id={"rent"} name={"Rent"} result={100} currency={"eur"} />
         <ResultBar id={"home"} name={"Home"} result={600} currency={"eur"} />
@@ -39,4 +39,3 @@ export const FinanceResults = () => {
   );
 };
 
-// ! hornu mt vzdialenost este poriesim

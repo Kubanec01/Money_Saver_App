@@ -1,0 +1,10 @@
+$body-color-primary: #e314d943;
+$body-color-secondary: #6b728039;
+$border-color-primary:  #ffffffb5;
+
+.body{
+    background: linear-gradient(20deg, $body-color-primary, $body-color-secondary 74% );
+    border-top: 1px solid $border-color-primary;
+    border-right: 1px solid $border-color-primary;
+    backdrop-filter: blur(2px);
+}
