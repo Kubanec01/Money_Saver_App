@@ -30,3 +30,5 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     </div>
   );
 };
+
+

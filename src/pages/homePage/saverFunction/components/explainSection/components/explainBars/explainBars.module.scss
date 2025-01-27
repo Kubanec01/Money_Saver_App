@@ -1,0 +1,8 @@
+$border-color-primary: rgba(255, 255, 255, 0.486);
+
+
+.numberBody{
+    background: linear-gradient(30deg, #797777, #4a4949 54%);
+    border-top: 2px solid $border-color-primary;
+    border-left: 2px solid $border-color-primary;
+}
