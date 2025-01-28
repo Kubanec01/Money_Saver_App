@@ -4,7 +4,7 @@ import { ExplainBars } from "./components/explainBars/ExplainBars"
 export const ExplainSection = () => {
     return (
         <div
-        className="mt-[100px] mb-[300px] w-[90%] max-w-[1500px] mx-auto"
+        className="mt-[300px] mb-[80px] w-[90%] max-w-[1500px] mx-auto"
         >
             <div>
                 <p
@@ -21,7 +21,7 @@ export const ExplainSection = () => {
                 </h1>
             </div>
             <div
-            className="m-[60px] w-[46%] mx-auto"
+            className="mt-[60px] w-[46%] mx-auto"
             >
                 <ExplainBars />
             </div>

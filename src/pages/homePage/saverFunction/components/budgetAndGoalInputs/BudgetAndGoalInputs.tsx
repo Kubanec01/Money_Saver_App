@@ -1,6 +1,37 @@
+import { useState } from "react";
 import style from "./budgetAndGoalInputs.module.scss";
 
 export const BudgetAndGoalInputs = () => {
+  const [budgetValue, setBudgetValue] = useState(0);
+  const [goalValue, setGoalValue] = useState(0);
+
+  const handleBudgetValue = (event: any | number) => {
+    let currNumber = event.target.value;
+    let currNumberLength = currNumber.length;
+
+    if (currNumber === 0) {
+      setBudgetValue(0);
+    } else if (currNumber[0] == 0 && currNumberLength > 1) {
+      currNumber = currNumber.substring(1);
+      setBudgetValue(currNumber);
+    } else if (currNumberLength < 11) {
+      setBudgetValue(currNumber);
+    }
+  };
+  const handleGoalValue = (event: any | number) => {
+    let currNumber = event.target.value;
+    let currNumberLength = currNumber.length;
+
+    if (currNumberLength === 0) {
+      setGoalValue(0);
+    } else if (currNumber[0] == 0 && currNumberLength > 1) {
+      currNumber = currNumber.substring(1);
+      setGoalValue(currNumber);
+    } else if (currNumberLength < 11) {
+      setGoalValue(currNumber);
+    }
+  };
+
   return (
     <div className="mt-[54px] mx-auto w-[76%] flex justify-between items-center">
       {/* LEFT */}
@@ -16,11 +47,13 @@ export const BudgetAndGoalInputs = () => {
         </div>
         <div className="w-full flex">
           <input
+            value={budgetValue}
+            onChange={handleBudgetValue}
+            id="budget"
             style={{
               borderBottom: "3px solid rgba(255, 255, 255, 0.7)",
               borderRadius: "2px",
             }}
-            id="budget"
             className={`${style.numberInput} mx-auto w-[70%] h-[40px] text-4xl text-center text-[#fffffff0] bg-transparent mt-[20px]`}
             type="number"
           />
@@ -38,11 +71,13 @@ export const BudgetAndGoalInputs = () => {
         </div>
         <div className="w-full flex">
           <input
+            id="goal"
+            value={goalValue}
+            onChange={handleGoalValue}
             style={{
               borderBottom: "3px solid rgba(255, 255, 255, 0.7)",
               borderRadius: "2px",
             }}
-            id="goal"
             className={`${style.numberInput} mx-auto w-[70%] h-[40px] text-4xl text-center text-[#fffffff0] bg-transparent mt-[20px]`}
             type="number"
           />
@@ -51,3 +86,5 @@ export const BudgetAndGoalInputs = () => {
     </div>
   );
 };
+
+// ! funkcie ohladom cisiel sa budu muset prekodit na useContext aby sa mohli vsetky cieslne hodnoty ukladat do jednotlivych dat s ktorimi sa bude dat pracovat

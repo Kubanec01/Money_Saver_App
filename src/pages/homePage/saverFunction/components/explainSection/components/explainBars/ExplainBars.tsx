@@ -9,11 +9,11 @@ export const ExplainBars = () => {
     >
       {data.map((b) => {
         return (
-          <li id={b.id.toString()} 
+          <li key={b.id.toString()} 
           className="flex items-center justify-start mb-[30px] text-spaceWhite mx-auto">
             {/* LEFT */}
             <div
-            className={`${style.numberBody} text-3xl rounded-[10px] flex items-center justify-center aspect-square w-[80px]`}
+            className={`${style.numberBody} text-2xl rounded-[10px] flex items-center justify-center aspect-square w-[70px]`}
             >
                     <p
                     >{b.number}</p>
