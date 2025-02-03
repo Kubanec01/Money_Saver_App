@@ -9,13 +9,15 @@ export const BudgetAndGoalInputs = () => {
     let currNumber = event.target.value;
     let currNumberLength = currNumber.length;
 
-    if (currNumber === 0) {
+    if (currNumberLength === 0) {
       setBudgetValue(0);
     } else if (currNumber[0] == 0 && currNumberLength > 1) {
       currNumber = currNumber.substring(1);
       setBudgetValue(currNumber);
     } else if (currNumberLength < 11) {
       setBudgetValue(currNumber);
+    } else {
+      return;
     }
   };
   const handleGoalValue = (event: any | number) => {
@@ -29,6 +31,8 @@ export const BudgetAndGoalInputs = () => {
       setGoalValue(currNumber);
     } else if (currNumberLength < 11) {
       setGoalValue(currNumber);
+    } else {
+      return;
     }
   };
 
