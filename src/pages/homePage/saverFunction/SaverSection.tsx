@@ -3,6 +3,7 @@ import { FinanceBars } from "./components/financeBars/FinanceBars";
 import { FinanceGrafs } from "./components/financeGrafs/FinanceGrafs";
 import { FinanceResults } from "./components/financeResults/FinanceResults";
 
+
 export const SaverSection = () => {
   return (
     <div className="border-white w-[90%] max-w-[1300px] mx-auto mt-[200px]">

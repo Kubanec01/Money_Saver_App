@@ -1,21 +1,21 @@
-import { useState } from "react";
 import style from "./budgetAndGoalInputs.module.scss";
+import { useFinanceSaverContext } from "../../../../../hooks/FinanceContext";
+
 
 export const BudgetAndGoalInputs = () => {
-  const [budgetValue, setBudgetValue] = useState(0);
-  const [goalValue, setGoalValue] = useState(0);
+  const {budget, setBudget, goal, setGoal} = useFinanceSaverContext()
 
   const handleBudgetValue = (event: any | number) => {
     let currNumber = event.target.value;
     let currNumberLength = currNumber.length;
 
     if (currNumberLength === 0) {
-      setBudgetValue(0);
+      setBudget(0);
     } else if (currNumber[0] == 0 && currNumberLength > 1) {
       currNumber = currNumber.substring(1);
-      setBudgetValue(currNumber);
+      setBudget(currNumber);
     } else if (currNumberLength < 11) {
-      setBudgetValue(currNumber);
+      setBudget(currNumber);
     } else {
       return;
     }
@@ -25,12 +25,12 @@ export const BudgetAndGoalInputs = () => {
     let currNumberLength = currNumber.length;
 
     if (currNumberLength === 0) {
-      setGoalValue(0);
+      setGoal(0);
     } else if (currNumber[0] == 0 && currNumberLength > 1) {
       currNumber = currNumber.substring(1);
-      setGoalValue(currNumber);
+      setGoal(currNumber);
     } else if (currNumberLength < 11) {
-      setGoalValue(currNumber);
+      setGoal(currNumber);
     } else {
       return;
     }
@@ -51,7 +51,7 @@ export const BudgetAndGoalInputs = () => {
         </div>
         <div className="w-full flex">
           <input
-            value={budgetValue}
+            value={budget}
             onChange={handleBudgetValue}
             id="budget"
             style={{
@@ -76,7 +76,7 @@ export const BudgetAndGoalInputs = () => {
         <div className="w-full flex">
           <input
             id="goal"
-            value={goalValue}
+            value={goal}
             onChange={handleGoalValue}
             style={{
               borderBottom: "3px solid rgba(255, 255, 255, 0.7)",
@@ -91,4 +91,3 @@ export const BudgetAndGoalInputs = () => {
   );
 };
 
-// ! funkcie ohladom cisiel sa budu muset prekodit na useContext aby sa mohli vsetky cieslne hodnoty ukladat do jednotlivych dat s ktorimi sa bude dat pracovat

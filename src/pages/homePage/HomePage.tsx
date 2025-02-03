@@ -1,3 +1,4 @@
+import { FinanceSaverProvider } from "../../hooks/FinanceContext";
 import { Hero } from "./components/hero/Hero";
 import { Info } from "./components/info/Info";
 import { ExplainSection } from "./saverFunction/components/explainSection/ExplainSection";
@@ -8,7 +9,9 @@ export const HomePage = () => {
     <div className="w-full">
       <Hero />
       <Info />
-      <SaverSection />
+      <FinanceSaverProvider>
+        <SaverSection />
+      </FinanceSaverProvider>
       <ExplainSection />
     </div>
   );
