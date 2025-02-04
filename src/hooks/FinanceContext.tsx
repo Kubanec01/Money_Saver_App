@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from "react";
 
 type FinanceSaverContextProps = {
-  budget: number;
-  setBudget: (value: number) => void;
-  goal: number;
-  setGoal: (value: number) => void;
+  budget: string;
+  setBudget: (value: string) => void;
+  goal: string;
+  setGoal: (value: string) => void;
 };
 
 const FinanceSaverContext = createContext<FinanceSaverContextProps | undefined>(
@@ -16,11 +16,11 @@ type ChildrenProps = {
 };
 
 export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
-  const [budget, setBudget] = useState(0);
+  const [budget, setBudget] = useState("0");
 
-  const [goal, setGoal] = useState(0);
+  const [goal, setGoal] = useState("0");
 
-  console.log(budget, goal);
+  console.log(budget);
   return (
     <FinanceSaverContext.Provider value={{ budget, setBudget, goal, setGoal }}>
       {children}

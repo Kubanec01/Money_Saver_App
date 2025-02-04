@@ -11,9 +11,7 @@ type FinanceBarProps = {
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   const [value, setValue] = useState<number>(0);
-
-  console.log(`${id} ${value}`);
-
+  
   const handleValue = (event: any | number) => {
     let eventValue = event.target.value;
     let eventValueLength = eventValue.length;
