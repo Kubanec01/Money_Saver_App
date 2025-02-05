@@ -1,7 +1,9 @@
-import { useState } from "react";
 import style from "./financeBar.module.scss";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
+import { FinanceSaverProvider, useFinanceSaverContext } from "../../hooks/FinanceContext";
+
+
 
 type FinanceBarProps = {
   id: string;
@@ -10,33 +12,13 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const [value, setValue] = useState<number>(0);
-  
-  const handleValue = (event: any | number) => {
-    let eventValue = event.target.value;
-    let eventValueLength = eventValue.length;
 
-    if (eventValueLength === 0) {
-      setValue(0);
-    } else if (eventValue[0] == 0 && eventValueLength > 1) {
-      eventValue = eventValue.substring(1);
-      setValue(eventValue);
-    } else if (eventValueLength < 8) {
-      setValue(eventValue);
-    } else {
-      return;
-    }
-  };
+  const {expensesSum, setExpensesSum} = useFinanceSaverContext()
 
   const increase = () => {
-    return setValue((prevValue) => NumprevValue + 1);
-  };
+    setExpensesSum((prevSum) => prevSum + 1)
+  }
 
-  const decrease = () => {
-    if (value > 0) {
-      return setValue((prevValue) => prevValue - 1);
-    }
-  };
 
   return (
     <div id={id} className={`${style.body} flex w-[340px]`}>
@@ -45,16 +27,14 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
       </label>
       <input
         id={inputId}
-        onChange={handleValue}
-        value={value}
         className={`${style.input} text-spaceWhite bg-transparent ml-3 text-3xl w-[60%]`}
         type="number"
       />
       <div className="flex text-4xl gap-3 items-center justify-between mb-1">
-        <button onClick={increase} className={style.button}>
+        <button  className={style.button}>
           <CiCirclePlus />
         </button>
-        <button onClick={decrease} className={style.button}>
+        <button  className={style.button}>
           <CiCircleMinus />
         </button>
       </div>
