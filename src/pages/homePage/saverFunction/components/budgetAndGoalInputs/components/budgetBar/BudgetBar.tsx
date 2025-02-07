@@ -1,4 +1,4 @@
-import { useFinanceSaverContext } from "../../../../../../../hooks/FinanceContext";
+import { useFinanceSaverContext } from "../../../../../../../hooks/context/FinanceContext";
 import { useValueIntoState } from "../../../../../../../hooks/useValueIntoState";
 import style from "./budgetBar.module.scss";
 

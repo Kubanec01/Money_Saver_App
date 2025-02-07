@@ -25,6 +25,9 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
   console.log(`this is budget ${budget}`);
   console.log(`this is goal ${goal}`);
   console.log(`this is expensesSum ${expensesSum}`);
+  // budget: all budget money
+  // goal: money u want to save
+  // expenseSum: value of spend money
 
   return (
     <FinanceSaverContext.Provider

@@ -1,4 +1,4 @@
-import { FinanceSaverProvider } from "../../hooks/FinanceContext";
+import { FinanceSaverProvider } from "../../hooks/context/FinanceContext";
 import { Hero } from "./components/hero/Hero";
 import { Info } from "./components/info/Info";
 import { ExplainSection } from "./saverFunction/components/explainSection/ExplainSection";
