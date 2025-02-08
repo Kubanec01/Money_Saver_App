@@ -11,7 +11,7 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const { expensesSum, setExpensesSum } = useFinanceSaverContext();
+  const { setExpensesSum } = useFinanceSaverContext();
   const [expenseValue, setExpenseValue] = useState("");
 
   // Variables
@@ -36,7 +36,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     setExpensesSum((prevSum) => prevSum + expenseValueNum);
   };
 
-  console.log(expensesSum, expenseValue);
+  console.log(expenseValue);
 
   return (
     <div id={id} className={`${style.body} flex w-[340px]`}>
