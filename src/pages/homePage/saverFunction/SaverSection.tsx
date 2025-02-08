@@ -1,8 +1,8 @@
+import { ExpensesAndResultsBarProvider } from "../../../hooks/context/ExpensesAndResultsBarContext";
 import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/BudgetAndGoalInputs";
 import { FinanceBars } from "./components/financeBars/FinanceBars";
 import { FinanceGrafs } from "./components/financeGrafs/FinanceGrafs";
 import { FinanceResults } from "./components/financeResults/FinanceResults";
-
 
 export const SaverSection = () => {
   return (
@@ -15,17 +15,17 @@ export const SaverSection = () => {
           the right side, write your financial goal that you want to achieve by
           the end of your deadline.
         </h2>
-        <p
-        className="text-xl text-spaceNeonBlue mt-[10px] w-[50%]"
-        >
+        <p className="text-xl text-spaceNeonBlue mt-[10px] w-[50%]">
           This step is essential for achieving your goal and gaining a strong
           dose of motivation.
         </p>
       </div>
-      < BudgetAndGoalInputs />
-      <FinanceBars />
-      <FinanceResults />
-      <FinanceGrafs />
+      <ExpensesAndResultsBarProvider>
+        <BudgetAndGoalInputs />
+        <FinanceBars />
+        <FinanceResults />
+        <FinanceGrafs />
+      </ExpensesAndResultsBarProvider>
     </div>
   );
 };

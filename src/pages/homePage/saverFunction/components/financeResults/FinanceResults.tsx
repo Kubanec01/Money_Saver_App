@@ -28,12 +28,12 @@ export const FinanceResults = () => {
         }}
         className="flex justify-center items-center mt-[44px] w-[90%] mx-auto"
       >
-        <ResultBar id={"rent"} name={"Rent"} result={0} currency={"eur"} />
-        <ResultBar id={"home"} name={"Home"} result={0} currency={"eur"} />
-        <ResultBar id={"car"} name={"Car"} result={0} currency={"eur"} />
-        <ResultBar id={"hobby"} name={"Hobby"} result={0} currency={"eur"} />
-        <ResultBar id={"fun"} name={"Fun"} result={0} currency={"eur"} />
-        <ResultBar id={"other"} name={"Other"} result={0} currency={"eur"} />
+        <ResultBar id={"rent"} name={"Rent"} currency={"eur"} />
+        <ResultBar id={"home"} name={"Home"} currency={"eur"} />
+        <ResultBar id={"car"} name={"Car"} currency={"eur"} />
+        <ResultBar id={"hobby"} name={"Hobby"} currency={"eur"} />
+        <ResultBar id={"fun"} name={"Fun"} currency={"eur"} />
+        <ResultBar id={"other"} name={"Other"} currency={"eur"} />
       </div>
     </div>
   );

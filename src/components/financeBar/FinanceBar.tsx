@@ -3,6 +3,7 @@ import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
 import { useState } from "react";
+import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
 
 type FinanceBarProps = {
   id: string;
@@ -13,6 +14,7 @@ type FinanceBarProps = {
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   const { setExpensesSum } = useFinanceSaverContext();
   const [expenseValue, setExpenseValue] = useState("");
+  const { updateExpense, expenses } = useExpensesAndResultsBarContext();
 
   // Variables
   let expenseValueNum = Number(expenseValue);
@@ -29,11 +31,15 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   };
 
   const increase = () => {
+    const newValue = (expenses[id] || 0) + Number(expenseValue);
     setExpensesSum((prevSum) => prevSum - expenseValueNum);
+    updateExpense(id, newValue);
   };
 
   const decrease = () => {
+    const newValue = (expenses[id] || 0) - Number(expenseValue);
     setExpensesSum((prevSum) => prevSum + expenseValueNum);
+    updateExpense(id, newValue);
   };
 
   console.log(expenseValue);
