@@ -1,6 +1,7 @@
 import { ResultBar } from "../../../../../components/resultBar/ResultBar";
 import style from "./financeResults.module.scss";
 
+
 export const FinanceResults = () => {
   return (
     <div className="mt-[160px] w-[88%] mx-auto">

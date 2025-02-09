@@ -1,7 +1,9 @@
 import { useFinanceSaverContext } from "../../../../../hooks/context/FinanceContext";
 import { ExpensesChart } from "./components/expensesChart/ExpensesChart";
+import { FunAndOtherChart } from "./components/funAndOtherChart/FunAndOtherChart";
 import { SavedChart } from "./components/savedChart/SavedChart";
 import style from "./financeCharts.module.scss";
+FunAndOtherChart;
 
 interface FinanceCharts {
   currency: string;
@@ -31,11 +33,7 @@ export const FinanceCharts = ({ currency }: FinanceCharts) => {
           expensesNum={expensesNum}
         />
         {/* Minute penbiaze na zabavu a other */}
-        <div className="w-[200px] aspect-square border">
-          <h1></h1>
-          <p></p>
-          <p></p>
-        </div>
+        <FunAndOtherChart currency={currency} />
       </div>
     </div>
   );
