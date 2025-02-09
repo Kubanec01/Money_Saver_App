@@ -32,13 +32,13 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
 
   const increase = () => {
     const newValue = (expenses[id] || 0) + Number(expenseValue);
-    setExpensesSum((prevSum) => prevSum - expenseValueNum);
+    setExpensesSum((prevSum) => prevSum + expenseValueNum);
     updateExpense(id, newValue);
   };
 
   const decrease = () => {
     const newValue = (expenses[id] || 0) - Number(expenseValue);
-    setExpensesSum((prevSum) => prevSum + expenseValueNum);
+    setExpensesSum((prevSum) => prevSum - expenseValueNum);
     updateExpense(id, newValue);
   };
 
