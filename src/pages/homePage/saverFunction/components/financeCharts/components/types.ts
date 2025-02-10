@@ -1,10 +1,11 @@
+import { CSSProperties } from "react";
+
 export interface SecondaryExpenses {
   currency: string;
-  // expensesNum: number;
+  expensesNum: number;
+  style: CSSProperties;
 }
 
-export interface ChartProps {
-  currency: string;
+export interface ChartProps extends SecondaryExpenses {
   budgetNum: number;
-  expensesNum: number;
 }

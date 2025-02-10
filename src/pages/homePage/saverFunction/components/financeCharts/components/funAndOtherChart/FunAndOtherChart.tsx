@@ -1,31 +1,54 @@
 import { useExpensesAndResultsBarContext } from "../../../../../../../hooks/context/ExpensesAndResultsBarContext";
 import { SecondaryExpenses } from "../types";
 
-export const FunAndOtherChart = ({ currency }: SecondaryExpenses) => {
+export const FunAndOtherChart = ({
+  currency,
+  expensesNum,
+  style
+}: SecondaryExpenses) => {
   const { expenses } = useExpensesAndResultsBarContext();
 
   const filteredExpenses = Object.keys(expenses)
     .filter((key) => key === "fun" || key === "other")
     .map((key) => expenses[key]);
 
-  const totalExpensesSum = filteredExpenses.reduce((acc, value) => acc + value, 0);
+  const totalSecExpensesSum = filteredExpenses.reduce(
+    (acc, value) => acc + value,
+    0
+  );
 
   const secExpenses = () => {
-    if (!totalExpensesSum) {
+    if (!totalSecExpensesSum) {
       return 0;
     }
 
-    return totalExpensesSum;
+    return totalSecExpensesSum;
+  };
+
+  const secExpensesPercent = () => {
+    const result = Math.floor((totalSecExpensesSum / expensesNum) * 100);
+
+    if (isNaN(result) || !isFinite(result)) {
+      return 0;
+    }
+
+    return result;
   };
 
   return (
-    <div className="w-[200px] aspect-square border">
+    <div
+    style={style}
+    className="w-[220px] aspect-square">
       {/* Title */}
-      <h1 className="w-full text-center text-3xl mt-5">Fun/Other</h1>
+      <h1 className="w-full text-center text-3xl mt-9 text-spaceNeonBlue">
+        Fun/Other
+      </h1>
       {/* Expenses Percent */}
-      <p className="w-full text-center text-3xl mt-5">%</p>
+      <p className="w-full text-center text-3xl mt-4 text-spaceBlue">
+        {secExpensesPercent()}%
+      </p>
       {/* Expenses Amount */}
-      <p className="w-full text-center text-3xl mt-5">
+      <p className="w-full text-center text-3xl mt-4 text-spaceWhite">
         {secExpenses()} {currency}
       </p>
     </div>

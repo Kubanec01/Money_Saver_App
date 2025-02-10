@@ -4,6 +4,7 @@ export const ExpensesChart = ({
   currency,
   budgetNum,
   expensesNum,
+  style,
 }: ChartProps) => {
   const expensesPercent = () => {
     const result = Math.floor((expensesNum / budgetNum) * 100);
@@ -16,13 +17,19 @@ export const ExpensesChart = ({
   };
 
   return (
-    <div className="w-[200px] aspect-square border">
+    <div
+    style={style}
+    className="w-[220px] aspect-square">
       {/* Title */}
-      <h1 className="w-full text-center text-3xl mt-5">Spent</h1>
+      <h1 className="w-full text-center text-3xl mt-9 text-spaceNeonBlue">
+        Spent
+      </h1>
       {/* Expenses Percent */}
-      <p className="w-full text-center text-3xl mt-5">{expensesPercent()}%</p>
+      <p className="w-full text-center text-3xl mt-4 text-spaceBlue">
+        {expensesPercent()}%
+      </p>
       {/* Expenses Amount */}
-      <p className="w-full text-center text-3xl mt-5">
+      <p className="w-full text-center text-3xl mt-4 text-spaceWhite">
         {expensesNum} {currency}
       </p>
     </div>
