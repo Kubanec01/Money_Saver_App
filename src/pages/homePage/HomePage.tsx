@@ -5,6 +5,8 @@ import { ExplainSection } from "./saverFunction/components/explainSection/explai
 import { SaverSection } from "./saverFunction/SaverSection";
 
 export const HomePage = () => {
+
+
   return (
     <div className="w-full">
       <Hero />

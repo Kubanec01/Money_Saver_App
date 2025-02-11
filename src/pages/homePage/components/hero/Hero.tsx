@@ -1,8 +1,11 @@
 import style from "./hero.module.scss";
 import img1 from "../../../../assets/human-img.jpg";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="mx-auto w-[90%] max-w-[1100px] flex justify-center items-center mt-[220px]">
       {/* LEFT */}
@@ -21,7 +24,7 @@ export const Hero = () => {
           }}
           className={`${style.title} text-white text-6xl tracking-tight`}
         >
-          Good Evening <span>Jacob</span>
+          {t("hero.title")} <span>Jacob</span>
         </motion.h1>
         <motion.h2
           initial="hidden"
@@ -37,7 +40,7 @@ export const Hero = () => {
           }}
           className="mt-2 mb-[6px] text-[#fffffff4] text-6xl tracking-tight"
         >
-          Today's Mission: <br />
+          {t("hero.subTitle1")}
         </motion.h2>
         <motion.h3
           initial="hidden"
@@ -53,7 +56,8 @@ export const Hero = () => {
           }}
           className={`${style.title2} text-5xl text-[#ffffff] font-semibold`}
         >
-          Save Your Money<span className="text-orange-300">🪐</span>
+          {t("hero.subTitle2")}
+          <span className="text-orange-300">🪐</span>
         </motion.h3>
         <motion.p
           initial="hidden"

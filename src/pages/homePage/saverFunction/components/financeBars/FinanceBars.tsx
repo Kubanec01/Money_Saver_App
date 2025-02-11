@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { FinanceBar } from "../../../../../components/financeBar/FinanceBar";
 import style from "./financeBars.module.scss";
 
 export const FinanceBars = () => {
+
+  const {t} = useTranslation()
+
   return (
     <div
       className={`${style.body} p-2 w-[88%] mx-auto mt-[180px] rounded-[20px]`}
@@ -11,7 +15,7 @@ export const FinanceBars = () => {
           Add & Save
         </h2>
         <h1 className="text-4xl font-bold text-center text-spaceWhite">
-          Here you enter your expenses and income.
+          {t('financeBars.title')}
         </h1>
       </div>
       <div
