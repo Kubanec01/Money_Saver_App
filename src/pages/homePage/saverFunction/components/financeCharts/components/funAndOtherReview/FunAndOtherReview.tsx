@@ -1,7 +1,7 @@
 import { useExpensesAndResultsBarContext } from "../../../../../../../hooks/context/ExpensesAndResultsBarContext";
 import { SecondaryExpenses } from "../types";
 
-export const FunAndOtherChart = ({
+export const FunAndOtherReview = ({
   currency,
   expensesNum,
   style

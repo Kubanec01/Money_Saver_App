@@ -1,16 +1,14 @@
-import { BiBorderRadius } from "react-icons/bi";
 import { useFinanceSaverContext } from "../../../../../hooks/context/FinanceContext";
-import { ExpensesChart } from "./components/expensesChart/ExpensesChart";
-import { FunAndOtherChart } from "./components/funAndOtherChart/FunAndOtherChart";
-import { SavedChart } from "./components/savedChart/SavedChart";
+import { ExpensesReview } from "./components/expensesReview/ExpensesReview";
+import { FunAndOtherReview } from "./components/funAndOtherReview/FunAndOtherReview";
+import { SavedReview } from "./components/savedReview/SavedReview";
 import { CSSProperties } from "react";
-FunAndOtherChart;
 
 interface FinanceCharts {
   currency: string;
 }
 
-export const FinanceCharts = ({ currency }: FinanceCharts) => {
+export const FinanceReview = ({ currency }: FinanceCharts) => {
   const { budget, expensesSum } = useFinanceSaverContext();
 
   const budgetNum = Number(budget);
@@ -28,21 +26,21 @@ export const FinanceCharts = ({ currency }: FinanceCharts) => {
     <div className="p-6 w-[90%] max-w-[960px] mx-auto mt-[80px] rounded-[20px] h-[300px] flex justify-center items-center">
       <div className="w-[94%] h-full flex items-center justify-between">
         {/* Saved Value */}
-        <SavedChart
+        <SavedReview
           style={barBodyStyle}
           currency={currency}
           budgetNum={budgetNum}
           expensesNum={expensesNum}
         />
         {/* Minute peniaze */}
-        <ExpensesChart
+        <ExpensesReview
           style={barBodyStyle}
           currency={currency}
           budgetNum={budgetNum}
           expensesNum={expensesNum}
         />
         {/* Minute penbiaze na zabavu a other */}
-        <FunAndOtherChart
+        <FunAndOtherReview
           style={barBodyStyle}
           currency={currency}
           expensesNum={expensesNum}

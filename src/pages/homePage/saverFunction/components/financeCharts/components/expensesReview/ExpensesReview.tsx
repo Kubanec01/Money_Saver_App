@@ -1,6 +1,6 @@
 import { ChartProps } from "../types";
 
-export const ExpensesChart = ({
+export const ExpensesReview = ({
   currency,
   budgetNum,
   expensesNum,

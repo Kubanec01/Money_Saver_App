@@ -1,7 +1,7 @@
 import { ExpensesAndResultsBarProvider } from "../../../hooks/context/ExpensesAndResultsBarContext";
 import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/budgetAndGoalInputs/BudgetAndGoalInputs";
 import { FinanceBars } from "./components/financeBars/FinanceBars";
-import { FinanceCharts } from "./components/financeCharts/FinanceCharts";
+import { FinanceReview } from "./components/financeCharts/FinanceReview";
 import { FinanceResults } from "./components/financeResults/FinanceResults";
 
 export const SaverSection = () => {
@@ -24,7 +24,7 @@ export const SaverSection = () => {
         <BudgetAndGoalInputs />
         <FinanceBars />
         <FinanceResults />
-        <FinanceCharts currency="eur"/>
+        <FinanceReview currency="eur"/>
       </ExpensesAndResultsBarProvider>
     </div>
   );

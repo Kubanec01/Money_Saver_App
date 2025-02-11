@@ -1,6 +1,6 @@
 import { ChartProps } from "../types";
 
-export const SavedChart = ({
+export const SavedReview = ({
   currency,
   budgetNum,
   expensesNum,
