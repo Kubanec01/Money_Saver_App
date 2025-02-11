@@ -1,5 +1,5 @@
-import { BudgetBar } from "./components/budgetBar/BudgetBar";
-import { GoalBar } from "./components/goalBar/GoalBar";
+import { BudgetBar } from "../components/budgetBar/BudgetBar";
+import { GoalBar } from "../components/goalBar/GoalBar";
 GoalBar;
 
 export const BudgetAndGoalInputs = () => {

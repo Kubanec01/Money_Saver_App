@@ -27,7 +27,8 @@ export const FinanceResults = () => {
           gap: "30px",
           justifyItems: "center",
         }}
-        className="flex justify-center items-center mt-[44px] w-[90%] mx-auto"
+        className="flex justify-center items-center mt-[44px] w-[90%] mx-auto relative
+        after:absolute after:h-[2px] after:w-[90%] after:bg-[#ffffff7a] after:-bottom-14 after:rounded-lg"
       >
         <ResultBar id={"rent"} name={"Rent"} currency={"eur"} />
         <ResultBar id={"home"} name={"Home"} currency={"eur"} />

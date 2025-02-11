@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { explainData } from "../../../../../../../data/explainData";
+import { explainData } from "../../../../../../../../data/explainData";
 import style from "./explainBars.module.scss";
 
 export const ExplainBars = () => {

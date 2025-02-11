@@ -19,7 +19,7 @@ export const ExpensesChart = ({
   return (
     <div
     style={style}
-    className="w-[220px] aspect-square">
+    className="w-[240px] h-[200px]">
       {/* Title */}
       <h1 className="w-full text-center text-3xl mt-9 text-spaceNeonBlue">
         Spent

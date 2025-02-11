@@ -1,5 +1,5 @@
 import { ExpensesAndResultsBarProvider } from "../../../hooks/context/ExpensesAndResultsBarContext";
-import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/BudgetAndGoalInputs";
+import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/budgetAndGoalInputs/BudgetAndGoalInputs";
 import { FinanceBars } from "./components/financeBars/FinanceBars";
 import { FinanceCharts } from "./components/financeCharts/FinanceCharts";
 import { FinanceResults } from "./components/financeResults/FinanceResults";

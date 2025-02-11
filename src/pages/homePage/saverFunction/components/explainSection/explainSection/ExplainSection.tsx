@@ -1,4 +1,4 @@
-import { ExplainBars } from "./components/explainBars/ExplainBars"
+import { ExplainBars } from "../components/explainBars/explainBars/ExplainBars"
 
 
 export const ExplainSection = () => {

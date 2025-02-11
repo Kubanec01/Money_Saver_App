@@ -25,7 +25,7 @@ export const FinanceCharts = ({ currency }: FinanceCharts) => {
   };
 
   return (
-    <div className="p-6 w-[90%] max-w-[1020px] mx-auto mt-[80px] rounded-[20px] h-[300px] flex justify-center items-center">
+    <div className="p-6 w-[90%] max-w-[960px] mx-auto mt-[80px] rounded-[20px] h-[300px] flex justify-center items-center">
       <div className="w-[94%] h-full flex items-center justify-between">
         {/* Saved Value */}
         <SavedChart
