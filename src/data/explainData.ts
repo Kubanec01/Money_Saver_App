@@ -1,11 +1,11 @@
-type ExplainDataprosp = {
+type ExplainDataType = {
   id: number;
   number: number;
   title: string;
   text: string;
 };
 
-export const explainData: ExplainDataprosp[] = [
+export const explainData: ExplainDataType[] = [
   {
     id: 1,
     number: 1,
@@ -28,6 +28,6 @@ export const explainData: ExplainDataprosp[] = [
     id: 4,
     number: 4,
     title: "Graphs and Percentages",
-    text: "Provide a more mathematical insight into how well you’ve met your expectations. The first graph shows how much you’ve saved, the second graph displays the cost of essential investments, and the third graph highlights how much you’re spending on hobbies and other activities.",
+    text: "Provide a more mathematical insight into how well you’ve met your expectations. The first percentage shows how much you’ve saved, the second percentage displays the cost of essential investments, and the third percentage highlights how much you’re spending on Fun and Other activities.",
   },
 ];

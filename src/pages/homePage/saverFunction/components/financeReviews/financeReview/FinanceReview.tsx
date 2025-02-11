@@ -1,8 +1,8 @@
-import { useFinanceSaverContext } from "../../../../../hooks/context/FinanceContext";
-import { ExpensesReview } from "./components/expensesReview/ExpensesReview";
-import { FunAndOtherReview } from "./components/funAndOtherReview/FunAndOtherReview";
-import { SavedReview } from "./components/savedReview/SavedReview";
+import { useFinanceSaverContext } from "../../../../../../hooks/context/FinanceContext";
 import { CSSProperties } from "react";
+import { ExpensesReview } from "../components/expensesReview/ExpensesReview";
+import { FunAndOtherReview } from "../components/funAndOtherReview/FunAndOtherReview";
+import { SavedReview } from "../components/savedReview/SavedReview";
 
 interface FinanceCharts {
   currency: string;

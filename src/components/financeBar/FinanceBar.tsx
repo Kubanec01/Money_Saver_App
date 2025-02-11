@@ -42,6 +42,12 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     updateExpense(id, newValue);
   };
 
+  const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(['+', '-'].includes(e.key)){
+      e.preventDefault()
+    }
+  }
+
   console.log(expenseValue);
 
   return (
@@ -50,6 +56,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
         {text}:
       </label>
       <input
+        onKeyDown={keyDown}
         onChange={handleMoneyValue}
         value={expenseValue}
         id={inputId}

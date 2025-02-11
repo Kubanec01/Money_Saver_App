@@ -1,7 +1,7 @@
 import { ExpensesAndResultsBarProvider } from "../../../hooks/context/ExpensesAndResultsBarContext";
 import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/budgetAndGoalInputs/BudgetAndGoalInputs";
 import { FinanceBars } from "./components/financeBars/FinanceBars";
-import { FinanceReview } from "./components/financeCharts/FinanceReview";
+import { FinanceReview } from "./components/financeReviews/financeReview/FinanceReview";
 import { FinanceResults } from "./components/financeResults/FinanceResults";
 
 export const SaverSection = () => {
