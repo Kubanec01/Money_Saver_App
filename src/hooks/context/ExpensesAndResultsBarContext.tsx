@@ -16,6 +16,7 @@ export const ExpensesAndResultsBarProvider = ({
 }) => {
   const [expenses, setExpenses] = useState<{ [key: string]: number }>({});
 
+
   const updateExpense = (id: string, value: number) => {
     setExpenses((prev) => ({
       ...prev,

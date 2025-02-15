@@ -1,10 +1,19 @@
+import { useEffect } from "react";
+import { HandleKeyDown } from "../../../../../../../components/HandleKeyDown";
+import { HandleOnWheel } from "../../../../../../../components/HandleOnWheel";
 import { useFinanceSaverContext } from "../../../../../../../hooks/context/FinanceContext";
-import { useValueIntoState } from "../../../../../../../hooks/useValueIntoState";
+import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./budgetBar.module.scss";
+
+
 
 export const BudgetBar = () => {
   const { budget, setBudget } = useFinanceSaverContext();
-  const { valueChange } = useValueIntoState(setBudget);
+  const { valueChange, initialValue } = useValueIntoState(setBudget, "budget");
+
+  useEffect(() => {
+    setBudget(initialValue)
+  }, [initialValue])
 
   return (
     <div className={`${style.body} w-[400px] h-[140px] rounded-[20px]`}>
@@ -18,6 +27,8 @@ export const BudgetBar = () => {
       </div>
       <div className="w-full flex">
         <input
+        onWheel={HandleOnWheel}
+        onKeyDown={HandleKeyDown}
           value={budget}
           onChange={valueChange}
           id="budget"

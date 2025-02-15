@@ -31,7 +31,7 @@ export const FinanceBars = () => {
       >
         <FinanceBar id={"rent"} inputId="rent" text="Rent" />
         <FinanceBar id={"hobby"} inputId="hobby" text="Hobby" />
-        <FinanceBar id={"home"} inputId="hent" text="Home" />
+        <FinanceBar id={"food"} inputId="food" text="Food" />
         <FinanceBar id={"fun"} inputId="fun" text="Fun" />
         <FinanceBar id={"car"} inputId="car" text="Car" />
         <FinanceBar id={"other"} inputId="other" text="Other" />

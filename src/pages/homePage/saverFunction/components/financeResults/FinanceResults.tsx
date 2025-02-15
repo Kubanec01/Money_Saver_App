@@ -31,7 +31,7 @@ export const FinanceResults = () => {
         after:absolute after:h-[2px] after:w-[90%] after:bg-[#ffffff7a] after:-bottom-14 after:rounded-lg"
       >
         <ResultBar id={"rent"} name={"Rent"} currency={"eur"} />
-        <ResultBar id={"home"} name={"Home"} currency={"eur"} />
+        <ResultBar id={"food"} name={"Food"} currency={"eur"} />
         <ResultBar id={"car"} name={"Car"} currency={"eur"} />
         <ResultBar id={"hobby"} name={"Hobby"} currency={"eur"} />
         <ResultBar id={"fun"} name={"Fun"} currency={"eur"} />

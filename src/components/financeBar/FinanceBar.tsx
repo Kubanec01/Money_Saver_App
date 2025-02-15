@@ -4,6 +4,8 @@ import { CiCirclePlus } from "react-icons/ci";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
 import { useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
+import { HandleKeyDown } from "../HandleKeyDown";
+
 
 type FinanceBarProps = {
   id: string;
@@ -42,13 +44,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     updateExpense(id, newValue);
   };
 
-  const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if(['+', '-'].includes(e.key)){
-      e.preventDefault()
-    }
-  }
 
-  console.log(expenseValue);
 
   return (
     <div id={id} className={`${style.body} flex w-[340px]`}>
@@ -56,7 +52,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
         {text}:
       </label>
       <input
-        onKeyDown={keyDown}
+        onKeyDown={HandleKeyDown}
         onChange={handleMoneyValue}
         value={expenseValue}
         id={inputId}
