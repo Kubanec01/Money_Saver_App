@@ -1,22 +1,8 @@
 import { useCallback } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 export default (setValue: (e: string) => void, key: string) => {
-
-  let setLocalStorage = (key: string, value: string) => {
-    localStorage.setItem(key, JSON.stringify(value));
-  };
-
-  const getLocalStorage = (key: string, defaultValue: string) => {
-    const jsonValue = localStorage.getItem(key);
-
-
-    if (jsonValue === null) {
-      localStorage.setItem(key, JSON.stringify(defaultValue));
-      return defaultValue;
-    }
-
-    return JSON.parse(jsonValue);
-  };
+  const { setLocalStorage, getLocalStorage } = useLocalStorage();
 
   const valueChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
