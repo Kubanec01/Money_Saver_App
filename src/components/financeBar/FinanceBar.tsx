@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
 import { HandleKeyDown } from "../HandleKeyDown";
 
-
 type FinanceBarProps = {
   id: string;
   inputId: string;
@@ -21,14 +20,12 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   // Variables
   let expenseValueNum = Number(expenseValue);
 
-  console.log(expenseValue);
-
   const handleMoneyValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     let eventValue = e.target.value;
     let eventValueLength = eventValue.length;
 
     if (eventValueLength < 9 && eventValue[0] !== "0") {
-      return setExpenseValue(eventValue);
+      setExpenseValue(eventValue);
     }
   };
 
@@ -43,7 +40,6 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     setExpensesSum((prevSum) => prevSum - expenseValueNum);
     updateExpense(id, newValue);
   };
-
 
 
   return (

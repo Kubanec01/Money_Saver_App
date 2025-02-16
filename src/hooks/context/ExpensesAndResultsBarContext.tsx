@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 type ExpensesAndResultsBarContextType = {
   expenses: { [key: string]: number };
@@ -15,7 +21,17 @@ export const ExpensesAndResultsBarProvider = ({
   children: ReactNode;
 }) => {
   const [expenses, setExpenses] = useState<{ [key: string]: number }>({});
+  console.log(expenses);
 
+  useEffect(() => {
+    const data = localStorage.getItem("expenses");
+    if (data !== null) setExpenses(JSON.parse(data));
+  });
+
+  useEffect(() => {
+    if (Object.keys(expenses).length > 0)
+      localStorage.setItem("expenses", JSON.stringify(expenses));
+  });
 
   const updateExpense = (id: string, value: number) => {
     setExpenses((prev) => ({
