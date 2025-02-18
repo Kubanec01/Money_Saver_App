@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
 import { HandleKeyDown } from "../HandleKeyDown";
 
+
 type FinanceBarProps = {
   id: string;
   inputId: string;
@@ -13,7 +14,7 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const { setExpensesSum } = useFinanceSaverContext();
+  const { setExpensesSum, budget } = useFinanceSaverContext();
   const [expenseValue, setExpenseValue] = useState("");
   const { updateExpense, expenses } = useExpensesAndResultsBarContext();
 
