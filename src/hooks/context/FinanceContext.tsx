@@ -1,4 +1,11 @@
-import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
+import { useLocalStoredValues } from "../useLocalStoredValues";
 
 type FinanceSaverContextProps = {
   budget: string;
@@ -18,16 +25,9 @@ type ChildrenProps = {
 };
 
 export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
-  const [budget, setBudget] = useState("0");
-  const [goal, setGoal] = useState("0");
-  const [expensesSum, setExpensesSum] = useState(0);
-
-  console.log(`this is budget ${budget}`);
-  console.log(`this is goal ${goal}`);
-  console.log(`this is expensesSum ${expensesSum}`);
-  // budget: all budget money
-  // goal: money u want to save
-  // expenseSum: value of spend money
+  const [budget, setBudget] = useLocalStoredValues("budgetValue", "0");
+  const [goal, setGoal] = useLocalStoredValues("goalValue", "0");
+  const [expensesSum, setExpensesSum] = useLocalStoredValues("expensesValue",0);
 
   return (
     <FinanceSaverContext.Provider

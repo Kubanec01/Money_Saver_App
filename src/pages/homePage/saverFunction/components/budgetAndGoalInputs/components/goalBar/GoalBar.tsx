@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { HandleOnWheel } from "../../../../../../../components/HandleOnWheel";
 import { useFinanceSaverContext } from "../../../../../../../hooks/context/FinanceContext";
 import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
@@ -7,11 +6,8 @@ import style from "./goalBar.module.scss";
 
 export const GoalBar = () => {
   const { goal, setGoal } = useFinanceSaverContext();
-  const { valueChange, initialValue } = useValueIntoState(setGoal, "goal");
+  const { valueChange } = useValueIntoState(setGoal, "goal");
 
-  useEffect(() => {
-    setGoal(initialValue)
-  }, [initialValue])
 
   return (
     <div className={`${style.body} w-[400px] h-[140px] rounded-[20px]`}>

@@ -9,11 +9,8 @@ import style from "./budgetBar.module.scss";
 
 export const BudgetBar = () => {
   const { budget, setBudget } = useFinanceSaverContext();
-  const { valueChange, initialValue } = useValueIntoState(setBudget, "budget");
+  const { valueChange } = useValueIntoState(setBudget, "budget");
 
-  useEffect(() => {
-    setBudget(initialValue)
-  }, [initialValue])
 
   return (
     <div className={`${style.body} w-[400px] h-[140px] rounded-[20px]`}>

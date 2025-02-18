@@ -2,10 +2,8 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useEffect,
-  useState,
 } from "react";
-import { useLocalStoredExpense } from "../useLocalStoredExpense";
+import { useLocalStoredValues } from "../useLocalStoredValues";
 
 
 
@@ -23,7 +21,7 @@ export const ExpensesAndResultsBarProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [expenses, setExpenses] = useLocalStoredExpense("expenses", {} )
+  const [expenses, setExpenses] = useLocalStoredValues("expenses", {} )
 
 
   const updateExpense = (id: string, value: number) => {
