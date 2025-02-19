@@ -1,8 +1,19 @@
-
-
-.body{
-    background-image: url(/src/assets/universe-bg-img.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.body {
+  background-image: url(/src/assets/universe-bg-img.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+.button {
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    color: #ff6600;
+    border: 2px solid #ff6600;
+  }
+}
+
+// toto sa ajtak bude musiet pravdepodobne uplne zmenit v zavislosti aby to bolo nastavitelne nezavisle od premennej v componente

@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import style from "./modal.module.scss";
 
 export const Modal = () => {
-  const [visible, setvisible] = useState(true);
+
+  const modalRef = useRef<HTMLDialogElement>(null)
+
+  useEffect(() => {
+    modalRef.current?.showModal()
+  })
+  // useEffect is just testing function
+
+  // STYLES
+  const button = `${style.button} text-lg p-2`
 
   return (
     <dialog
-    open
+      ref={modalRef}
       className={`${style.body} p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]`}
     >
+      <form>
       <h1
         style={{
           textShadow: "1px 1px 20px black",
@@ -28,13 +38,17 @@ export const Modal = () => {
         finances.
       </p>
       <div className="w-[90%] mx-auto mt-12 flex items-center justify-between">
-        <button className="text-lg text-[white] border-[2px] rounded-[10px] p-2">
+        <button
+        type="submit"
+        formMethod="dialog"
+        className={button}>
           Roger that, over.
         </button>
-        <button className="text-lg text-[white] border-[2px] rounded-[10px] p-2">
+        <button className={button}>
           What?! Tell me more.
         </button>
       </div>
+      </form>
     </dialog>
   );
 };
