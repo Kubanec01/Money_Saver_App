@@ -14,7 +14,7 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const { setExpensesSum, setIsModalOpen, budget } = useFinanceSaverContext();
+  const { setExpensesSum, budget, openModal } = useFinanceSaverContext();
   const [expenseValue, setExpenseValue] = useState("");
   const { updateExpense, expenses } = useExpensesAndResultsBarContext();
 
@@ -31,8 +31,8 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   };
 
   const increase = () => {
-    if(budget == "0"){
-      return setIsModalOpen(true)
+    if(budget === "0"){
+      return openModal("missing-budget-modal")
     }
     const newValue = (expenses[id] || 0) + Number(expenseValue);
     setExpensesSum((prevSum) => prevSum + expenseValueNum);

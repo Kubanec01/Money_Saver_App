@@ -1,12 +1,17 @@
 .body {
-  background-image: url(/src/assets/universe-bg-img.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 
-  &::backdrop{
+  animation: alternate modal 0.2s ease-in;
+
+  &::backdrop {
     backdrop-filter: blur(3px);
   }
 }
 
-// toto sa ajtak bude musiet pravdepodobne uplne zmenit v zavislosti aby to bolo nastavitelne nezavisle od premennej v componente
+@keyframes modal  {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
