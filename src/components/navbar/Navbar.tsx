@@ -1,8 +1,12 @@
 import { FaUserCircle } from "react-icons/fa";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi2";
 import style from "./navbar.module.scss";
+import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
 
 export const Navbar = () => {
+
+  const {openModal} = useFinanceSaverContext()
+
   return (
     <div className="fixed z-50 top-0 left-0 w-full flex justify-center items-center px-4">
       {/* BODY */}
@@ -50,6 +54,7 @@ export const Navbar = () => {
             </li>
             <li>
               <button
+              onClick={() => openModal("restart-values-modal")}
                 className={`${style.restartBtn} px-[12px] py-[5px] text-xl border-[2px] border-[#ffffffcc] font-medium rounded-[8px] overflow-hidden text-customWhite`}
               >
                 Restart 💫

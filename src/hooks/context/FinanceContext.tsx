@@ -2,6 +2,7 @@ import {
   createContext,
   Dispatch,
   SetStateAction,
+  useCallback,
   useContext,
   useState,
 } from "react";
@@ -34,8 +35,13 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
   const [activeModal, setActiveModal] = useState<string | null>(null)
   console.log(activeModal)
 
-  const openModal = (id: string) => setActiveModal(id)
-  const closeModal = () => setActiveModal(null)
+  
+  const openModal = useCallback((id: string) => {
+    setActiveModal(id)
+  }, [])
+  const closeModal = useCallback(() => {
+    setActiveModal(null)
+  }, [])
 
   return (
     <FinanceSaverContext.Provider

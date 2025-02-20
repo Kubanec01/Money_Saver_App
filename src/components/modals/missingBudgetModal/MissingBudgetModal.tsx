@@ -1,18 +1,21 @@
-import { Modal } from "../../../../../components/modal/Modal";
-import { useFinanceSaverContext } from "../../../../../hooks/context/FinanceContext";
-import image1 from "../../../../../assets/universe-bg-img.jpg"
+import { ModalTemplate } from "../modalTemplate/ModalTemplate";
+import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
+import image1 from "../../../assets/universe-bg-img.jpg";
 
 export const MissingBudgetModal = () => {
-
   const { closeModal } = useFinanceSaverContext();
 
-    // STYLES
-    const button =
+  // STYLES
+  const button =
     "border-[2px] rounded-[10px] border-white text-white text-lg p-2";
-    const modalStyle = "p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]"
+  const modalStyle = "p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]";
 
   return (
-    <Modal id="missing-budget-modal" bgImage={image1} modalBodyStyle={modalStyle}>
+    <ModalTemplate
+      id="missing-budget-modal"
+      bgImage={image1}
+      modalBodyStyle={modalStyle}
+    >
       <h1
         style={{
           textShadow: "1px 1px 20px black",
@@ -32,15 +35,18 @@ export const MissingBudgetModal = () => {
         finances.
       </p>
       <div className="w-[90%] mx-auto mt-12 flex items-center justify-between">
-          <button
+        <button
           onClick={closeModal}
-          type="submit" formMethod="dialog" className={button}>
-            Roger that, over.
-          </button>
-          <button type="submit" className={button}>
-            What?! Tell me more.
-          </button>
-        </div>
-    </Modal>
+          type="submit"
+          formMethod="dialog"
+          className={button}
+        >
+          Roger that, over.
+        </button>
+        <button type="submit" className={button}>
+          What?! Tell me more.
+        </button>
+      </div>
+    </ModalTemplate>
   );
 };
