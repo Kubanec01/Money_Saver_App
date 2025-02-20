@@ -3,16 +3,9 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
 
-.button {
-  color: whitesmoke;
-  border: 2px solid whitesmoke;
-  border-radius: 10px;
-  transition: all 0.1s ease-in-out;
-  &:hover {
-    color: #ff6600;
-    border: 2px solid #ff6600;
+  &::backdrop{
+    backdrop-filter: blur(3px);
   }
 }
 

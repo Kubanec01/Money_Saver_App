@@ -14,6 +14,8 @@ type FinanceSaverContextProps = {
   setGoal: (value: string) => void;
   expensesSum: number;
   setExpensesSum: Dispatch<SetStateAction<number>>;
+  isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 const FinanceSaverContext = createContext<FinanceSaverContextProps | undefined>(
@@ -27,11 +29,21 @@ type ChildrenProps = {
 export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
   const [budget, setBudget] = useLocalStoredValues("budgetValue", "0");
   const [goal, setGoal] = useLocalStoredValues("goalValue", "0");
-  const [expensesSum, setExpensesSum] = useLocalStoredValues("expensesValue",0);
+  const [expensesSum, setExpensesSum] = useLocalStoredValues("expensesValue", 0);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <FinanceSaverContext.Provider
-      value={{ budget, setBudget, goal, setGoal, expensesSum, setExpensesSum }}
+      value={{
+        budget,
+        setBudget,
+        goal,
+        setGoal,
+        expensesSum,
+        setExpensesSum,
+        isModalOpen,
+        setIsModalOpen,
+      }}
     >
       {children}
     </FinanceSaverContext.Provider>

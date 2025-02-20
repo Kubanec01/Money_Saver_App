@@ -5,16 +5,14 @@ import { Info } from "./components/info/Info";
 import { ExplainSection } from "./saverFunction/components/explainSection/explainSection/ExplainSection";
 import { SaverSection } from "./saverFunction/SaverSection";
 
-
 export const HomePage = () => {
-
 
   return (
     <div className="w-full">
-      <Modal />      
       <Hero />
       <Info />
       <FinanceSaverProvider>
+        <Modal />
         <SaverSection />
       </FinanceSaverProvider>
       <ExplainSection />
