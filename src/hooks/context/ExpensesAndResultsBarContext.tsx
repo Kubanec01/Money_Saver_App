@@ -4,6 +4,7 @@ import {
   useContext,
 } from "react";
 import { useLocalStoredValues } from "../useLocalStoredValues";
+import {localStoredKeys} from "../../data/storedValuesKeys"
 
 
 
@@ -21,7 +22,7 @@ export const ExpensesAndResultsBarProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [expenses, setExpenses] = useLocalStoredValues("expenses", {} )
+  const [expenses, setExpenses] = useLocalStoredValues(localStoredKeys.expenses, {} )
 
 
   const updateExpense = (id: string, value: number) => {

@@ -1,14 +1,22 @@
 import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import { ModalTemplate } from "../modalTemplate/ModalTemplate";
 import image1 from "../../../assets/fire-universe-img.jpg";
+import { localStoredKeys } from "../../../data/storedValuesKeys";
+import { resetStoredValues } from "../../../utils/resetStoredValues";
 
-export const RestartValuesModal = () => {
+export const ResetValuesModal = () => {
   const { closeModal } = useFinanceSaverContext();
+  const data = Object.values(localStoredKeys);
 
   // STYLES
   const button =
     "border-[2px] rounded-[10px] border-white text-white text-lg p-2";
   const modalStyle = "p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]";
+
+  const resetValues = () => {
+    resetStoredValues({keys: data})
+    closeModal()
+  }
 
   return (
     <ModalTemplate
@@ -42,7 +50,12 @@ export const RestartValuesModal = () => {
         >
           Delay self-destruction
         </button>
-        <button type="submit" className={`${button} text-[#f44545] border-[#f53636]`}>
+        <button
+          formMethod="dialog"
+          type="submit"
+          onClick={resetValues}
+          className={`${button} text-[#f44545] border-[#f53636]`}
+        >
           Yes, Destroy everything
         </button>
       </div>

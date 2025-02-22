@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { useLocalStoredValues } from "../useLocalStoredValues";
+import {localStoredKeys} from "../../data/storedValuesKeys"
 
 type FinanceSaverContextProps = {
   budget: string;
@@ -29,11 +30,12 @@ type ChildrenProps = {
 };
 
 export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
-  const [budget, setBudget] = useLocalStoredValues("budgetValue", "0");
-  const [goal, setGoal] = useLocalStoredValues("goalValue", "0");
-  const [expensesSum, setExpensesSum] = useLocalStoredValues("expensesValue", 0);
+
+
+  const [budget, setBudget] = useLocalStoredValues(localStoredKeys.budget, "0");
+  const [goal, setGoal] = useLocalStoredValues(localStoredKeys.goal, "0");
+  const [expensesSum, setExpensesSum] = useLocalStoredValues(localStoredKeys.expensesSum, 0);
   const [activeModal, setActiveModal] = useState<string | null>(null)
-  console.log(activeModal)
 
   
   const openModal = useCallback((id: string) => {
