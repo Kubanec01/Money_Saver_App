@@ -3,10 +3,13 @@ import { ModalTemplate } from "../modalTemplate/ModalTemplate";
 import image1 from "../../../assets/fire-universe-img.jpg";
 import { localStoredKeys } from "../../../data/storedValuesKeys";
 import { resetStoredValues } from "../../../utils/resetStoredValues";
+import { useExpensesAndResultsBarContext } from "../../../hooks/context/ExpensesAndResultsBarContext";
 
 export const ResetValuesModal = () => {
-  const { closeModal } = useFinanceSaverContext();
-  const data = Object.values(localStoredKeys);
+  const { closeModal, setBudget, setGoal, setExpensesSum } =
+    useFinanceSaverContext();
+  const { setExpenses } = useExpensesAndResultsBarContext();
+  const data = Object(Object.values(localStoredKeys).map(obj => Object.values(obj)[0]));
 
   // STYLES
   const button =
@@ -14,9 +17,13 @@ export const ResetValuesModal = () => {
   const modalStyle = "p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]";
 
   const resetValues = () => {
-    resetStoredValues({keys: data})
-    closeModal()
-  }
+    resetStoredValues({ keys: data });
+    closeModal();
+    setExpenses({});
+    setExpensesSum(0);
+    setBudget("0");
+    setGoal("0");
+  };
 
   return (
     <ModalTemplate
@@ -54,7 +61,7 @@ export const ResetValuesModal = () => {
           formMethod="dialog"
           type="submit"
           onClick={resetValues}
-          className={`${button} text-[#f44545] border-[#f53636]`}
+          className={`${button} text-[#f44545] border-[#d03d3d]`}
         >
           Yes, Destroy everything
         </button>

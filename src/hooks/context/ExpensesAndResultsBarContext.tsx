@@ -1,16 +1,17 @@
 import {
   createContext,
+  Dispatch,
   ReactNode,
+  SetStateAction,
   useContext,
 } from "react";
 import { useLocalStoredValues } from "../useLocalStoredValues";
-import {localStoredKeys} from "../../data/storedValuesKeys"
-
-
+import { localStoredKeys } from "../../data/storedValuesKeys";
 
 type ExpensesAndResultsBarContextType = {
   expenses: { [key: string]: number };
   updateExpense: (id: string, value: number) => void;
+  setExpenses: Dispatch<SetStateAction<{}>>;
 };
 
 const ExpensesAndResultsBarContext = createContext<
@@ -22,8 +23,10 @@ export const ExpensesAndResultsBarProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [expenses, setExpenses] = useLocalStoredValues(localStoredKeys.expenses, {} )
-
+  const [expenses, setExpenses] = useLocalStoredValues(
+    localStoredKeys.expenses.key,
+    {}
+  );
 
   const updateExpense = (id: string, value: number) => {
     setExpenses((prev) => ({
@@ -33,7 +36,9 @@ export const ExpensesAndResultsBarProvider = ({
   };
 
   return (
-    <ExpensesAndResultsBarContext.Provider value={{ expenses, updateExpense }}>
+    <ExpensesAndResultsBarContext.Provider
+      value={{ expenses, updateExpense, setExpenses }}
+    >
       {children}
     </ExpensesAndResultsBarContext.Provider>
   );

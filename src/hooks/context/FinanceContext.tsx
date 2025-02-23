@@ -32,9 +32,9 @@ type ChildrenProps = {
 export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
 
 
-  const [budget, setBudget] = useLocalStoredValues(localStoredKeys.budget, "0");
-  const [goal, setGoal] = useLocalStoredValues(localStoredKeys.goal, "0");
-  const [expensesSum, setExpensesSum] = useLocalStoredValues(localStoredKeys.expensesSum, 0);
+  const [budget, setBudget] = useLocalStoredValues<string>(localStoredKeys.budget.key, "0");
+  const [goal, setGoal] = useLocalStoredValues<string>(localStoredKeys.goal.key, "0");
+  const [expensesSum, setExpensesSum] = useLocalStoredValues<number>(localStoredKeys.expensesSum.key, 0);
   const [activeModal, setActiveModal] = useState<string | null>(null)
 
   

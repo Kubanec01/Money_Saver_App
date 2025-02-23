@@ -1,4 +1,3 @@
-import { ExpensesAndResultsBarProvider } from "../../../hooks/context/ExpensesAndResultsBarContext";
 import { BudgetAndGoalInputs } from "./components/budgetAndGoalInputs/budgetAndGoalInputs/BudgetAndGoalInputs";
 import { FinanceBars } from "./components/financeBars/FinanceBars";
 import { FinanceReview } from "./components/financeReviews/financeReview/FinanceReview";
@@ -22,12 +21,10 @@ export const SaverSection = () => {
           {t("saverSection.subDesc")}
         </p>
       </div>
-      <ExpensesAndResultsBarProvider>
         <BudgetAndGoalInputs />
         <FinanceBars />
         <FinanceResults />
         <FinanceReview currency="eur" />
-      </ExpensesAndResultsBarProvider>
     </div>
   );
 };
