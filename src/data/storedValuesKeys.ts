@@ -1,13 +1,4 @@
-type LocalStoredObject = {
-  key: string;
-  initialValue: string | number | object;
-};
-
-type LocalStoredKeys = {
-  [key: string]: LocalStoredObject;
-};
-
-export const localStoredKeys: LocalStoredKeys = {
+export const localStoredKeys = {
   budget: {
     key: "budgetValue",
     initialValue: "0",
@@ -25,4 +16,3 @@ export const localStoredKeys: LocalStoredKeys = {
     initialValue: {},
   },
 };
-

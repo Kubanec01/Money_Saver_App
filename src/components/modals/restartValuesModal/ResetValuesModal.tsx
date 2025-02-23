@@ -9,7 +9,10 @@ export const ResetValuesModal = () => {
   const { closeModal, setBudget, setGoal, setExpensesSum } =
     useFinanceSaverContext();
   const { setExpenses } = useExpensesAndResultsBarContext();
-  const data = Object(Object.values(localStoredKeys).map(obj => Object.values(obj)[0]));
+
+  // LOCAL STORED KEYS
+  const data = localStoredKeys
+  const ResetData = Object(Object.values(localStoredKeys).map(obj => Object.values(obj)[0]));
 
   // STYLES
   const button =
@@ -17,12 +20,12 @@ export const ResetValuesModal = () => {
   const modalStyle = "p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]";
 
   const resetValues = () => {
-    resetStoredValues({ keys: data });
+    resetStoredValues({ keys: ResetData });
     closeModal();
-    setExpenses({});
-    setExpensesSum(0);
-    setBudget("0");
-    setGoal("0");
+    setExpenses(data.expenses.initialValue);
+    setExpensesSum(data.expensesSum.initialValue);
+    setBudget(data.budget.initialValue);
+    setGoal(data.goal.initialValue);
   };
 
   return (

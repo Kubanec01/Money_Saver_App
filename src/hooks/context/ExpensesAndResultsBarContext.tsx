@@ -23,10 +23,11 @@ export const ExpensesAndResultsBarProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [expenses, setExpenses] = useLocalStoredValues(
-    localStoredKeys.expenses.key,
-    {}
-  );
+
+  //  LOCAL STORED DATA
+  const data = localStoredKeys;
+
+  const [expenses, setExpenses] = useLocalStoredValues(data.expenses.key, data.expenses.initialValue);
 
   const updateExpense = (id: string, value: number) => {
     setExpenses((prev) => ({

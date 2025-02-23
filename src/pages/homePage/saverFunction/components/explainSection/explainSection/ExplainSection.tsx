@@ -5,7 +5,7 @@ export const ExplainSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-[300px] mb-[80px] w-[90%] max-w-[1500px] mx-auto">
+    <div className="mt-[180px] mb-[110px] w-[90%] max-w-[1500px] mx-auto">
       <div>
         <p className="uppercase text-spaceNeonBlue text-center text-2xl">
           {t("explainSection.subTitle")}

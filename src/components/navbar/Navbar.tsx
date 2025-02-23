@@ -4,8 +4,7 @@ import style from "./navbar.module.scss";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
 
 export const Navbar = () => {
-
-  const {openModal} = useFinanceSaverContext()
+  const { openModal } = useFinanceSaverContext();
 
   return (
     <div className="fixed z-50 top-0 left-0 w-full flex justify-center items-center px-4">
@@ -22,7 +21,7 @@ export const Navbar = () => {
             style={{
               backdropFilter: "blur(2px)",
             }}
-            className="flex justify-center items-center w-[120px] h-[42px] rounded-[30px] ml-2 gap-1 bg-[#71bcf55b]"
+            className="flex justify-center items-center w-[120px] h-[42px] rounded-[30px] ml-2 gap-2 bg-[#71bcf55b]"
           >
             <span className="text-[#ffffffee] text-3xl">
               <FaUserCircle />
@@ -42,19 +41,22 @@ export const Navbar = () => {
           <ul className="flex h-full items-center justify-end text-white mr-10 gap-16">
             <li className="text-xl text-[#b7cef7]">
               <button
-                className={`${style.currencyBtn} px-4 py-[4px] rounded-[10px]`}
+                onClick={(e) => e.preventDefault()}
+                className={`${style.currencyBtn} px-4 py-[4px] rounded-[10px] cursor-default`}
               >
                 Eur
               </button>
             </li>
             <li className="-mb-2 mr-4">
-              <button className={`${style.helpButton} text-4xl text-[#b7cff7d8]`}>
+              <button
+                className={`${style.helpButton} text-4xl text-[#b7cff7d8]`}
+              >
                 <HiOutlineQuestionMarkCircle />
               </button>
             </li>
             <li>
               <button
-              onClick={() => openModal("restart-values-modal")}
+                onClick={() => openModal("restart-values-modal")}
                 className={`${style.restartBtn} px-[12px] py-[5px] text-xl border-[2px] border-[#ffffffcc] font-medium rounded-[8px] overflow-hidden text-customWhite`}
               >
                 Restart 💫

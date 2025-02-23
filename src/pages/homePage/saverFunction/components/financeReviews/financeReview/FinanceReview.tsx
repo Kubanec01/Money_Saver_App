@@ -25,21 +25,18 @@ export const FinanceReview = ({ currency }: FinanceCharts) => {
   return (
     <div className="p-6 w-[90%] max-w-[960px] mx-auto mt-[80px] rounded-[20px] h-[300px] flex justify-center items-center">
       <div className="w-[94%] h-full flex items-center justify-between">
-        {/* Saved Value */}
         <SavedReview
           style={barBodyStyle}
           currency={currency}
           budgetNum={budgetNum}
           expensesNum={expensesNum}
         />
-        {/* Minute peniaze */}
         <ExpensesReview
           style={barBodyStyle}
           currency={currency}
           budgetNum={budgetNum}
           expensesNum={expensesNum}
         />
-        {/* Minute penbiaze na zabavu a other */}
         <FunAndOtherReview
           style={barBodyStyle}
           currency={currency}
