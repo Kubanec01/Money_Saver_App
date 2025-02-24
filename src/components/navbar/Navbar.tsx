@@ -2,6 +2,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi2";
 import style from "./navbar.module.scss";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
+import { CurrencySettingBar } from "../../features/currencySettingBar/CurrencySettingBar";
 
 export const Navbar = () => {
   const { openModal } = useFinanceSaverContext();
@@ -39,13 +40,10 @@ export const Navbar = () => {
         {/* RIGHT */}
         <div className="h-full w-[50%]">
           <ul className="flex h-full items-center justify-end text-white mr-10 gap-16">
-            <li className="text-xl text-[#b7cef7]">
+            <li className="text-xl text-[#b7cef7] relative">
               <button
-                onClick={(e) => e.preventDefault()}
-                className={`${style.currencyBtn} px-4 py-[4px] rounded-[10px] cursor-default`}
-              >
-                Eur
-              </button>
+                className={`${style.currencyBtn} px-4 py-[4px] rounded-[10px]`}>Eur</button>
+              <CurrencySettingBar setOpen={false} />
             </li>
             <li className="-mb-2 mr-4">
               <button

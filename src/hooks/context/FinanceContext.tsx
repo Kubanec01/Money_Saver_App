@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import { useLocalStoredValues } from "../useLocalStoredValues";
-import {localStoredKeys} from "../../data/storedValuesKeys"
+import { localStoredKeys } from "../../data/storedValuesKeys";
 
 type FinanceSaverContextProps = {
   budget: string;
@@ -16,9 +16,9 @@ type FinanceSaverContextProps = {
   setGoal: (value: string) => void;
   expensesSum: number;
   setExpensesSum: Dispatch<SetStateAction<number>>;
-  activeModal: string | null
-  openModal: (id: string) => void
-  closeModal: () => void
+  activeModal: string | null;
+  openModal: (id: string) => void;
+  closeModal: () => void;
 };
 
 const FinanceSaverContext = createContext<FinanceSaverContextProps | undefined>(
@@ -30,23 +30,29 @@ type ChildrenProps = {
 };
 
 export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
-
   // LOCAL STORED DATA
-  const data = localStoredKeys
+  const data = localStoredKeys;
 
+  const [budget, setBudget] = useLocalStoredValues<string>(
+    data.budget.key,
+    data.budget.initialValue
+  );
+  const [goal, setGoal] = useLocalStoredValues<string>(
+    data.goal.key,
+    data.goal.initialValue
+  );
+  const [expensesSum, setExpensesSum] = useLocalStoredValues<number>(
+    data.expensesSum.key,
+    data.expensesSum.initialValue
+  );
+  const [activeModal, setActiveModal] = useState<string | null>(null);
 
-  const [budget, setBudget] = useLocalStoredValues<string>(data.budget.key, data.budget.initialValue);
-  const [goal, setGoal] = useLocalStoredValues<string>(data.goal.key, data.goal.initialValue);
-  const [expensesSum, setExpensesSum] = useLocalStoredValues<number>(data.expensesSum.key, data.expensesSum.initialValue);
-  const [activeModal, setActiveModal] = useState<string | null>(null)
-
-  
   const openModal = useCallback((id: string) => {
-    setActiveModal(id)
-  }, [])
+    setActiveModal(id);
+  }, []);
   const closeModal = useCallback(() => {
-    setActiveModal(null)
-  }, [])
+    setActiveModal(null);
+  }, []);
 
   return (
     <FinanceSaverContext.Provider
@@ -59,7 +65,7 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
         setExpensesSum,
         activeModal,
         openModal,
-        closeModal
+        closeModal,
       }}
     >
       {children}
@@ -78,4 +84,3 @@ export const useFinanceSaverContext = (): FinanceSaverContextProps => {
 
   return context;
 };
-
