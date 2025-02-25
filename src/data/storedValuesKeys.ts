@@ -15,4 +15,8 @@ export const localStoredKeys = {
     key: "expenses",
     initialValue: {},
   },
+  currency: {
+    key: "currency",
+    initialValue: "eur",
+  }
 };

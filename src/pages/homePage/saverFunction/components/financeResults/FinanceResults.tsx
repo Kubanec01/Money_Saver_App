@@ -1,8 +1,10 @@
 import { ResultBar } from "../../../../../components/resultBar/ResultBar";
+import { useCurrencyContext } from "../../../../../hooks/context/CurrencyContext";
 import style from "./financeResults.module.scss";
 
-
 export const FinanceResults = () => {
+  const { currency } = useCurrencyContext();
+
   return (
     <div className="mt-[160px] w-[88%] mx-auto">
       {/* TEXT */}
@@ -30,12 +32,12 @@ export const FinanceResults = () => {
         className="flex justify-center items-center mt-[44px] w-[90%] mx-auto relative
         after:absolute after:h-[2px] after:w-[90%] after:bg-[#ffffff7a] after:-bottom-14 after:rounded-lg"
       >
-        <ResultBar id={"rent"} name={"Rent"} currency={"eur"} />
-        <ResultBar id={"food"} name={"Food"} currency={"eur"} />
-        <ResultBar id={"car"} name={"Car"} currency={"eur"} />
-        <ResultBar id={"hobby"} name={"Hobby"} currency={"eur"} />
-        <ResultBar id={"fun"} name={"Fun"} currency={"eur"} />
-        <ResultBar id={"other"} name={"Other"} currency={"eur"} />
+        <ResultBar id={"rent"} name={"Rent"} currency={currency} />
+        <ResultBar id={"food"} name={"Food"} currency={currency} />
+        <ResultBar id={"car"} name={"Car"} currency={currency} />
+        <ResultBar id={"hobby"} name={"Hobby"} currency={currency} />
+        <ResultBar id={"fun"} name={"Fun"} currency={currency} />
+        <ResultBar id={"other"} name={"Other"} currency={currency} />
       </div>
     </div>
   );

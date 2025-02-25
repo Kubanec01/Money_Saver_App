@@ -3,9 +3,11 @@ import { FinanceBars } from "./components/financeBars/FinanceBars";
 import { FinanceReview } from "./components/financeReviews/financeReview/FinanceReview";
 import { FinanceResults } from "./components/financeResults/FinanceResults";
 import { useTranslation } from "react-i18next";
+import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 
 export const SaverSection = () => {
   const { t } = useTranslation();
+  const {currency} = useCurrencyContext()
 
   return (
     <div className="border-white w-[90%] max-w-[1300px] mx-auto mt-[200px]">
@@ -24,7 +26,7 @@ export const SaverSection = () => {
         <BudgetAndGoalInputs />
         <FinanceBars />
         <FinanceResults />
-        <FinanceReview currency="eur" />
+        <FinanceReview currency={currency} />
     </div>
   );
 };

@@ -4,9 +4,11 @@ import style from "./navbar.module.scss";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
 import { CurrencySettingBar } from "../../features/currencySettingBar/CurrencySettingBar";
 import { useState } from "react";
+import { useCurrencyContext } from "../../hooks/context/CurrencyContext";
 
 export const Navbar = () => {
   const { openModal } = useFinanceSaverContext();
+  const {currency} = useCurrencyContext()
   const [isCurrencyMenuOpen, setIsCurrencyMenuOpen] = useState(false);
 
   return (
@@ -42,12 +44,12 @@ export const Navbar = () => {
         {/* RIGHT */}
         <div className="h-full w-[50%]">
           <ul className="flex h-full items-center justify-end text-white mr-10 gap-16">
-            <li className="text-xl text-[#b7cef7] relative">
+            <li className="text-lg text-[#b7cef7] relative">
               <button
                 onClick={() => setIsCurrencyMenuOpen((v) => !v)}
-                className={`${style.currencyBtn} px-4 py-[4px] rounded-[10px]`}
+                className={`${style.currencyBtn} px-3 py-[4px] rounded-[10px] uppercase`}
               >
-                Eur
+                {currency}
               </button>
               <CurrencySettingBar isOpen={isCurrencyMenuOpen} setOpen={setIsCurrencyMenuOpen} />
             </li>
