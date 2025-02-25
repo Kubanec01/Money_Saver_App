@@ -45,8 +45,6 @@ export const CurrencySettingBar = ({ isOpen, setOpen }: CurrencySettingBar) => {
   );
 };
 
-// tu odporucam spravit data na currency a zmenit to aby z kazdej currency bol li a button pomocou .map(),
-// dalej spravit funkciu ktora nastavi celu currency v applikacii //urcite cez FinanceContext, dalej dorobit preklady v i18n.
+// dalej dorobit preklady v i18n.
 // A ak vyde cas a energia tak zacat robit explainPage, minimalne aspon spravit systematiku ROUTINGU.
-// V zadavani vydavkov, myslim, ze to je financeBar treba doupravit funkcionalitu aby button platil aj ked uzivatel stlaci ENTER
 // Tieto veci MUSIA byt do stvrtku hotove aby bolo do konca vikendu hotova Responsibility

@@ -4,8 +4,8 @@ import { CiCirclePlus } from "react-icons/ci";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
 import { useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
-import { HandleKeyDown } from "../HandleKeyDown";
-
+import { HandleKeyDown } from "../../features/HandleKeyDown";
+import { HandleOnWheel } from "../../features/HandleOnWheel";
 
 type FinanceBarProps = {
   id: string;
@@ -31,8 +31,8 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   };
 
   const increase = () => {
-    if(budget === "0"){
-      return openModal("missing-budget-modal")
+    if (budget === "0") {
+      return openModal("missing-budget-modal");
     }
     const newValue = (expenses[id] || 0) + Number(expenseValue);
     setExpensesSum((prevSum) => prevSum + expenseValueNum);
@@ -45,6 +45,11 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     updateExpense(id, newValue);
   };
 
+  const onEnterPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      increase();
+    }
+  };
 
   return (
     <div id={id} className={`${style.body} flex w-[340px]`}>
@@ -52,7 +57,11 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
         {text}:
       </label>
       <input
-        onKeyDown={HandleKeyDown}
+        onWheel={HandleOnWheel}
+        onKeyDown={(e) => {
+          HandleKeyDown;
+          onEnterPress(e);
+        }}
         onChange={handleMoneyValue}
         value={expenseValue}
         id={inputId}

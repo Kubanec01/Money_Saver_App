@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { HandleKeyDown } from "../../../../../../../components/HandleKeyDown";
-import { HandleOnWheel } from "../../../../../../../components/HandleOnWheel";
+import { HandleKeyDown } from "../../../../../../../features/HandleKeyDown";
+import { HandleOnWheel } from "../../../../../../../features/HandleOnWheel";
 import { useFinanceSaverContext } from "../../../../../../../hooks/context/FinanceContext";
 import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./budgetBar.module.scss";

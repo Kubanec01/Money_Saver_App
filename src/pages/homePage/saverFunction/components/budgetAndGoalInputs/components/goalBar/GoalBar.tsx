@@ -1,4 +1,4 @@
-import { HandleOnWheel } from "../../../../../../../components/HandleOnWheel";
+import { HandleOnWheel } from "../../../../../../../features/HandleOnWheel";
 import { useFinanceSaverContext } from "../../../../../../../hooks/context/FinanceContext";
 import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./goalBar.module.scss";
