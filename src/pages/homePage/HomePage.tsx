@@ -5,7 +5,7 @@ import { ExplainSection } from "./saverFunction/components/explainSection/explai
 import { SaverSection } from "./saverFunction/SaverSection";
 import { ResetValuesModal } from "../../components/modals/restartValuesModal/ResetValuesModal";
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <div className="w-full">
       <Hero />
@@ -17,3 +17,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage

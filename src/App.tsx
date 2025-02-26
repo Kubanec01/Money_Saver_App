@@ -3,7 +3,7 @@ import { Navbar } from "./components/navbar/Navbar";
 import { CurrencyContextProvider } from "./hooks/context/CurrencyContext";
 import { ExpensesAndResultsBarProvider } from "./hooks/context/ExpensesAndResultsBarContext";
 import { FinanceSaverProvider } from "./hooks/context/FinanceContext";
-import { HomePage } from "./pages/homePage/HomePage";
+import { MainRoutes } from "./routes/MainRoutes";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <CurrencyContextProvider>
             <Navbar />
             <BgAnimation />
-            <HomePage />
+            <MainRoutes />
           </CurrencyContextProvider>
         </FinanceSaverProvider>
       </ExpensesAndResultsBarProvider>
