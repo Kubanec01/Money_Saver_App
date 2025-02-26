@@ -6,7 +6,7 @@ export default {
       colors: {
         customWhite: "#f8f7f7",
         customWhite300: "#fffffff7",
-        darkSHadow: "",
+        darkSHadow: "#ffffff63",
         whiteShadow500: "#ffffffae",
         spaceBlue: "#a7b4fb",
         spaceNeonBlue: "#7387fa",

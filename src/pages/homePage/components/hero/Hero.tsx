@@ -24,7 +24,7 @@ export const Hero = () => {
           }}
           className={`${style.title} text-white text-6xl tracking-tight`}
         >
-          {t("hero.title")} <span>Jacob</span>
+          {t("hero.title")}
         </motion.h1>
         <motion.h2
           initial="hidden"
