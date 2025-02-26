@@ -26,9 +26,9 @@ export const Navbar = () => {
             style={{
               backdropFilter: "blur(2px)",
             }}
-            className="flex justify-center items-center w-[120px] h-[42px] rounded-[30px] ml-2 gap-2 bg-[#71bcf55b]"
+            className="flex justify-start items-center w-[120px] h-[42px] rounded-[30px] ml-2 gap-1 bg-[#71bcf55b]"
           >
-            <span className="text-[#ffffffee] text-3xl">
+            <span className="text-[#ffffffee] text-3xl ml-2">
               <FaUserCircle />
             </span>
             <h1

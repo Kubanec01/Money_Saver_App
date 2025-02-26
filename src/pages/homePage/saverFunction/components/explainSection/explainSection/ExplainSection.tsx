@@ -23,7 +23,7 @@ export const ExplainSection = () => {
       </div>
       <div className="flex justify-center items-center mx-auto w-[40%]">
         <button
-          className="text-xl font-semibold text-[white] border-[2px] px-4 py-2 rounded-[12px] mt-6
+          className="text-xl font-semibold text-[white] border-[2px] px-4 py-2 rounded-[12px] mt-5
         hover:bg-[white] hover:text-[black] duration-200 ease"
         >
           {t("components.explainBtn.text")}
