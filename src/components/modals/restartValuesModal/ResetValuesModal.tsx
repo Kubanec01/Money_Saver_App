@@ -2,17 +2,21 @@ import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import { ModalTemplate } from "../modalTemplate/ModalTemplate";
 import image1 from "../../../assets/fire-universe-img.jpg";
 import { localStoredKeys } from "../../../data/storedValuesKeys";
-import { resetStoredValues } from "../../../utils/resetStoredValues";
+import { resetStoredValues } from "../../../features/resetStoredValues";
 import { useExpensesAndResultsBarContext } from "../../../hooks/context/ExpensesAndResultsBarContext";
+import { useTranslation } from "react-i18next";
 
 export const ResetValuesModal = () => {
   const { closeModal, setBudget, setGoal, setExpensesSum } =
     useFinanceSaverContext();
   const { setExpenses } = useExpensesAndResultsBarContext();
+  const { t } = useTranslation();
 
   // LOCAL STORED KEYS
-  const data = localStoredKeys
-  const ResetData = Object(Object.values(localStoredKeys).map(obj => Object.values(obj)[0]));
+  const data = localStoredKeys;
+  const ResetData = Object(
+    Object.values(localStoredKeys).map((obj) => Object.values(obj)[0])
+  );
 
   // STYLES
   const button =
@@ -40,7 +44,7 @@ export const ResetValuesModal = () => {
         }}
         className="text-center w-[90%] mx-auto mt-4 text-3xl font-bold uppercase text-[#ef8940]"
       >
-        You are about to reset all values! Are you sure you want to do this?
+        {t("components.resetModal.title")}
       </h1>
       <p
         style={{
@@ -48,8 +52,7 @@ export const ResetValuesModal = () => {
         }}
         className="text-center mx-auto w-[82%] mt-2 text-xl text-[#f5efe9f6]"
       >
-        By pressing the destructive button, you will reset all your values.
-        Budget, Goal, Expenses, Results, and Graphs will have a value of zero.
+        {t("components.resetModal.desc")}
       </p>
       <div className="w-[90%] mx-auto mt-12 flex items-center justify-between">
         <button
@@ -58,7 +61,7 @@ export const ResetValuesModal = () => {
           formMethod="dialog"
           className={button}
         >
-          Delay self-destruction
+          {t("components.resetModal.leftBtn")}
         </button>
         <button
           formMethod="dialog"
@@ -66,7 +69,7 @@ export const ResetValuesModal = () => {
           onClick={resetValues}
           className={`${button} text-[#f44545] border-[#d03d3d]`}
         >
-          Yes, Destroy everything
+          {t("components.resetModal.rightBtn")}
         </button>
       </div>
     </ModalTemplate>

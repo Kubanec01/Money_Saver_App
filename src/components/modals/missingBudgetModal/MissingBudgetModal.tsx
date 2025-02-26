@@ -1,9 +1,11 @@
 import { ModalTemplate } from "../modalTemplate/ModalTemplate";
 import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import image1 from "../../../assets/universe-bg-img.jpg";
+import { useTranslation } from "react-i18next";
 
 export const MissingBudgetModal = () => {
   const { closeModal } = useFinanceSaverContext();
+  const { t } = useTranslation();
 
   // STYLES
   const button =
@@ -22,7 +24,7 @@ export const MissingBudgetModal = () => {
         }}
         className="text-center mx-auto w-full mt-4 text-3xl font-bold uppercase text-[#dfccf5]"
       >
-        Do you want to spend from your budget without having a budget?
+        {t("components.missingBudgetModal.title")}
       </h1>
       <p
         style={{
@@ -30,9 +32,7 @@ export const MissingBudgetModal = () => {
         }}
         className="text-center mx-auto w-[84%] mt-3 text-2xl text-[#f3f5fe]"
       >
-        Don't worry, Captain, this can happen to the best of us. Please enter
-        the coordinates for your budget so you can continue managing your
-        finances.
+        {t("components.missingBudgetModal.desc")}
       </p>
       <div className="w-[90%] mx-auto mt-12 flex items-center justify-between">
         <button
@@ -41,10 +41,10 @@ export const MissingBudgetModal = () => {
           formMethod="dialog"
           className={button}
         >
-          Roger that, over.
+          {t("components.missingBudgetModal.leftBtn")}
         </button>
         <button type="submit" className={button}>
-          What?! Tell me more.
+          {t("components.missingBudgetModal.rightBtn")}
         </button>
       </div>
     </ModalTemplate>

@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
-import { explainData } from "../../../../../../../../data/explainData";
+import { ExplainData } from "../../../../../../../../data/ExplainData";
 import style from "./explainBars.module.scss";
 
 export const ExplainBars = () => {
-  const data = explainData;
+  const data = ExplainData();
 
   return (
     <ul>
@@ -33,7 +33,7 @@ export const ExplainBars = () => {
             {/* RIGHT */}
             <div className="w-full ml-[20px]">
               <h1 className="text-2xl text-spaceBlue">{b.title}</h1>
-              <h2 className="text-lg text-spaceWhite">{b.text}</h2>
+              <h2 className="text-lg text-spaceWhite">{b.desc}</h2>
             </div>
           </motion.li>
         );

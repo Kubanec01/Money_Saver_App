@@ -8,6 +8,24 @@ import LanguageDetector from "i18next-browser-languagedetector";
 const resources = {
   en: {
     translation: {
+      components: {
+        explainBtn: {
+          text: "See More",
+        },
+        resetModal: {
+          title:
+            "You are about to reset all values! Are you sure you want to do this?",
+          desc: "By pressing the destructive button, you will reset all your values. Budget, Goal, Expenses, Results, and Graphs will have a value of zero.",
+          leftBtn: "Delay self-destruction",
+          rightBtn: "Yes, Destroy everything",
+        },
+        missingBudgetModal: {
+          title: "Do you want to spend from your budget without having a budget?",
+          desc: "Don't worry, Captain, this can happen to the best of us. Please enter the coordinates for your budget so you can continue managing your finances.",
+          leftBtn: "Roger that, over",
+          rightBtn: "What?! Tell me more",
+        }
+      },
       hero: {
         title: "Greetings Capt.",
         subTitle1: "Today's Mission:",
@@ -31,6 +49,24 @@ const resources = {
       explainSection: {
         subTitle: "explanation",
         title: "Protocols for Your Intergalactic Voyage",
+      },
+      explainData: {
+        1: {
+          title: "Budget and Goal",
+          desc: "A section where you can record your budget and goal to achieve financial savings.",
+        },
+        2: {
+          title: "Add & Save",
+          desc: "Your journey begins here. You categorize expenses into different groups, giving you a clear overview of what you're spending your money on and how much.",
+        },
+        3: {
+          title: "Mission Results",
+          desc: "The results of your achievements are displayed in this table, providing you with a detailed overview of the path your expenses are taking.",
+        },
+        4: {
+          title: "Graphs and Percentages",
+          desc: "Provide a more mathematical insight into how well you’ve met your expectations. The first percentage shows how much you’ve saved, the second percentage displays the cost of essential investments, and the third percentage highlights how much you’re spending on Fun and Other activities.",
+        },
       },
     },
   },
