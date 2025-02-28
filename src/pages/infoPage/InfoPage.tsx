@@ -1,15 +1,23 @@
-import image1 from "../../assets/api-info-img.png";
-import {InfoCard, InfoCardProps} from "../../components/infoCard/InfoCard"
+import { InfoCard, InfoCardProps } from "../../components/infoCard/InfoCard";
+import coreCoordsImg from "../../assets/api-info-img.png";
+import budgetGoalImg from "../../assets/budget-goal-ingo-img.png";
 
-const data:InfoCardProps[] = [
+const data: InfoCardProps[] = [
   {
     id: "core-coords-info",
     title: "Core Coords Section",
-    desc: "This is your go-to motivational and info hub, packed with keydetails for every great adventure. Alongside inspiring quotes, you’ll also find a handy way to keep track of time and date because every captain’s journey runs on perfect timing!",
-    image: image1,
+    desc: "This is your go-to motivational and info hub, packed with key-details for every great adventure. Alongside inspiring quotes, you’ll also find a handy way to keep track of time and date because every captain’s journey runs on perfect timing!",
+    image: coreCoordsImg,
+    mainPlacement: "right",
+  },
+  {
+    id: "budget-goal-info",
+    title: "Budget And Goal",
+    desc: "This is where the foundation of your savings journey begins! In the 'Your Budget' section, set the amount you plan to stick to for your chosen saving period. This is your financial anchor—the key detail that shapes everything else on your path. Next, in the 'Your Goal' section, set your savings target. Decide how much you want to save and what you're aiming for.",
+    image: budgetGoalImg,
     mainPlacement: "left",
   },
-]
+];
 
 const InfoPage = () => {
   return (
@@ -29,11 +37,17 @@ const InfoPage = () => {
         </p>
       </div>
       {/* API INFO SECTION */}
-        {data.map(i => {
-          return(
-            <InfoCard id={i.id} title={i.title} desc={i.desc} image={i.image} mainPlacement={i.mainPlacement} />
-          )
-        })}
+      {data.map((i) => {
+        return (
+          <InfoCard
+            id={i.id}
+            title={i.title}
+            desc={i.desc}
+            image={i.image}
+            mainPlacement={i.mainPlacement}
+          />
+        );
+      })}
     </div>
   );
 };
