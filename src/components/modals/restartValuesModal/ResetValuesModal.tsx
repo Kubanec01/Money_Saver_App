@@ -42,7 +42,7 @@ export const ResetValuesModal = () => {
         style={{
           textShadow: "1px 1px 20px black",
         }}
-        className="text-center w-[90%] mx-auto mt-4 text-3xl font-bold uppercase text-[#ef8940]"
+        className="text-center w-[90%] mx-auto mt-4 text-3xl font-bold uppercase text-warningOrange"
       >
         {t("components.resetModal.title")}
       </h1>

@@ -10,6 +10,7 @@ export default {
         whiteShadow500: "#ffffffae",
         spaceBlue: "#a7b4fb",
         spaceNeonBlue: "#7387fa",
+        warningOrange: "#ef8940",
         spaceWhite: "#eceefa",
         spaceGray: "#6b72803d",
       },

@@ -1,10 +1,13 @@
-export type InfoCardProps = {
+export interface InfoCardBaseType {
   id: string;
   title: string;
   desc: string;
+}
+
+export interface InfoCardProps extends InfoCardBaseType {
   image: string;
   mainPlacement: "right" | "left";
-};
+}
 
 export const InfoCard = ({
   id,
@@ -20,6 +23,7 @@ export const InfoCard = ({
 
   return (
     <div
+      key={id}
       className={`w-full mx-auto mt-[200px] flex justify-center items-center ${
         isPLacementRight ? "flex-row" : "flex-row-reverse"
       }`}
@@ -28,7 +32,7 @@ export const InfoCard = ({
         <img
           className="w-[94%] max-w-full h-auto object-cover rounded-[20px]"
           src={image}
-          alt={`${id}-img`}
+          alt={`${title}-img`}
         />
       </div>
       <div className="w-[50%]">
