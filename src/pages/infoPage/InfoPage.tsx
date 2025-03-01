@@ -122,6 +122,7 @@ const InfoPage = () => {
             <h1 className="text-warningOrange text-4xl text-center mx-auto">
               Self-Destruction Button
             </h1>
+            
             <p className="text-lg text-whiteShadow500 text-center mx-auto w-[54%]">
               If you have successfully completed your mission and a new savings
               period begins, you can easily delete all data by clicking this
