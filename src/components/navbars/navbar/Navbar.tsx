@@ -6,6 +6,7 @@ import { CurrencySettingBar } from "../../../features/currencySettingBar/Currenc
 import { useState } from "react";
 import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 export const Navbar = () => {
   const { openModal } = useFinanceSaverContext();
@@ -59,12 +60,13 @@ export const Navbar = () => {
                 setOpen={setIsCurrencyMenuOpen}
               />
             </li>
-            <li className="-mb-2 mr-4">
-              <button
+            <li className="mr-4">
+              <Link
+                to="info"
                 className={`${style.helpButton} text-4xl text-[#b7cff7d8]`}
               >
                 <HiOutlineQuestionMarkCircle />
-              </button>
+              </Link>
             </li>
             <li>
               <button

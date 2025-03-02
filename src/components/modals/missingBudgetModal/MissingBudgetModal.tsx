@@ -2,6 +2,7 @@ import { ModalTemplate } from "../modalTemplate/ModalTemplate";
 import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import image1 from "../../../assets/universe-bg-img.jpg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 export const MissingBudgetModal = () => {
   const { closeModal } = useFinanceSaverContext();
@@ -43,9 +44,9 @@ export const MissingBudgetModal = () => {
         >
           {t("components.missingBudgetModal.leftBtn")}
         </button>
-        <button type="submit" className={button}>
+        <Link onClick={closeModal} to="info" type="submit" className={button}>
           {t("components.missingBudgetModal.rightBtn")}
-        </button>
+        </Link>
       </div>
     </ModalTemplate>
   );
