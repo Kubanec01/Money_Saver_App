@@ -10,16 +10,16 @@ export const SaverSection = () => {
   const {currency} = useCurrencyContext()
 
   return (
-    <div className="border-white w-[90%] max-w-[1300px] mx-auto mt-[200px]">
+    <div className="border-white w-[90%] max-w-[1300px] mx-auto md:mt-[200px] mt-[140px]">
       {/* TEXT */}
-      <div className="mx-auto w-[68%]">
-        <h1 className="uppercase text-xl text-spaceBlue">
+      <div className="mx-auto sm:w-[68%] w-[90%]">
+        <h1 className="uppercase md:text-xl text-lg text-spaceBlue">
           {t("saverSection.title")}
         </h1>
-        <h2 className="text-3xl w-[80%] font-medium mt-[6px] text-spaceWhite">
+        <h2 className="md:text-3xl text-2xl md:w-[80%] w-[98%] font-medium mt-[6px] text-spaceWhite">
           {t("saverSection.desc")}
         </h2>
-        <p className="text-xl text-spaceNeonBlue mt-[10px] w-[50%]">
+        <p className="text-xl text-spaceNeonBlue mt-[10px] lg:w-[50%] md:w-[60%] w-[96%]">
           {t("saverSection.subDesc")}
         </p>
       </div>

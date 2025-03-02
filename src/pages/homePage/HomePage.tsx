@@ -9,11 +9,11 @@ import { Navbar } from "../../components/navbars/navbar/Navbar";
 const HomePage = () => {
   return (
     <div className="w-full">
+      <ResetValuesModal />
+      <MissingBudgetModal />
       <Navbar />
       <Hero />
       <Info />
-      <ResetValuesModal />
-      <MissingBudgetModal />
       <SaverSection />
       <ExplainSection />
     </div>

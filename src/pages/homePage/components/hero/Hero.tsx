@@ -7,9 +7,17 @@ export const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mx-auto w-[90%] max-w-[1100px] flex justify-center items-center mt-[220px]">
+    <div className="mx-auto w-[90%] max-w-[1100px] flex md:flex-row flex-col justify-center items-center mt-[220px]">
+      {/* MEDIUM DISPLAY IMG */}
+      <div className="h-full md:hidden flex justify-center items-center w-full">
+        <img
+          className="w-full max-w-[460px] h-auto max-h-[560px] object-cover rounded-[20px]"
+          src={img1}
+          alt="planet-img"
+        />
+      </div>
       {/* LEFT */}
-      <div className="h-full w-[50%] font-medium">
+      <div className="h-full md:w-[50%] sm:w-[70%] w-[80%] mx-auto font-medium md:mt-0 mt-14 ">
         <motion.h1
           initial="hidden"
           whileInView="visible"
@@ -22,7 +30,7 @@ export const Hero = () => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className={`${style.title} text-white text-6xl tracking-tight`}
+          className={`${style.title} text-white lg:text-6xl md:text-5xl sm:text-5xl text-4xl tracking-tight`}
         >
           {t("hero.title")}
         </motion.h1>
@@ -38,7 +46,7 @@ export const Hero = () => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className="mt-2 mb-[6px] text-[#fffffff4] text-6xl tracking-tight"
+          className="mt-2 text-[#fffffff4] lg:text-6xl sm:text-4xl text-3xl tracking-tight"
         >
           {t("hero.subTitle1")}
         </motion.h2>
@@ -54,7 +62,7 @@ export const Hero = () => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className={`${style.title2} text-5xl text-[#ffffff] font-semibold`}
+          className={`${style.title2} text-nowrap sm:mt-[6px] lg:text-5xl sm:text-4xl text-3xl text-[#ffffff] font-semibold`}
         >
           {t("hero.subTitle2")}
           <span className="text-orange-300">🪐</span>
@@ -71,18 +79,16 @@ export const Hero = () => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className={` text-[#ffffff93] text-xl font-thin mt-5`}
+          className={` text-[#ffffff93] sm:w-full w-[90%] xl:text-xl sm:text-lg text-sm font-thin lg:mt-5 mt-2`}
         >
-          This app is here to help you improve your saving habits, boost your
-          financial literacy, and provide you with essential everyday info. Join
-          us on a journey where we'll take your finances to the next level and
-          save money on an intergalactic scale!
+          {t("hero.desc")}
         </motion.p>
       </div>
       {/* RIGHT */}
-      <div className="h-full flex justify-end items-center w-[50%]">
+      {/* LARGE+ DISPLAY IMG */}
+      <div className="h-full md:flex hidden justify-end items-center w-[50%]">
         <img
-          className="w-[500px] h-[560px] object-cover rounded-[20px]"
+          className="w-full max-w-[500px] h-auto max-h-[560px] object-cover rounded-[20px]"
           src={img1}
           alt="planet-img"
         />

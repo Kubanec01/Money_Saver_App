@@ -22,7 +22,7 @@ export const CurrencySettingBar = ({ isOpen, setOpen }: CurrencySettingBar) => {
     <div
       className={`${
         isOpen ? "absolute" : "hidden"
-      } top-0 right-[60px] rounded-[10px] w-[100px] h-[100px] p-1 py-[6px] bg-[#292828e7]`}
+      } md:top-0 top-10 md:right-[60px] right-[30px] rounded-[10px] w-[100px] h-[100px] p-1 py-[6px] bg-[#292828e7]`}
     >
       <ul className="rounded-[10px] w-full h-full flex flex-col items-start justify-between text-base">
         {data.map((i) => {

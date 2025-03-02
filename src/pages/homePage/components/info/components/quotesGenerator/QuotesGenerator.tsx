@@ -31,16 +31,16 @@ export const QuotesGenerator = () => {
         hidden: { opacity: 0, filter: "blur(8px)" },
         visible: { opacity: 1, filter: "blur(0px)"},
       }}
-      className={`${style.body} w-[98%] h-[320px] rounded-[20px]`}
+      className={`${style.body} md:w-[98%] sm:w-[74%] w-[94%] mx-auto md:h-[320px] h-[240px] rounded-[20px]`}
     >
       <div
         id={data.id.toString()}
         className={`${style.quoteText} text-customWhite w-full h-full flex flex-col justify-between p-6`}
       >
         {/* QUOTE TEXT */}
-        <h1 className="text-4xl w-[97%] font-medium">{data.text}🔥</h1>
+        <h1 className="md:text-4xl sm:text-2xl text-xl md:w-[97%] font-medium">{data.text}🔥</h1>
         {/* AUTHOR TEXT */}
-        <div className="text-xl text-customWhite">
+        <div className="sm:text-xl text-customWhite">
           <p>• {data.author} •</p>
         </div>
       </div>

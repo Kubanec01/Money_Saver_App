@@ -23,16 +23,16 @@ export const DateGenerator = () => {
         hidden: { opacity: 0, filter: "blur(8px)" },
         visible: { opacity: 1, filter: "blur(0px)" },
       }}
-      className={`${style.body} w-[98%] rounded-[20px] h-[47%] flex justify-center items-center p-4`}
+      className={`${style.body} sm:mt-0 mt-2 md:w-[98%] sm:w-[48%] w-full rounded-[20px] h-[47%] flex justify-center items-center p-4`}
     >
       <div className="w-full">
         <div className="flex items-center justify-center">
-          <div className="flex items-center text-customWhite300 text-5xl font-medium">
+          <div className="flex items-center text-customWhite300 md:text-5xl sm:text-3xl text-2xl font-medium">
             18/01/2015
           </div>
           <div>
             <img
-              className="object-cover aspect-square w-[50px] ml-1"
+              className="object-cover aspect-square md:w-[50px] sm:w-[34px] w-[30px] sm:ml-1"
               src={testImg}
               alt=""
             />
