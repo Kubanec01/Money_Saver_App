@@ -11,7 +11,6 @@ function App() {
       <ExpensesAndResultsBarProvider>
         <FinanceSaverProvider>
           <CurrencyContextProvider>
-            <Navbar />
             <BgAnimation />
             <MainRoutes />
           </CurrencyContextProvider>

@@ -4,10 +4,12 @@ import { MissingBudgetModal } from "../../components/modals/missingBudgetModal/M
 import { ExplainSection } from "./saverFunction/components/explainSection/explainSection/ExplainSection";
 import { SaverSection } from "./saverFunction/SaverSection";
 import { ResetValuesModal } from "../../components/modals/restartValuesModal/ResetValuesModal";
+import { Navbar } from "../../components/navbar/Navbar";
 
 const HomePage = () => {
   return (
     <div className="w-full">
+      <Navbar />
       <Hero />
       <Info />
       <ResetValuesModal />
@@ -18,4 +20,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage
+export default HomePage;

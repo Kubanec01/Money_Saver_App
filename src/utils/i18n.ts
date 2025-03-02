@@ -9,6 +9,14 @@ const resources = {
   en: {
     translation: {
       components: {
+        navbar: {
+          accountButton: {
+            title: "Account",
+          },
+          restartButton: {
+            title: "Restart",
+          },
+        },
         explainBtn: {
           text: "See More",
         },
@@ -20,11 +28,12 @@ const resources = {
           rightBtn: "Yes, Destroy everything",
         },
         missingBudgetModal: {
-          title: "Do you want to spend from your budget without having a budget?",
+          title:
+            "Do you want to spend from your budget without having a budget?",
           desc: "Don't worry, Captain, this can happen to the best of us. Please enter the coordinates for your budget so you can continue managing your finances.",
           leftBtn: "Roger that, over",
           rightBtn: "What?! Tell me more",
-        }
+        },
       },
       hero: {
         title: "Greetings Capt.",
@@ -66,6 +75,48 @@ const resources = {
         4: {
           title: "Graphs and Percentages",
           desc: "Provide a more mathematical insight into how well you’ve met your expectations. The first percentage shows how much you’ve saved, the second percentage displays the cost of essential investments, and the third percentage highlights how much you’re spending on Fun and Other activities.",
+        },
+      },
+      infoPage: {
+        hero: {
+          title: "Instructions for Starting <br/> Your Saving Adventure",
+          desc: "Greetings, Captain! Here you’ll find all the instructions and information you’ll need on your journey. I’ll be at your service for the entire ride until the very end of your saving days.",
+        },
+        infoCarts: {
+          coreCoordsInfo: {
+            title: "Core Coords Section",
+            desc: "This is your go-to motivational and info hub, packed with key-details for every great adventure. Alongside inspiring quotes, you’ll also find a handy way to keep track of time and date because every captain’s journey runs on perfect timing!",
+          },
+          budgetGoalInfo: {
+            title: "Budget And Goal",
+            desc: "This is where the foundation of your savings journey begins! In the 'Your Budget' section, set the amount you plan to stick to for your chosen saving period. This is your financial anchor—the key detail that shapes everything else on your path. Next, in the 'Your Goal' section, set your savings target. Decide how much you want to save and what you're aiming for.",
+          },
+          financeBarsInfo: {
+            title: "Expenses Setter",
+            desc: "In this section, you'll be tracking all your expenses. The expense tracker is divided into six categories based on priority and purpose, making it easy to see where your money is going. Simply enter the amount you've spent and hit the '+ button' to add it to the corresponding category. Made a mistake? No worries! Just use the '- button' to remove the amount and adjust your records effortlessly.",
+          },
+          expensesResultsInfo: {
+            title: "Mission results are in!",
+            desc: "Based on the records from the previous section, you now have a clear overview of your expenses. See exactly where your money went and how much you spent in each category. Anything you add or remove in the Expenses Setter will instantly update in this table, keeping your budget tracking seamless and up to date!",
+          },
+        },
+        expensesReviewsCart: {
+          savedBar: {
+            title: "Saved",
+            desc: "The Saved bar shows you how much money you've saved from your original budget, both as a percentage and a numerical value.",
+          },
+          spentBar: {
+            title: "Spent",
+            desc: "The Spent bar displays the total amount of money you've spent from your budget, both as a percentage and a numerical value.",
+          },
+          funOtherBar: {
+            title: "Fun/Other",
+            desc: "The Fun/Other bar shows the amount of money you've spent specifically on entertainment and other expenses from the Spent bar. This value is displayed both as a number and as a percentage, reflecting its share of the total Spent bar amount.",
+          },
+        },
+        resetButtonInfo: {
+          title: "Self-Destruction Button",
+          desc: "If you have successfully completed your mission and a new savings period begins, you can easily delete all data by clicking this button. <span>WARNING</span>, once you confirm self-destruction, none of the data will be recoverable.",
         },
       },
     },

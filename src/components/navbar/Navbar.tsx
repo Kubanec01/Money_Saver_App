@@ -5,11 +5,14 @@ import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
 import { CurrencySettingBar } from "../../features/currencySettingBar/CurrencySettingBar";
 import { useState } from "react";
 import { useCurrencyContext } from "../../hooks/context/CurrencyContext";
+import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
   const { openModal } = useFinanceSaverContext();
-  const {currency} = useCurrencyContext()
+  const { currency } = useCurrencyContext();
   const [isCurrencyMenuOpen, setIsCurrencyMenuOpen] = useState(false);
+
+  const { t } = useTranslation();
 
   return (
     <div className="fixed z-50 top-0 left-0 w-full flex justify-center items-center px-4">
@@ -37,7 +40,7 @@ export const Navbar = () => {
               }}
               className="text-customWhite text-lg font-medium"
             >
-              Account
+              {t("components.navbar.accountButton.title")}
             </h1>
           </button>
         </div>
@@ -51,7 +54,10 @@ export const Navbar = () => {
               >
                 {currency}
               </button>
-              <CurrencySettingBar isOpen={isCurrencyMenuOpen} setOpen={setIsCurrencyMenuOpen} />
+              <CurrencySettingBar
+                isOpen={isCurrencyMenuOpen}
+                setOpen={setIsCurrencyMenuOpen}
+              />
             </li>
             <li className="-mb-2 mr-4">
               <button
@@ -65,7 +71,7 @@ export const Navbar = () => {
                 onClick={() => openModal("restart-values-modal")}
                 className={`${style.restartBtn} px-[12px] py-[5px] text-xl border-[2px] border-[#ffffffcc] font-medium rounded-[8px] overflow-hidden text-customWhite`}
               >
-                Restart 💫
+                {t("components.navbar.restartButton.title")} 💫
               </button>
             </li>
           </ul>
