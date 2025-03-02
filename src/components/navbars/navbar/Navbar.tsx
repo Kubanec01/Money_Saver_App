@@ -1,10 +1,10 @@
 import { FaUserCircle } from "react-icons/fa";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi2";
 import style from "./navbar.module.scss";
-import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
-import { CurrencySettingBar } from "../../features/currencySettingBar/CurrencySettingBar";
+import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
+import { CurrencySettingBar } from "../../../features/currencySettingBar/CurrencySettingBar";
 import { useState } from "react";
-import { useCurrencyContext } from "../../hooks/context/CurrencyContext";
+import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {

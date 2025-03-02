@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ExplainBars } from "../components/explainBars/explainBars/ExplainBars";
+import { Link } from "react-router";
 
 export const ExplainSection = () => {
   const { t } = useTranslation();
@@ -22,12 +23,13 @@ export const ExplainSection = () => {
         <ExplainBars />
       </div>
       <div className="flex justify-center items-center mx-auto w-[40%]">
-        <button
+        <Link
+          to="info"
           className="text-xl font-semibold text-[white] border-[2px] px-4 py-2 rounded-[12px] mt-5
         hover:bg-[white] hover:text-[black] duration-200 ease"
         >
           {t("components.explainBtn.text")}
-        </button>
+        </Link>
       </div>
     </div>
   );

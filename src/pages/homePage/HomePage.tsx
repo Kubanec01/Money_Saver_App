@@ -4,7 +4,7 @@ import { MissingBudgetModal } from "../../components/modals/missingBudgetModal/M
 import { ExplainSection } from "./saverFunction/components/explainSection/explainSection/ExplainSection";
 import { SaverSection } from "./saverFunction/SaverSection";
 import { ResetValuesModal } from "../../components/modals/restartValuesModal/ResetValuesModal";
-import { Navbar } from "../../components/navbar/Navbar";
+import { Navbar } from "../../components/navbars/navbar/Navbar";
 
 const HomePage = () => {
   return (

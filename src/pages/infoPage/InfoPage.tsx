@@ -3,6 +3,7 @@ import resultsReviewsImg from "../../assets/results-reviews-info-img.png";
 import resetBtnImg from "../../assets/reset-btn-info-img.png";
 import { Trans, useTranslation } from "react-i18next";
 import { InfoData } from "../../data/InfoData";
+import { InfoNavbar } from "../../components/navbars/infoNavbar/InfoNavbar";
 
 const InfoPage = () => {
   const { t } = useTranslation();
@@ -10,7 +11,9 @@ const InfoPage = () => {
   const { sectionsInfoData, expensesReviewsData } = InfoData();
 
   return (
-    <div className="mx-auto w-[90%] max-w-[1300px] mt-[340px]">
+    <div className="mx-auto w-[90%] max-w-[1300px] mt-[260px]">
+      <InfoNavbar />
+      {/* HERO */}
       <div className="w-full">
         <h1 className="text-7xl text-spaceNeonBlue font-extrabold uppercase text-center">
           <Trans i18nKey={"infoPage.hero.title"} />
@@ -66,16 +69,16 @@ const InfoPage = () => {
         <div className="mb-[140px] p-2">
           <div className="w-[90%] mx-auto">
             <h1 className="text-warningOrange text-4xl text-center mx-auto">
-              {t('infoPage.resetButtonInfo.title')}
+              {t("infoPage.resetButtonInfo.title")}
             </h1>
 
             <p className="text-lg text-whiteShadow500 text-center mx-auto w-[54%]">
-            <Trans
-            i18nKey={'infoPage.resetButtonInfo.desc'}
-            components={{
-              span: <span className="text-white" />
-            }}
-            />
+              <Trans
+                i18nKey={"infoPage.resetButtonInfo.desc"}
+                components={{
+                  span: <span className="text-white" />,
+                }}
+              />
             </p>
           </div>
           <img
