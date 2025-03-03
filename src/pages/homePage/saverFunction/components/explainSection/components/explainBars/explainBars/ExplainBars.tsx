@@ -26,14 +26,14 @@ export const ExplainBars = () => {
           >
             {/* LEFT */}
             <div
-              className={`${style.numberBody} text-2xl rounded-[10px] flex items-center justify-center aspect-square w-[70px]`}
+              className={`${style.numberBody} text-2xl rounded-[10px] flex items-center justify-center aspect-square md:w-[70px] w-[60px]`}
             >
               <p>{b.number}</p>
             </div>
             {/* RIGHT */}
             <div className="w-full ml-[20px]">
-              <h1 className="text-2xl text-spaceBlue">{b.title}</h1>
-              <h2 className="text-lg text-spaceWhite">{b.desc}</h2>
+              <h1 className="sm:text-2xl text-spaceBlue">{b.title}</h1>
+              <h2 className="sm:text-lg text-sm text-spaceWhite">{b.desc}</h2>
             </div>
           </motion.li>
         );

@@ -13,11 +13,13 @@ export const ResultBar = ({ id, name, currency }: ResultBarProps) => {
   return (
     <div
       id={id}
-      className={`${style.body} w-[310px] h-[100px] rounded-[10px] p-2`}
+      className={`${style.body} md:w-[310px] sm:w-[410px] w-[90%] md:h-[100px] sm:h-[80px] h-[60px] rounded-[10px] p-2`}
     >
       <div className="flex items-center justify-start w-full h-full ">
-        <h1 className="text-3xl text-spaceBlue ml-4">{name}:</h1>
-        <h2 className="text-3xl text-spaceWhite ml-2">
+        <h1 className="md:text-3xl sm:text-3xl text-2xl text-spaceBlue ml-4">
+          {name}:
+        </h1>
+        <h2 className="md:text-3xl sm:text-3xl text-2xl text-spaceWhite ml-2">
           {expenses[id] || 0}{" "}
           <span className="text-spaceWhite">{currency}</span>
         </h2>

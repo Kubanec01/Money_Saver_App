@@ -4,7 +4,8 @@ import { SecondaryExpenses } from "../types";
 export const FunAndOtherReview = ({
   currency,
   expensesNum,
-  style
+  style,
+  barBodyClass,
 }: SecondaryExpenses) => {
   const { expenses } = useExpensesAndResultsBarContext();
 
@@ -36,9 +37,7 @@ export const FunAndOtherReview = ({
   };
 
   return (
-    <div
-    style={style}
-    className="w-[240px] h-[200px]">
+    <div style={style} className={barBodyClass}>
       {/* Title */}
       <h1 className="w-full text-center text-3xl mt-9 text-spaceNeonBlue">
         Fun/Other

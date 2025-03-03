@@ -56,6 +56,11 @@ const resources = {
         bars: {},
         caption: "What you choose to input is up to you.",
       },
+      financeResults: {
+        subTitle: "your steps and",
+        title: "<span>Mission</span> results:",
+        desc: "Mission results speak loud and clear—keep up the great work! And if you haven’t met your expectations just yet, don’t give up. You’re capable of extraordinary things—you’ve got this!",
+      },
       explainSection: {
         subTitle: "explanation",
         title: "Protocols for Your Intergalactic Voyage",

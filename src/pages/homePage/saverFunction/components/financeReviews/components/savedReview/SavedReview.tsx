@@ -5,6 +5,7 @@ export const SavedReview = ({
   budgetNum,
   expensesNum,
   style,
+  barBodyClass,
 }: ChartProps) => {
   const savedMoneyValue = () => {
     return budgetNum - expensesNum;
@@ -24,7 +25,7 @@ export const SavedReview = ({
   return (
     <div
     style={style}
-    className="w-[240px] h-[200px]">
+    className={barBodyClass}>
       {/* Title */}
       <h1 className="w-full text-center text-3xl mt-7 text-spaceNeonBlue">Saved</h1>
       {/* Saved Percent */}

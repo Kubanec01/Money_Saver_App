@@ -21,28 +21,35 @@ export const FinanceReview = ({ currency }: FinanceCharts) => {
     borderRight: "1px solid #ffffffae",
     borderTop: "1px solid #ffffffae",
   };
+  const barBodyClass = "w-[240px] h-[200px]";
 
   return (
-    <div className="p-6 w-[90%] max-w-[960px] mx-auto mt-[80px] rounded-[20px] h-[300px] flex justify-center items-center">
-      <div className="w-[94%] h-full flex items-center justify-between">
+    <div className="p-6 w-[90%] max-w-[960px] mx-auto mt-[90px] rounded-[20px] flex justify-center items-center">
+      <div className="lg:w-[96%] w-full border h-full flex items-center justify-between">
         <SavedReview
           style={barBodyStyle}
           currency={currency}
           budgetNum={budgetNum}
           expensesNum={expensesNum}
+          barBodyClass={barBodyClass}
         />
         <ExpensesReview
           style={barBodyStyle}
           currency={currency}
           budgetNum={budgetNum}
           expensesNum={expensesNum}
+          barBodyClass={barBodyClass}
         />
         <FunAndOtherReview
           style={barBodyStyle}
           currency={currency}
           expensesNum={expensesNum}
+          barBodyClass={barBodyClass}
         />
       </div>
     </div>
   );
 };
+
+
+// Tieto Bars by som prepisal idealne do jednej sablony a spravil logiku rovno v tejto componentne lebo robit tomu responsivity je jeden velky otras

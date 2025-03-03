@@ -5,6 +5,7 @@ export const ExpensesReview = ({
   budgetNum,
   expensesNum,
   style,
+  barBodyClass,
 }: ChartProps) => {
   const expensesPercent = () => {
     const result = Math.floor((expensesNum / budgetNum) * 100);
@@ -19,7 +20,7 @@ export const ExpensesReview = ({
   return (
     <div
     style={style}
-    className="w-[240px] h-[200px]">
+    className={barBodyClass}>
       {/* Title */}
       <h1 className="w-full text-center text-3xl mt-9 text-spaceNeonBlue">
         Spent
