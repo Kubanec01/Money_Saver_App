@@ -52,8 +52,8 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   };
 
   return (
-    <div id={id} className={`${style.body} flex w-[340px]`}>
-      <label htmlFor={inputId} className="text-3xl text-spaceBlue">
+    <div id={id} className={`${style.body} flex sm:w-[340px] w-[270px]`}>
+      <label htmlFor={inputId} className="sm:text-3xl text-2xl text-spaceBlue">
         {text}:
       </label>
       <input
@@ -65,10 +65,10 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
         onChange={handleMoneyValue}
         value={expenseValue}
         id={inputId}
-        className={`${style.input} text-spaceWhite bg-transparent ml-3 text-3xl w-[60%]`}
+        className={`${style.input} text-spaceWhite bg-transparent ml-3 sm:text-3xl text-2xl w-[60%]`}
         type="number"
       />
-      <div className="flex text-4xl gap-3 items-center justify-between mb-1">
+      <div className="flex sm:text-4xl text-3xl gap-3 items-center justify-between mb-1">
         <button
           title="Add an expense"
           onClick={increase}

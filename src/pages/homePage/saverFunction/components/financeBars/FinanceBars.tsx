@@ -3,32 +3,21 @@ import { FinanceBar } from "../../../../../components/financeBar/FinanceBar";
 import style from "./financeBars.module.scss";
 
 export const FinanceBars = () => {
-
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div
-      className={`${style.body} p-2 w-[88%] mx-auto mt-[180px] rounded-[20px]`}
+      className={`${style.body} p-2 md:w-[88%] w-[98%] mx-auto mt-[180px] rounded-[20px]`}
     >
-      <div className="w-full mt-[48px]">
-        <h2 className="text-2xl uppercase text-center text-spaceBlue">
+      <div className="w-full sm:mt-[48px] mt-[20px]">
+        <h2 className="lg:text-2xl sm:text-xl text-lg uppercase text-center text-spaceBlue">
           Add & Save
         </h2>
-        <h1 className="text-4xl font-bold text-center text-spaceWhite">
-          {t('financeBars.title')}
+        <h1 className="lg:text-4xl sm:text-3xl text-2xl font-bold text-center text-spaceWhite">
+          {t("financeBars.title")}
         </h1>
       </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gridTemplateRows: "auto auto",
-          gap: "30px",
-          alignItems: "center",
-          justifyItems: "center",
-        }}
-        className="w-full mt-[80px] mb-[80px] text-3xl text-white"
-      >
+      <div className="w-full md:mt-[80px] mt-[60px] text-3xl text-white grid lg:grid-cols-2 grid-cols-1 justify-items-center md:gap-[30px] gap-[40px]">
         <FinanceBar id={"rent"} inputId="rent" text="Rent" />
         <FinanceBar id={"hobby"} inputId="hobby" text="Hobby" />
         <FinanceBar id={"food"} inputId="food" text="Food" />
@@ -36,13 +25,9 @@ export const FinanceBars = () => {
         <FinanceBar id={"car"} inputId="car" text="Car" />
         <FinanceBar id={"other"} inputId="other" text="Other" />
       </div>
-      <div
-      className="w-full mb-[20px]"
-      >
-        <h3
-        className="text-[#ffffff69] text-center text-xl font-bold"
-        >
-        What you choose to input is up to you.
+      <div className="w-full md:mt-[80px] mt-[60px] mb-[20px]">
+        <h3 className="text-[#ffffff69] text-center mx-auto sm:w-full w-[90%] sm:text-xl text-lg md:font-bold">
+        {t("financeBars.caption")}
         </h3>
       </div>
     </div>

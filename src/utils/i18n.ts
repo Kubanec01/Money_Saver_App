@@ -54,6 +54,7 @@ const resources = {
       financeBars: {
         title: "Here you enter your expenses and income.",
         bars: {},
+        caption: "What you choose to input is up to you.",
       },
       explainSection: {
         subTitle: "explanation",
