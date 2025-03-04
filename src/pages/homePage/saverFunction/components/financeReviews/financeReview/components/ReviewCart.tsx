@@ -21,10 +21,10 @@ export const ReviewCart = ({
         borderRight: "1px solid #ffffffae",
         borderTop: "1px solid #ffffffae",
       }}
-      className="lg:w-[240px] sm:w-[200px] w-[230px] sm:h-[210px] h-[150px]"
+      className="lg:w-[240px] sm:w-[200px] w-[200px] sm:h-[210px] h-[150px]"
     >
       {/* TITLE */}
-      <h1 className="w-full text-center sm:text-3xl text-2xl sm:mt-7 mt-5 text-spaceNeonBlue">
+      <h1 className="w-full text-center sm:text-3xl text-2xl sm:mt-7 mt-4 text-spaceNeonBlue">
         {title}
       </h1>
       {/* PERCENTAGE */}

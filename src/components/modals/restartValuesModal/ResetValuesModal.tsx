@@ -20,8 +20,7 @@ export const ResetValuesModal = () => {
 
   // STYLES
   const button =
-    "border-[2px] rounded-[10px] border-white text-white text-lg p-2";
-  const modalStyle = "p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]";
+    "sm:border-[2px] border-[1px] rounded-[10px] border-white text-white xl:text-lg p-2";
 
   const resetValues = () => {
     resetStoredValues({ keys: ResetData });
@@ -35,14 +34,14 @@ export const ResetValuesModal = () => {
   return (
     <ModalTemplate
       id="restart-values-modal"
-      modalBodyStyle={modalStyle}
       bgImage={image1}
+      modalBodyStyle="p-4 pb-8 fixed rounded-[20px] 2xl:w-[34%] xl:w-[40%] lg:w-[46%] md:w-[64%] sm:w-[74%] w-[84%] z-[10000]"
     >
       <h1
         style={{
           textShadow: "1px 1px 20px black",
         }}
-        className="text-center w-[90%] mx-auto mt-4 text-3xl font-bold uppercase text-warningOrange"
+        className="text-center sm:w-[90%] mx-auto mt-4 2xl:text-3xl sm:text-2xl text-xl font-bold uppercase text-warningOrange"
       >
         {t("components.resetModal.title")}
       </h1>
@@ -50,11 +49,11 @@ export const ResetValuesModal = () => {
         style={{
           textShadow: "1px 1px 4px black",
         }}
-        className="text-center mx-auto w-[82%] mt-2 text-xl text-[#f5efe9f6]"
+        className="text-center mx-auto sm:w-[82%] mt-2 2xl:text-xl sm:text-lg text-[#f5efe9f6]"
       >
         {t("components.resetModal.desc")}
       </p>
-      <div className="w-[90%] mx-auto mt-12 flex items-center justify-between">
+      <div className="xl:w-[90%] lg:w-[94%] md:w-[90%] w-[98%] mx-auto mt-12 flex sm:flex-row flex-col items-center sm:justify-between justify-center sm:gap-0 gap-3">
         <button
           onClick={closeModal}
           type="submit"
