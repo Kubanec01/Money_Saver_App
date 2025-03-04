@@ -10,20 +10,19 @@ export const MissingBudgetModal = () => {
 
   // STYLES
   const button =
-    "border-[2px] rounded-[10px] border-white text-white text-lg p-2";
-  const modalStyle = "p-4 fixed rounded-[20px] w-[34%] h-[340px] z-[10000]";
+    "sm:border-[2px] border-[1px] rounded-[10px] border-white text-white 2xl:text-lg p-2";
 
   return (
     <ModalTemplate
       id="missing-budget-modal"
       bgImage={image1}
-      modalBodyStyle={modalStyle}
+      modalBodyStyle="p-4 pb-8 fixed rounded-[20px] 2xl:w-[34%] xl:w-[40%] lg:w-[46%] md:w-[64%] sm:w-[74%] w-[90%] z-[10000]"
     >
       <h1
         style={{
           textShadow: "1px 1px 20px black",
         }}
-        className="text-center mx-auto w-full mt-4 text-3xl font-bold uppercase text-[#dfccf5]"
+        className="text-center mx-auto w-full mt-4 2xl:text-3xl sm:text-2xl text-xl font-bold uppercase text-[#dfccf5]"
       >
         {t("components.missingBudgetModal.title")}
       </h1>
@@ -31,11 +30,11 @@ export const MissingBudgetModal = () => {
         style={{
           textShadow: "1px 1px 4px black",
         }}
-        className="text-center mx-auto w-[84%] mt-3 text-2xl text-[#f3f5fe]"
+        className="text-center mx-auto sm:w-[84%] w-[90%] 2xl:mt-3 sm:mt-2 mt-3 2xl:text-xl sm:text-lg text-[#f3f5fe]"
       >
         {t("components.missingBudgetModal.desc")}
       </p>
-      <div className="w-[90%] mx-auto mt-12 flex items-center justify-between">
+      <div className="w-[90%] mx-auto sm:mt-12 mt-10 flex sm:flex-row flex-col items-center sm:justify-between justify-center sm:gap-0 gap-4">
         <button
           onClick={closeModal}
           type="submit"
