@@ -1,8 +1,6 @@
 import { useFinanceSaverContext } from "../../../../../../hooks/context/FinanceContext";
-import { CSSProperties } from "react";
-import { ExpensesReview } from "../components/expensesReview/ExpensesReview";
-import { FunAndOtherReview } from "../components/funAndOtherReview/FunAndOtherReview";
-import { SavedReview } from "../components/savedReview/SavedReview";
+import { ReviewCart } from "./components/ReviewCart";
+import { useExpensesAndResultsBarContext } from "../../../../../../hooks/context/ExpensesAndResultsBarContext";
 
 interface FinanceCharts {
   currency: string;
@@ -10,46 +8,87 @@ interface FinanceCharts {
 
 export const FinanceReview = ({ currency }: FinanceCharts) => {
   const { budget, expensesSum } = useFinanceSaverContext();
+  const { expenses } = useExpensesAndResultsBarContext();
 
   const budgetNum = Number(budget);
   const expensesNum = Number(expensesSum);
 
-  // STYLE
-  const barBodyStyle: CSSProperties = {
-    backgroundImage: "linear-gradient(194deg, #bc245c42, #6b728039)",
-    borderRadius: "20px",
-    borderRight: "1px solid #ffffffae",
-    borderTop: "1px solid #ffffffae",
+  // SAVED REVIEW FUNCTION
+  const savedMoneyValue = () => {
+    return budgetNum - expensesNum;
   };
-  const barBodyClass = "w-[240px] h-[200px]";
+  const savedMoneyPercent = () => {
+    const savedMoney = budgetNum - expensesNum;
+    const result = Math.floor((savedMoney / budgetNum) * 100);
+
+    if (isNaN(result) || !isFinite(result)) {
+      return 0;
+    }
+
+    return result;
+  };
+
+  // EXPENSES REVIEW FUNCTION
+  const expensesPercent = () => {
+    const result = Math.floor((expensesNum / budgetNum) * 100);
+
+    if (isNaN(result) || !isFinite(result)) {
+      return 0;
+    }
+
+    return result;
+  };
+
+  // FUN AND OTHER FUNCTION
+  const filteredExpenses = Object.keys(expenses)
+    .filter((key) => key === "fun" || key === "other")
+    .map((key) => expenses[key]);
+
+  const totalSecExpensesSum = filteredExpenses.reduce(
+    (acc, value) => acc + value,
+    0
+  );
+
+  const secExpenses = () => {
+    if (!totalSecExpensesSum) {
+      return 0;
+    }
+
+    return totalSecExpensesSum;
+  };
+
+  const secExpensesPercent = () => {
+    const result = Math.floor((totalSecExpensesSum / expensesNum) * 100);
+
+    if (isNaN(result) || !isFinite(result)) {
+      return 0;
+    }
+
+    return result;
+  };
 
   return (
-    <div className="p-6 w-[90%] max-w-[960px] mx-auto mt-[90px] rounded-[20px] flex justify-center items-center">
-      <div className="lg:w-[96%] w-full border h-full flex items-center justify-between">
-        <SavedReview
-          style={barBodyStyle}
+    <div className="lg:p-6 w-[90%] max-w-[960px] mx-auto mt-[90px] rounded-[20px] flex justify-center items-center">
+      <div className="lg:w-[96%] w-full h-full flex flex-wrap items-center md:justify-between justify-center md:gap-0 gap-6">
+        <ReviewCart
           currency={currency}
-          budgetNum={budgetNum}
-          expensesNum={expensesNum}
-          barBodyClass={barBodyClass}
+          title="Saved"
+          percentage={savedMoneyPercent}
+          valueNum={savedMoneyValue}
         />
-        <ExpensesReview
-          style={barBodyStyle}
+        <ReviewCart
           currency={currency}
-          budgetNum={budgetNum}
-          expensesNum={expensesNum}
-          barBodyClass={barBodyClass}
+          title="Spent"
+          percentage={expensesPercent}
+          valueNum={expensesNum}
         />
-        <FunAndOtherReview
-          style={barBodyStyle}
+        <ReviewCart
           currency={currency}
-          expensesNum={expensesNum}
-          barBodyClass={barBodyClass}
+          title="Fun/Other"
+          percentage={secExpensesPercent}
+          valueNum={secExpenses}
         />
       </div>
     </div>
   );
 };
-
-
-// Tieto Bars by som prepisal idealne do jednej sablony a spravil logiku rovno v tejto componentne lebo robit tomu responsivity je jeden velky otras
