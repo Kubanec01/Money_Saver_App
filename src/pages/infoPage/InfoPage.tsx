@@ -15,12 +15,12 @@ const InfoPage = () => {
       <InfoNavbar />
       {/* HERO */}
       <div className="w-full">
-        <h1 className="text-7xl text-spaceNeonBlue font-extrabold uppercase text-center">
+        <h1 className="xl:text-7xl lg:text-6xl md:text-5xl text-4xl text-spaceNeonBlue font-extrabold uppercase sm:text-center text-left">
           <Trans i18nKey={"infoPage.hero.title"} />
         </h1>
         <p
-          className="text-2xl text-whiteShadow500 text-center w-[55%] mt-4 mx-auto relative
-        after:absolute after:w-[94%] after:-bottom-8 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-[#ffffff7e] after-rounded-[20px]"
+          className="lg:text-2xl md:text-xl text-lg text-whiteShadow500 sm:text-center text-left xl:w-[55%] sm:w-[60%] w-[80%] lg:mt-4 mt-2 sm:mx-auto relative
+        after:absolute after:w-[94%] md:after:-bottom-8 after:-bottom-4 md:after:left-1/2 after:left-0 md:after:-translate-x-1/2 after:h-[2px] after:bg-[#ffffff7e] after-rounded-[20px]"
         >
           {t("infoPage.hero.desc")}
         </p>
@@ -42,7 +42,7 @@ const InfoPage = () => {
       <div>
         {/* PERCENTAGE RESULTS BAR */}
         <div className="my-[160px]">
-          <div className="h-[340px] w-[900px] mx-auto rounded-[20px]">
+          <div className="lg:h-[340px] h-auto w-full max-w-[900px] mx-auto rounded-[20px]">
             <img
               className="object-cover w-[90%] h-[80%] mx-auto"
               src={resultsReviewsImg}

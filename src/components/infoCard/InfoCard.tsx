@@ -19,28 +19,32 @@ export const InfoCard = ({
   const isPLacementRight = mainPlacement === "right";
 
   // STYLE
-  const textPlacement = isPLacementRight ? "ml-0" : "ml-32";
+  const textPlacement = isPLacementRight ? "ml-0" : "lg:ml-32 md:ml-14";
 
   return (
     <div
       key={id}
-      className={`w-full mx-auto mt-[200px] flex justify-center items-center ${
-        isPLacementRight ? "flex-row" : "flex-row-reverse"
+      className={`w-full mb-[30px] mx-auto md:mt-[200px] mt-[140px] flex justify-center items-center ${
+        isPLacementRight
+          ? "md:flex-row flex-col"
+          : "md:flex-row-reverse flex-col"
       }`}
     >
-      <div className="w-[50%]">
+      <div className="md:w-[50%]">
         <img
-          className="w-[94%] max-w-full h-auto object-cover rounded-[20px]"
+          className="md:w-[94%] max-w-full h-auto object-cover rounded-[20px]"
           src={image}
           alt={`${title}-img`}
         />
       </div>
-      <div className="w-[50%]">
-        <h1 className={`text-4xl text-spaceBlue text-left ${textPlacement}`}>
+      <div className="md:w-[50%] sm:w-[70%] w-[80%] sm:mt-0 mt-6">
+        <h1
+          className={`lg:text-4xl sm:text-3xl text-2xl text-spaceBlue text-left ${textPlacement}`}
+        >
           {title}
         </h1>
         <p
-          className={`text-spaceWhite text-xl w-[73%] mt-2 mb-[30px] text-left ${textPlacement}`}
+          className={`text-spaceWhite lg:text-xl md:text-lg text-sm lg:w-[73%] sm:w-[80%] xl:mt-2 text-left ${textPlacement}`}
         >
           {desc}
         </p>
