@@ -1,5 +1,5 @@
 export interface InfoCardBaseType {
-  id: string;
+  id: string
   title: string;
   desc: string;
 }
@@ -10,7 +10,6 @@ export interface InfoCardProps extends InfoCardBaseType {
 }
 
 export const InfoCard = ({
-  id,
   title,
   desc,
   image,
@@ -23,7 +22,6 @@ export const InfoCard = ({
 
   return (
     <div
-      key={id}
       className={`w-full mb-[30px] mx-auto md:mt-[200px] mt-[140px] flex justify-center items-center ${
         isPLacementRight
           ? "md:flex-row flex-col"
