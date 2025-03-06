@@ -118,5 +118,3 @@ const InfoPage = () => {
 };
 
 export default InfoPage;
-
-// Dorob prosim spodny text pod img Percentage Results Bar + Reset Btn Passage a este aj animacie na bars pri scrollovani, zober si na to idealne Framer Motion

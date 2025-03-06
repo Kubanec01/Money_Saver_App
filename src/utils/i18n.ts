@@ -127,9 +127,126 @@ const resources = {
       },
     },
   },
-  fr: {
+  sk: {
     translation: {
-      "Welcome to React": "Bienvenue à React et react-i18next",
+      components: {
+        navbar: {
+          accountButton: {
+            title: "Účet",
+          },
+          restartButton: {
+            title: "Reštart",
+          },
+        },
+        explainBtn: {
+          text: "Pozrieť viac",
+        },
+        resetModal: {
+          title:
+            "Chystáte sa resetovať všetky hodnoty! Ste si istý, že to chcete urobiť?",
+          desc: "Stlačením deštruktívneho tlačidla resetujete všetky svoje hodnoty. Rozpočet, cieľ, výdavky, výsledky a grafy budú mať hodnotu nula.",
+          leftBtn: "Oneskoriť sebadeštrukciu",
+          rightBtn: "Áno, všetko zničiť",
+        },
+        missingBudgetModal: {
+          title:
+            "Chcete míňať zo svojho rozpočtu bez toho, aby ste mali rozpočet?",
+          desc: "Nebojte sa, kapitán, toto sa môže stať aj tým najlepším z nás. Zadajte súradnice svojho rozpočtu, aby ste mohli pokračovať v správe svojich financií.",
+          leftBtn: "Rozumiem, koniec.",
+          rightBtn: "Čo?! Povedz mi viac",
+        },
+      },
+      hero: {
+        title: "Zdravím, kapitán.",
+        subTitle1: "Dnešná misia:",
+        subTitle2: "Ušetriť Vaše peniaze.",
+        desc: "Táto aplikácia je tu, aby vám pomohla zlepšiť vaše návyky v šetrení, zvýšiť vašu finančnú gramotnosť a poskytnúť vám dôležité každodenné informácie. Pripojte sa k nám na ceste, kde vaše financie posunieme na ďalšiu úroveň a ušetríme peniaze na medzihviezdnej úrovni!",
+      },
+      info: {
+        title: "Hlavné súradnice",
+        desc: "Dnes sme v dokonalnej pozícii a na správnej úrovni, aby sme začali úspešný plán šetrenia.",
+      },
+      saverSection: {
+        title: "Nastavme ciele.",
+        desc: "Na ľavej strane si zapíšte svoj rozpočet na obdobie šetrenia. Na pravej strane si zapíšte svoj finančný cieľ, ktorý chcete dosiahnuť do konca stanoveného termínu.",
+        subDesc:
+          "Tento krok je kľúčový pre dosiahnutie vášho cieľa a získanie silnej dávky motivácie.",
+      },
+      financeBars: {
+        title: "Sem zadáte svoje výdavky a príjmy.",
+        bars: {},
+        caption: "To, čo sa rozhodnete zadať, závisí od vás.",
+      },
+      financeResults: {
+        subTitle: "vaše kroky a",
+        title: "<span>Výsledky</span> misie:",
+        desc: "Výsledky misie hovoria jasne a nahlas – pokračujte v skvelej práci! A ak ste ešte nenaplnili svoje očakávania, nevzdávajte sa. Ste schopní dosiahnuť výnimočné veci – zvládnete to!",
+      },
+      explainSection: {
+        subTitle: "Vysvetlenie",
+        title: "Protokoly pre vašu medzihviezdnu cestu",
+      },
+      explainData: {
+        1: {
+          title: "Rozpočet a Cieľ",
+          desc: "Sekcia, kde si môžete zaznamenať svoj rozpočet a cieľ na dosiahnutie finančných úspor.",
+        },
+        2: {
+          title: "Pridať & Uložiť",
+          desc: "Vaša cesta začína tu. Kategorizujete výdavky do rôznych skupín, čo vám poskytne jasný prehľad o tom, na čo míňate peniaze a koľko.",
+        },
+        3: {
+          title: "Výsledky Misie",
+          desc: "Výsledky vašich dosiahnutých cieľov sú zobrazené v tejto tabuľke, ktorá vám poskytuje podrobný prehľad o ceste, ktorou vaše výdavky smerujú.",
+        },
+        4: {
+          title: "Grafy a percentá",
+          desc: "Poskytujú matematický pohľad na to, ako dobre ste splnili svoje očakávania. Prvé percento ukazuje, koľko ste ušetrili, druhé percento zobrazuje náklady na nevyhnutné investície a tretie percento zdôrazňuje, koľko míňate na zábavu a iné aktivity.",
+        },
+      },
+      infoPage: {
+        hero: {
+          title:
+            "Inštrukcie na začatie <br/> vašej šetriacej dobrodružnej cesty",
+          desc: "Zdravím, kapitán! Tu nájdete všetky inštrukcie a informácie, ktoré budete potrebovať na svojej ceste. Budem vám k službám po celú dobu vašej jazdy až do úplného konca vašich šetriacich dní.",
+        },
+        infoCarts: {
+          coreCoordsInfo: {
+            title: "Sekcia hlavné súradnice",
+            desc: "Toto je váš motivačný a informačný hub, plný kľúčových informácií pre každé veľké dobrodružstvo. Okrem inšpirujúcich citátov tu nájdete aj praktický spôsob, ako sledovať čas a dátum, pretože každá kapitánova cesta sa riadi dokonalým načasovaním!",
+          },
+          budgetGoalInfo: {
+            title: "Rozpočet A Cieľov",
+            desc: "Toto je miesto, kde začína základ vášho šetriaceho dobrodružstva! V sekcii „Váš rozpočet“ nastavte sumu, ktorú plánujete dodržiavať počas zvoleného obdobia šetrenia. Toto je vaša finančná kľúčová informácia, ktorá formuje všetko ostatné na vašej ceste. Ďalej, v sekcii „Vaše ciele“, nastavte svoj cieľ šetrenia. Rozhodnite sa, koľko chcete ušetriť a na čo sa zameriavate.",
+          },
+          financeBarsInfo: {
+            title: "Nastavenie Výdavkov",
+            desc: "V tejto sekcii budete sledovať všetky svoje výdavky. Sledovač výdavkov je rozdelený do šiestich kategórií podľa priority a účelu, čo vám uľahčí zistiť, kam vaše peniaze idú. Jednoducho zadajte sumu, ktorú ste minuli, a stlačte tlačidlo '+' na jej pridanie do príslušnej kategórie. Urobili ste chybu? Žiadny problém! Stačí použiť tlačidlo '-' na odstránenie sumy a ľahko upravit vaše záznamy.",
+          },
+          expensesResultsInfo: {
+            title: "Výsledky misie sú tu!",
+            desc: "Na základe záznamov z predchádzajúcej sekcie teraz máte jasný prehľad o svojich výdavkoch. Uvidíte presne, kam vaše peniaze išli a koľko ste minuli v každej kategórii. Čokoľvek pridáte alebo odstránite v Nastavení výdavkov, sa okamžite aktualizuje v tejto tabuľke, čím sa zabezpečí, že vaše sledovanie rozpočtu bude plynulé a aktuálne!",
+          },
+        },
+        expensesReviewsCart: {
+          savedBar: {
+            title: "Ušetrené",
+            desc: "Pásik „Ušetrené“ vám ukáže, koľko peňazí ste ušetrili zo svojho pôvodného rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
+          },
+          spentBar: {
+            title: "Minuté",
+            desc: "Pásik „Minulé“ zobrazuje celkovú sumu peňazí, ktorú ste minuli zo svojho rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
+          },
+          funOtherBar: {
+            title: "Zábava/Iné",
+            desc: "Pásik „Zábava/Iné“ zobrazuje sumu peňazí, ktorú ste minuli konkrétne na zábavu a iné výdavky zo pásika „Minulé“. Táto hodnota je zobrazená ako číslo aj ako percento, ktoré odráža podiel tejto sumy na celkovej sume pásika „Minulé“.",
+          },
+        },
+        resetButtonInfo: {
+          title: "Tlačidlo sebadeštrukcie",
+          desc: "Ak ste úspešne dokončili svoju misiu a začína nové obdobie šetrenia, môžete jednoducho vymazať všetky údaje kliknutím na toto tlačidlo. <span>UPOZORNENIE</span>, po potvrdení sebadeštrukcie už nebude možné obnoviť žiadne údaje.",
+        },
+      },
     },
   },
 };
