@@ -1,6 +1,5 @@
 import style from "./timeGenerator.module.scss";
 import testImg from "../../../../../../assets/clouds.night-img.png";
-import { useTimeApi } from "../../../../../../hooks/useTimeApi";
 import { motion } from "motion/react";
 
 export const TimeGenerator = () => {
