@@ -1,6 +1,6 @@
 import testImg from "../../../../../../assets/calendar-icon-img.webp";
 import style from "./dateGenerator.module.scss";
-import { useTimeApi } from "../../../../../../hooks/useTimeApi";
+// import { useTimeApi } from "../../../../../../hooks/useTimeApi";
 import { motion } from "motion/react";
 
 export const DateGenerator = () => {
