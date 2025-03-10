@@ -7,13 +7,13 @@ export const FinanceBars = () => {
 
   return (
     <div
-      className={`${style.body} p-2 md:w-[88%] w-[98%] mx-auto mt-[180px] rounded-[20px]`}
+      className={`${style.body} p-2 md:w-[88%] sm:w-[98%] w-[94%] mx-auto mt-[180px] rounded-[20px]`}
     >
       <div className="w-full sm:mt-[48px] mt-[20px]">
         <h2 className="lg:text-2xl sm:text-xl text-lg uppercase text-center text-spaceBlue">
           Add & Save
         </h2>
-        <h1 className="lg:text-4xl sm:text-3xl text-2xl font-bold text-center text-spaceWhite">
+        <h1 className="lg:text-4xl sm:text-3xl text-2xl mx-auto font-bold text-center text-spaceWhite">
           {t("financeBars.title")}
         </h1>
       </div>
@@ -27,7 +27,7 @@ export const FinanceBars = () => {
       </div>
       <div className="w-full md:mt-[80px] mt-[60px] mb-[20px]">
         <h3 className="text-[#ffffff69] text-center mx-auto sm:w-full w-[90%] sm:text-xl text-lg md:font-bold">
-        {t("financeBars.caption")}
+          {t("financeBars.caption")}
         </h3>
       </div>
     </div>

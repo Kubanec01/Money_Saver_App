@@ -24,18 +24,18 @@ export const ResetValuesModal = () => {
 
   const resetValues = () => {
     resetStoredValues({ keys: ResetData });
-    closeModal();
     setExpenses(data.expenses.initialValue);
     setExpensesSum(data.expensesSum.initialValue);
     setBudget(data.budget.initialValue);
     setGoal(data.goal.initialValue);
+    closeModal();
   };
 
   return (
     <ModalTemplate
       id="restart-values-modal"
       bgImage={image1}
-      modalBodyStyle="p-4 pb-8 fixed rounded-[20px] 2xl:w-[34%] xl:w-[40%] lg:w-[46%] md:w-[64%] sm:w-[74%] w-[84%] z-[10000]"
+      modalBodyStyle="p-4 pb-8 fixed rounded-[20px] max-w-[700px] 2xl:w-[34%] xl:w-[40%] lg:w-[46%] md:w-[64%] sm:w-[74%] w-[84%] z-[10000]"
     >
       <h1
         style={{

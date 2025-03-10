@@ -46,11 +46,12 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
     data.expensesSum.initialValue
   );
 
+  // MODAL
   const [activeModal, setActiveModal] = useState<string | null>(null);
-
   const openModal = useCallback((id: string) => {
     setActiveModal(id);
   }, []);
+
   const closeModal = useCallback(() => {
     setActiveModal(null);
   }, []);

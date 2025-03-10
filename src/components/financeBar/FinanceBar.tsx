@@ -2,7 +2,7 @@ import style from "./financeBar.module.scss";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
 import { HandleKeyDown } from "../../features/HandleKeyDown";
 import { HandleOnWheel } from "../../features/HandleOnWheel";
@@ -15,41 +15,52 @@ type FinanceBarProps = {
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   const { setExpensesSum, budget, openModal } = useFinanceSaverContext();
-  const [expenseValue, setExpenseValue] = useState("");
   const { updateExpense, expenses } = useExpensesAndResultsBarContext();
+  const [expenseValue, setExpenseValue] = useState("");
 
   // Variables
   let expenseValueNum = Number(expenseValue);
 
-  const handleMoneyValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let eventValue = e.target.value;
-    let eventValueLength = eventValue.length;
+  const handleMoneyValue = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      let eventValue = e.target.value;
+      let eventValueLength = eventValue.length;
 
-    if (eventValueLength < 9 && eventValue[0] !== "0") {
-      setExpenseValue(eventValue);
-    }
-  };
+      if (eventValueLength < 9 && eventValue[0] !== "0") {
+        setExpenseValue(eventValue);
+      }
+    },
+    [setExpenseValue]
+  );
 
-  const increase = () => {
+  const handleExpenseChange = (operation: "increase" | "decrease") => {
     if (budget === "0") {
       return openModal("missing-budget-modal");
     }
-    const newValue = (expenses[id] || 0) + Number(expenseValue);
-    setExpensesSum((prevSum) => prevSum + expenseValueNum);
+
+    const expenseChange = Number(expenseValue);
+    const currentExpense = expenses[id] || 0;
+
+    const newValue =
+      operation === "increase"
+        ? currentExpense + expenseChange
+        : currentExpense - expenseChange;
+
+    const updatedSum =
+      operation === "increase" ? expenseValueNum : -expenseValueNum;
+    setExpensesSum((prevSum) => prevSum + updatedSum);
     updateExpense(id, newValue);
+    setExpenseValue("");
   };
 
-  const decrease = () => {
-    const newValue = (expenses[id] || 0) - Number(expenseValue);
-    setExpensesSum((prevSum) => prevSum - expenseValueNum);
-    updateExpense(id, newValue);
-  };
-
-  const onEnterPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      increase();
-    }
-  };
+  const onEnterPress = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "Enter") {
+        handleExpenseChange("increase");
+      }
+    },
+    [handleExpenseChange]
+  );
 
   return (
     <div id={id} className={`${style.body} flex sm:w-[340px] w-[270px]`}>
@@ -59,7 +70,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
       <input
         onWheel={HandleOnWheel}
         onKeyDown={(e) => {
-          HandleKeyDown;
+          HandleKeyDown(e);
           onEnterPress(e);
         }}
         onChange={handleMoneyValue}
@@ -71,14 +82,14 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
       <div className="flex sm:text-4xl text-3xl gap-3 items-center justify-between mb-1">
         <button
           title="Add an expense"
-          onClick={increase}
+          onClick={() => handleExpenseChange("increase")}
           className={style.button}
         >
           <CiCirclePlus />
         </button>
         <button
           title="Remove the expense"
-          onClick={decrease}
+          onClick={() => handleExpenseChange("decrease")}
           className={style.button}
         >
           <CiCircleMinus />
