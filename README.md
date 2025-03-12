@@ -1,51 +1,43 @@
-# React + TypeScript + Vite
+# 💰 Money Saver App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![screenshot](./src/assets/app-screenshot-img.png)
 
-Currently, two official plugins are available:
+Money Saver App is an ongoing project designed to help you save money and improve financial literacy. It guides you through several steps to manage your savings in a space-like atmosphere. The app includes features for tracking expenses with numbers and percentages, the ability to store values, and much more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+https://kubanec01.github.io/Money_Saver_App/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠 Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- React + Vite
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🌟 Features
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Track your expenses with numbers and percentages.
+- Save and manage values for future reference.
+- Info section on the app with a brief description and instructions on how to use the application.
+- Space-like atmosphere for an engaging user experience.
+- Responsive and fast UI built.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🔧 Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# Money_Saver_App
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+   - `git clone https://github.com/Kubanec01/Money_Saver_App.git`
+
+2. Navigate to the project directory:
+
+   - `cd Money-Saver-App`
+
+3. Install the dependencies:
+
+   - `npm install`
+
+4. Run the app locally:
+   - `npm run dev`
