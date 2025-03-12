@@ -63,7 +63,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   );
 
   return (
-    <div id={id} className={`${style.body} flex sm:w-[340px] w-[270px]`}>
+    <div id={id} className={`${style.body} flex md:w-[340px] w-[270px]`}>
       <label htmlFor={inputId} className="sm:text-3xl text-2xl text-spaceBlue">
         {text}:
       </label>
