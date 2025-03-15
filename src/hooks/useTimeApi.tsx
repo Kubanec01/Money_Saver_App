@@ -16,19 +16,20 @@ interface TimeData {
   dstActive: boolean;
 }
 
-// https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague
-
 export const useTimeApi = () => {
   const [timeData, setTimeData] = useState<TimeData | null>(null);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const resp = await fetch("", {
-          headers: {
-            accept: "application/json",
-          },
-        });
+        const resp = await fetch(
+          "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
+          {
+            headers: {
+              accept: "application/json",
+            },
+          }
+        );
 
         const data = await resp.json();
         setTimeData(data);

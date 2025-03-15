@@ -1,14 +1,14 @@
-import testImg from "../../../../../../assets/calendar-icon-img.webp";
+import calendarImg from "../../../../../../assets/calendar-icon-img.webp";
 import style from "./dateGenerator.module.scss";
-// import { useTimeApi } from "../../../../../../hooks/useTimeApi";
+import { useTimeApi } from "../../../../../../hooks/useTimeApi";
 import { motion } from "motion/react";
 
 export const DateGenerator = () => {
-  // const data = useTimeApi();
+  const data = useTimeApi();
 
-  // if (!data) {
-  //   return 0;
-  // }
+  if (!data) {
+    return 0;
+  }
 
   return (
     <motion.div
@@ -28,13 +28,13 @@ export const DateGenerator = () => {
       <div className="w-full">
         <div className="flex items-center justify-center">
           <div className="flex items-center text-customWhite300 md:text-5xl sm:text-3xl text-2xl font-medium">
-            18/01/2015
+            {data.date}
           </div>
           <div>
             <img
               className="object-cover aspect-square md:w-[50px] sm:w-[34px] w-[30px] sm:ml-1"
-              src={testImg}
-              alt=""
+              src={calendarImg}
+              alt="calendar-image"
             />
           </div>
         </div>
