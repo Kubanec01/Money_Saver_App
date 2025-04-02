@@ -13,6 +13,7 @@
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.59",
     "crypto-browserify": "^3.12.1",
+    "firebase": "^11.6.0",
     "i18next": "^24.2.1",
     "i18next-browser-languagedetector": "^8.0.2",
     "motion": "^11.17.0",
