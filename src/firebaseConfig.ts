@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
+import { getAuth } from "firebase/auth";
+
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -10,8 +11,11 @@ const firebaseConfig = {
   projectId: "money-saver-app-f9d5e",
   storageBucket: "money-saver-app-f9d5e.firebasestorage.app",
   messagingSenderId: "863400519457",
-  appId: "1:863400519457:web:89a28e5e84c31afdaac060"
+  appId: "1:863400519457:web:89a28e5e84c31afdaac060",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+export { app, auth };
