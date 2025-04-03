@@ -63,7 +63,7 @@ export const Navbar = () => {
             </li>
             <li className="mr-4">
               <Link
-                to="info"
+                to="/info"
                 className={`${style.helpButton} sm:text-4xl text-3xl text-[#b7cff7d8]`}
               >
                 <HiOutlineQuestionMarkCircle />
