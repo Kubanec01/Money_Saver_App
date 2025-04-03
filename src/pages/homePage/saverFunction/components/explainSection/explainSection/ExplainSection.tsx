@@ -24,7 +24,7 @@ export const ExplainSection = () => {
       </div>
       <div className="flex justify-center items-center mx-auto w-[40%]">
         <Link
-          to="info"
+          to="/info"
           className="md:text-xl sm:text-lg font-semibold text-[white] border-[2px] md:px-4 px-3 md:py-2 py-1 rounded-[12px] mt-5
         hover:bg-[white] hover:text-[black] duration-200 ease"
         >
