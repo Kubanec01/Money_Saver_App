@@ -13,6 +13,7 @@ export default {
         warningOrange: "#ef8940",
         spaceWhite: "#eceefa",
         spaceGray: "#6b72803d",
+        neonPurple: "#8f3aff",
       },
     },
   },
