@@ -22,8 +22,9 @@ export const Navbar = () => {
       <div
         style={{
           backdropFilter: "blur(5px)",
+          boxShadow: " 0 0 20px 14px #4317b26a",
         }}
-        className={`${style.body} w-[900px] sm:h-[90px] h-[74px] flex justify-between items-center mx-auto mt-[24px] border-[2px] border-[#8f3aff] rounded-[16px]`}
+        className={`${style.body} w-[900px] sm:h-[90px] h-[74px] flex justify-between items-center mx-auto mt-[24px] border-[2px] border-neonPurple rounded-[16px]`}
       >
         {/* LEFT */}
         <div className="h-full md:w-[20%] flex justify-center items-center">
@@ -74,7 +75,9 @@ export const Navbar = () => {
                 onClick={() => openModal("restart-values-modal")}
                 className={`${style.restartBtn} md:px-[12px] sm:px-[8px] px-[14px] md:py-[5px] sm:py-[4px] py-[6px] md:text-xl text-lg border-[2px] border-[#ffffffcc] font-medium rounded-[8px] overflow-hidden text-customWhite`}
               >
-                <span className="sm:block hidden">{t("components.navbar.restartButton.title")} 💫</span>
+                <span className="sm:block hidden">
+                  {t("components.navbar.restartButton.title")} 💫
+                </span>
                 <span className="sm:hidden block text-xl">
                   <MdRestartAlt />
                 </span>
