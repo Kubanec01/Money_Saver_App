@@ -1,0 +1,18 @@
+
+
+.img {
+    animation: ease-in-out cosmonautAnim 6s infinite;
+}
+
+
+@keyframes cosmonautAnim {
+    0% {
+        transform: translateY(8%);
+    }
+    33% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(8%);
+    }
+}
