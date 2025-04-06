@@ -12,7 +12,7 @@ const RegisterPage = () => {
       }}
       className="w-full h-[100vh] flex justify-center items-center"
     >
-      <div className="border-[3px] border-neonPurple rounded-[14px] w-[90%] max-w-[460px] p-5">
+      <div className="border-[3px] border-neonPurple rounded-[14px] w-[90%] max-w-[430px] p-5">
         <h1
           className="text-spaceWhite mx-auto text-center text-3xl relative
         after:absolute after:w-[80%] after:border-[2px] after:border-spaceBlue after:-bottom-3 after:left-[50%] after:translate-x-[-50%]  
@@ -41,7 +41,7 @@ const RegisterPage = () => {
               className={inputStyles}
             />
           </section>
-          <section className="flex flex-col justify-center items-center mt-[54px] gap-5">
+          <section className="flex flex-col justify-center items-center mt-[54px] gap-4">
             <button
               type="submit"
               className="text-[#ffffffeb] w-full h-[52px] bg-[#4c3bc9] hover:bg-[#5747d2] rounded-[4px] text-2xl"
@@ -49,7 +49,7 @@ const RegisterPage = () => {
               Sign Up
             </button>
             <Link
-              to="/login"
+              to="/"
               className="text-[#d1cdf5] text-xl hover:underline"
             >
               I have an account
