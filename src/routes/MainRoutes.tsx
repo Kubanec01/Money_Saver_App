@@ -8,6 +8,9 @@ const LoginPage = lazy(() => import("../pages/auth/loginPage/LoginPage"));
 const RegisterPage = lazy(
   () => import("../pages/auth/registerPage/RegisterPage")
 );
+const Error404Page = lazy(
+  () => import("../pages/404/404Error/NotFoundPage")
+);
 
 export const MainRoutes = () => {
   return (
@@ -15,6 +18,7 @@ export const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="*" element={<Error404Page />} />
         <Route element={<RoutingProtection />}>
           <Route path="/home" element={<HomePage />} />
           <Route path="/info" element={<InfoPage />} />
