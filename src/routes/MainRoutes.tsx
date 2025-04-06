@@ -1,5 +1,6 @@
-import { Navigate, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
+import RoutingProtection from "../firebase/features/RoutingProtection";
 
 const HomePage = lazy(() => import("../pages/homePage/HomePage"));
 const InfoPage = lazy(() => import("../pages/infoPage/InfoPage"));
@@ -14,8 +15,10 @@ export const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/info" element={<InfoPage />} />
+        <Route element={<RoutingProtection />}>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/info" element={<InfoPage />} />
+        </Route>
       </Routes>
     </Suspense>
   );

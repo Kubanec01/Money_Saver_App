@@ -6,22 +6,22 @@ const RegisterPage = () => {
     "w-full h-[60px] pl-2 bg-transparent rounded-[6px] border-[3px] border-[#6b6a6adc] focus:border-neonPurple focus:outline-none caret-[#6b6a6adc] text-xl text-[#c1bfbf]";
 
   return (
-    <section
+    <div
       style={{
         backdropFilter: "blur(5px)",
       }}
-      className="w-full h-[100vh] flex justify-center items-center"
+      className="w-full h-[100vh] flex justify-center items-center relative"
     >
       <div className="border-[3px] border-neonPurple rounded-[14px] w-[90%] max-w-[430px] p-5">
         <h1
           className="text-spaceWhite mx-auto text-center text-3xl relative
-        after:absolute after:w-[80%] after:border-[2px] after:border-spaceBlue after:-bottom-3 after:left-[50%] after:translate-x-[-50%]  
+        after:absolute after:w-[80%] after:border-[1px] after:border-spaceBlue after:-bottom-3 after:left-[50%] after:translate-x-[-50%]  
         "
         >
           Creating New Account
         </h1>
         <form className="w-full" onSubmit={(e) => e.preventDefault()} action="">
-          <section className="flex flex-col justify-center items-center mt-[54px] gap-5">
+          <section className="flex flex-col justify-center items-center mt-[64px] gap-5">
             {/* EMAIL */}
             <input
               id="email"
@@ -48,16 +48,13 @@ const RegisterPage = () => {
             >
               Sign Up
             </button>
-            <Link
-              to="/"
-              className="text-[#d1cdf5] text-xl hover:underline"
-            >
+            <Link to="//" className="text-[#d1cdf5] text-xl hover:underline">
               I have an account
             </Link>
           </section>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 
