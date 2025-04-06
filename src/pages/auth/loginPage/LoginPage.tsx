@@ -1,5 +1,7 @@
+import { Link } from "react-router";
 import img1 from "../../../assets/astronaut-img.png";
 import style from "./loginPage.module.scss";
+
 
 // STYLES
 const inputStyle =
@@ -17,7 +19,7 @@ const LoginPage = () => {
         {/* LEFT */}
         <div className="w-[50%] flex flex-col justify-center items-start">
           <img
-            className={`${style.img} object-cover w-[90%] h-auto ml-8 -mt-[380px]`}
+            className={`${style.img} object-cover w-[90%] h-auto ml-8 -mt-[380px] opacity-90`}
             src={img1}
             alt="cosmonaut-img"
           />
@@ -38,7 +40,7 @@ const LoginPage = () => {
             className="border-[3px] border-neonPurple rounded-[14px] w-[460px] h-[400px] -mt-[100px] py-6"
           >
             <form
-              onSubmit={(e) => e.preventDefault}
+              onSubmit={(e) => e.preventDefault()}
               action=""
               className="w-full h-full flex flex-col items-center"
             >
@@ -66,12 +68,12 @@ const LoginPage = () => {
                 </button>
               </section>
               <section className="w-[52%] flex flex-col items-center justify-end mt-6">
-                <button
-                  type="submit"
-                  className="text-[#ffffffeb] w-full h-[56px] bg-[#6bcd5ad9] hover:bg-[#7ccf6ed9] rounded-[4px] text-xl mt-3"
+                <Link
+                to="/register"
+                  className="flex justify-center items-center text-[#ffffffeb] w-full h-[56px] bg-[#6bcd5ad9] hover:bg-[#7ccf6ed9] rounded-[4px] text-xl mt-3"
                 >
                   Create New Account
-                </button>
+                </Link>
               </section>
             </form>
           </div>
