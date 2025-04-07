@@ -8,11 +8,11 @@ import {
   updatePassword,
 } from "firebase/auth";
 
-export const doCreateUser = async (email: string, password: string) => {
+export const doCreateUserWithEmailAndPassword = async (email: string, password: string) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
-export const doSignIn = (email: string, password: string) => {
+export const doSignInWithEmailAndPassword = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)
 }
 
