@@ -14,6 +14,7 @@ export default {
         spaceWhite: "#eceefa",
         spaceGray: "#6b72803d",
         neonPurple: "#8f3aff",
+        errorColor: "#ff1f1f",
       },
     },
   },

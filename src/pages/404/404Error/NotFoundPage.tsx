@@ -2,7 +2,7 @@ import img1 from "../../../assets/404-img.webp";
 
 const NotFoundPage = () => {
   return (
-    <div className="w-full h-[100vh] bg-[#fff9f9fa] flex items-center justify-center">
+    <div className="w-full h-[100vh] bg-[#fbefeffa] flex items-center justify-center">
       <section className="w-[90%] max-w-[900px] h-auto flex flex-col justify-center items-center">
         <h1
           style={{

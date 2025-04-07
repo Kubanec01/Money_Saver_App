@@ -8,6 +8,7 @@ import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { MdRestartAlt } from "react-icons/md";
+import { doSignOut } from "../../../firebase/auth";
 
 export const Navbar = () => {
   const { openModal } = useFinanceSaverContext();
@@ -15,6 +16,15 @@ export const Navbar = () => {
   const [isCurrencyMenuOpen, setIsCurrencyMenuOpen] = useState(false);
 
   const { t } = useTranslation();
+
+  const signOutHandler = async () => {
+    try {
+      await doSignOut();
+      window.location.reload();
+    } catch (error: unknown) {
+      console.error("Something went wrong during logout.", error);
+    }
+  };
 
   return (
     <div className="fixed z-50 top-0 left-0 w-full flex justify-center items-center px-4">
@@ -29,6 +39,7 @@ export const Navbar = () => {
         {/* LEFT */}
         <div className="h-full md:w-[20%] flex justify-center items-center">
           <button
+            onClick={signOutHandler}
             style={{
               backdropFilter: "blur(2px)",
             }}

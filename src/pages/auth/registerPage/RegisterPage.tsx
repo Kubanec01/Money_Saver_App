@@ -1,60 +1,103 @@
-import { Link } from "react-router";
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router";
+import { doCreateUserWithEmailAndPassword } from "../../../firebase/auth";
+import { FirebaseError } from "firebase/app";
 
 const RegisterPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!email || !password || !confirmPassword) {
+      setErrorMessage("Please fill in all the required informations.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
+
+    try {
+      setIsRegistering(true);
+      await doCreateUserWithEmailAndPassword(email, password);
+    } catch (error: unknown) {
+      if (error instanceof FirebaseError) {
+        if (error.code === "auth/email-already-exists") {
+          setErrorMessage("This email is already in use.");
+        } else if (error.code === "auth/weak-password") {
+          setErrorMessage("Password should be at least 6 characters.");
+        } else {
+          setErrorMessage("Something went wrong, please try again later.");
+        }
+      }
+    }
+  };
+
   // STYLES
   const inputStyles =
     "w-full h-[60px] pl-2 bg-transparent rounded-[6px] border-[3px] border-[#6b6a6adc] focus:border-neonPurple focus:outline-none caret-[#6b6a6adc] text-xl text-[#c1bfbf]";
 
   return (
-    <div
-      style={{
-        backdropFilter: "blur(5px)",
-      }}
-      className="w-full h-[100vh] flex justify-center items-center relative"
-    >
-      <div className="border-[3px] border-neonPurple rounded-[14px] w-[90%] max-w-[430px] p-5">
-        <h1
-          className="text-spaceWhite mx-auto text-center text-3xl relative
+    <>
+      {isRegistering && <Navigate to="/home" replace={true} />}
+      <div
+        style={{
+          backdropFilter: "blur(5px)",
+        }}
+        className="w-full h-[100vh] flex justify-center items-center relative"
+      >
+        <div className="border-[3px] border-neonPurple rounded-[14px] w-[90%] max-w-[430px] p-5">
+          <h1
+            className="text-spaceWhite mx-auto text-center text-3xl relative
         after:absolute after:w-[80%] after:border-[1px] after:border-spaceBlue after:-bottom-3 after:left-[50%] after:translate-x-[-50%]  
         "
-        >
-          Creating New Account
-        </h1>
-        <form className="w-full" onSubmit={(e) => e.preventDefault()} action="">
-          <section className="flex flex-col justify-center items-center mt-[64px] gap-5">
-            {/* EMAIL */}
-            <input
-              id="email"
-              type="email"
-              placeholder="Enter your email..."
-              className={inputStyles}
-            />
-            {/* PASSWORD */}
-            <input
-              type="text"
-              placeholder="Create a password..."
-              className={inputStyles}
-            />
-            <input
-              type="text"
-              placeholder="Confirm your password..."
-              className={inputStyles}
-            />
-          </section>
-          <section className="flex flex-col justify-center items-center mt-[54px] gap-4">
-            <button
-              type="submit"
-              className="text-[#ffffffeb] w-full h-[52px] bg-[#4c3bc9] hover:bg-[#5747d2] rounded-[4px] text-2xl"
-            >
-              Sign Up
-            </button>
-            <Link to="//" className="text-[#d1cdf5] text-xl hover:underline">
-              I have an account
-            </Link>
-          </section>
-        </form>
+          >
+            Creating New Account
+          </h1>
+          <form className="w-full" onSubmit={onSubmit} action="">
+            <section className="flex flex-col justify-center items-center mt-[64px] gap-5">
+              {/* EMAIL */}
+              <input
+                type="email"
+                placeholder="Enter your email..."
+                className={inputStyles}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              {/* PASSWORD */}
+              <input
+                type="password"
+                placeholder="Create a password..."
+                className={inputStyles}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Confirm your password..."
+                className={inputStyles}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <p className="text-lg text-errorColor">{errorMessage}</p>
+            </section>
+            <section className="flex flex-col justify-center items-center mt-[34px] gap-4">
+              <button
+                type="submit"
+                className="text-[#ffffffeb] w-full h-[52px] bg-[#4c3bc9] hover:bg-[#5747d2] rounded-[4px] text-2xl"
+              >
+                Sign Up
+              </button>
+              <Link to="//" className="text-[#d1cdf5] text-xl hover:underline">
+                I have an account
+              </Link>
+            </section>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
