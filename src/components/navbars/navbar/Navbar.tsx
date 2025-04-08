@@ -8,23 +8,19 @@ import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { MdRestartAlt } from "react-icons/md";
-import { doSignOut } from "../../../firebase/auth";
+import { useAuthContext } from "../../../hooks/context/authContext";
+import { signOutFunction } from "../../../firebase/features/signOutFunction";
+import UserSettingsBar from "../../../features/userSettingsBar/UserSettingsBar";
 
 export const Navbar = () => {
   const { openModal } = useFinanceSaverContext();
   const { currency } = useCurrencyContext();
   const [isCurrencyMenuOpen, setIsCurrencyMenuOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  console.log(isUserMenuOpen)
+  const { currentUser } = useAuthContext();
 
   const { t } = useTranslation();
-
-  const signOutHandler = async () => {
-    try {
-      await doSignOut();
-      window.location.reload();
-    } catch (error: unknown) {
-      console.error("Something went wrong during logout.", error);
-    }
-  };
 
   return (
     <div className="fixed z-50 top-0 left-0 w-full flex justify-center items-center px-4">
@@ -34,32 +30,36 @@ export const Navbar = () => {
           backdropFilter: "blur(5px)",
           boxShadow: " 0 0 20px 14px #4317b26a",
         }}
-        className={`${style.body} w-[900px] sm:h-[90px] h-[74px] flex justify-between items-center mx-auto mt-[24px] border-[2px] border-neonPurple rounded-[16px]`}
+        className={`${style.body} w-[900px] sm:h-[80px] h-[74px] flex justify-between items-center mx-auto mt-[24px] border-[2px] border-neonPurple rounded-[16px]`}
       >
         {/* LEFT */}
-        <div className="h-full md:w-[20%] flex justify-center items-center">
+        <section className="h-full md:w-[26%] flex justify-start lg:pl-6 items-center relative">
           <button
-            onClick={signOutHandler}
+            onClick={() => setIsUserMenuOpen((v) => !v)}
             style={{
               backdropFilter: "blur(2px)",
             }}
-            className="flex md:justify-start justify-center items-center md:w-[120px] w-[40px] h-[42px] rounded-[30px] md:ml-2 sm:ml-7 ml-4 md:gap-1 bg-[#71bcf55b]"
+            className="flex md:justify-start justify-center items-center md:w-[104px] w-[40px] h-[42px] rounded-[30px] md:ml-2 sm:ml-7 ml-4 md:gap-1 bg-[#71bcf55b]"
           >
-            <span className="text-[#ffffffee] text-3xl md:ml-2">
-              <FaUserCircle />
+            <span className="text-[#ffffff] md:ml-2">
+              <FaUserCircle size={30} />
             </span>
             <h1
               style={{
                 textShadow: "0px 1px 6px #0DB5FF",
               }}
-              className="text-customWhite text-lg font-medium md:block hidden"
+              className="text-customWhite text-xl font-medium mt-1 ml-[0.1rem] md:block hidden"
             >
               {t("components.navbar.accountButton.title")}
             </h1>
           </button>
-        </div>
+          <UserSettingsBar
+            isOpen={isUserMenuOpen}
+            setIsOpen={setIsUserMenuOpen}
+          />
+        </section>
         {/* RIGHT */}
-        <div className="h-full lg:w-[50%]">
+        <section className="h-full lg:w-[50%]">
           <ul className="flex h-full items-center justify-end text-white sm:mr-10 mr-4 sm:gap-16 gap-4">
             <li className="sm:text-lg text-base text-[#b7cef7] relative">
               <button
@@ -70,7 +70,7 @@ export const Navbar = () => {
               </button>
               <CurrencySettingBar
                 isOpen={isCurrencyMenuOpen}
-                setOpen={setIsCurrencyMenuOpen}
+                setIsOpen={setIsCurrencyMenuOpen}
               />
             </li>
             <li className="mr-4">
@@ -95,7 +95,7 @@ export const Navbar = () => {
               </button>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
     </div>
   );

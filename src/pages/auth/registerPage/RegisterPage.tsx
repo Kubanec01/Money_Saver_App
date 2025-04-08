@@ -6,15 +6,17 @@ import { FirebaseError } from "firebase/app";
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage('')
 
-    if (!email || !password || !confirmPassword) {
-      setErrorMessage("Please fill in all the required informations.");
+    if (!email || !password || !confirmPassword || !userName) {
+      setErrorMessage("Please fill in all the required information.");
       return;
     }
     if (password !== confirmPassword) {
@@ -24,7 +26,7 @@ const RegisterPage = () => {
 
     try {
       setIsRegistering(true);
-      await doCreateUserWithEmailAndPassword(email, password);
+      await doCreateUserWithEmailAndPassword(email, password, userName);
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
         if (error.code === "auth/email-already-exists") {
@@ -61,6 +63,13 @@ const RegisterPage = () => {
           </h1>
           <form className="w-full" onSubmit={onSubmit} action="">
             <section className="flex flex-col justify-center items-center mt-[64px] gap-5">
+              {/* USER NAME */}
+              <input
+                type="text"
+                placeholder="Name..."
+                className={`${inputStyles} mb-5`}
+                onChange={(e) => setUserName(e.target.value)}
+              />
               {/* EMAIL */}
               <input
                 type="email"

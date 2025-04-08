@@ -2,12 +2,12 @@ import { Dispatch, SetStateAction } from "react";
 import { currencyData } from "../../data/curencyData";
 import { useCurrencyContext } from "../../hooks/context/CurrencyContext";
 
-type CurrencySettingBar = {
+export type SettingBarType = {
   isOpen: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-export const CurrencySettingBar = ({ isOpen, setOpen }: CurrencySettingBar) => {
+export const CurrencySettingBar = ({ isOpen, setIsOpen }: SettingBarType) => {
   const { setCurrency } = useCurrencyContext();
 
   // DATA
@@ -31,7 +31,7 @@ export const CurrencySettingBar = ({ isOpen, setOpen }: CurrencySettingBar) => {
               <button
                 onClick={() => {
                   setCurrency(i.curr);
-                  setOpen((v) => !v);
+                  setIsOpen((v) => !v);
                 }}
                 className={buttonStyle}
               >

@@ -11,7 +11,7 @@ const resources = {
       components: {
         navbar: {
           accountButton: {
-            title: "Account",
+            title: "User",
           },
           restartButton: {
             title: "Restart",

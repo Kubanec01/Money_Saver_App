@@ -6,15 +6,35 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   updatePassword,
+  updateProfile,
 } from "firebase/auth";
 
-export const doCreateUserWithEmailAndPassword = async (email: string, password: string) => {
-  return createUserWithEmailAndPassword(auth, email, password);
+export const doCreateUserWithEmailAndPassword = async (
+  email: string,
+  password: string,
+  userName: string
+) => {
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+
+  if (auth.currentUser) {
+    await updateProfile(auth.currentUser, {
+      displayName: userName,
+    });
+  }
+
+  return userCredential;
 };
 
-export const doSignInWithEmailAndPassword = (email: string, password: string) => {
-    return signInWithEmailAndPassword(auth, email, password)
-}
+export const doSignInWithEmailAndPassword = (
+  email: string,
+  password: string
+) => {
+  return signInWithEmailAndPassword(auth, email, password);
+};
 
 export const doSignOut = () => {
   return auth.signOut();
@@ -28,7 +48,7 @@ export const doPasswordChange = (password: string) => {
   if (auth.currentUser) {
     return updatePassword(auth.currentUser, password);
   }
-  return null
+  return null;
 };
 
 export const doSendEmailVerification = () => {
