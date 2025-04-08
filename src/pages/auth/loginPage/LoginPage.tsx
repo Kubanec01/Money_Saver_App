@@ -38,7 +38,7 @@ const LoginPage = () => {
           } else if (error.code === "auth/invalid-password") {
             setErrorMessage("Incorrect password.");
           } else {
-            setErrorMessage("Login failed. Please try again.");
+            setErrorMessage("Wrong email or password.");
           }
       } finally {
         setIsSigningIn(false);
