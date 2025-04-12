@@ -1,11 +1,15 @@
 import { SettingBarType } from "../currencySettingBar/CurrencySettingBar";
 import { t } from "i18next";
 import { signOutFunction } from "../../firebase/features/signOutFunction";
+import { useAuthContext } from "../../hooks/context/authContext/authContext";
 
-export const UserSettingsBar = ({ isOpen, setIsOpen }: SettingBarType) => {
+export const UserSettingsBar = ({ isOpen, }: SettingBarType) => {
   // STYLES
   const baseBtnStyle =
     "text-base w-full text-center rounded-[10px] p-2 bg-[#00000051]";
+
+  const {currentUser} = useAuthContext()
+  
 
   return (
     <div
@@ -17,7 +21,7 @@ export const UserSettingsBar = ({ isOpen, setIsOpen }: SettingBarType) => {
       <ul className="w-full h-full flex flex-col justify-between py-3 px-3 items-center select-none">
         <li className={`${baseBtnStyle} text-spaceBlue`}>
           <h1>
-            User: <span className="uppercase font-medium">Jakub</span>
+            User: <span className="uppercase font-medium">{currentUser?.displayName}</span>
           </h1>
         </li>
         <li className={`text-spaceWhite ${baseBtnStyle} hover:bg-[#ffffff1e]`}>

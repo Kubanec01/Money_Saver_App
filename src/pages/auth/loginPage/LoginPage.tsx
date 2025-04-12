@@ -2,9 +2,10 @@ import { Link, Navigate } from "react-router";
 import img1 from "../../../assets/astronaut-img.png";
 import style from "./loginPage.module.scss";
 import { doSignInWithEmailAndPassword } from "../../../firebase/auth";
-import { useAuthContext } from "../../../hooks/context/authContext";
-import { useState } from "react";
+import { useAuthContext } from "../../../hooks/context/authContext/authContext";
 import { FirebaseError } from "firebase/app";
+import { authStates } from "../../../firebase/features/authStates";
+
 
 // STYLES
 const inputStyle =
@@ -13,10 +14,16 @@ const inputStyle =
 const LoginPage = () => {
   const { userLoggedIn } = useAuthContext();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isSigningIn, setIsSigningIn] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    isSigningIn,
+    setIsSigningIn,
+    errorMessage,
+    setErrorMessage,
+  } = authStates();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -104,7 +111,9 @@ const LoginPage = () => {
                     placeholder="Password..."
                     className={inputStyle}
                   />
-                  <p className="text-errorColor font-semibold">{errorMessage}</p>
+                  <p className="text-errorColor font-semibold">
+                    {errorMessage}
+                  </p>
                   <button
                     type="submit"
                     className="text-[#ffffffeb] w-full h-[56px] bg-[#4c3bc9] hover:bg-[#5747d2] rounded-[4px] text-2xl"

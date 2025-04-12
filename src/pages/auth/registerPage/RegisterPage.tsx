@@ -13,7 +13,7 @@ const RegisterPage = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrorMessage('')
+    setErrorMessage("");
 
     if (!email || !password || !confirmPassword || !userName) {
       setErrorMessage("Please fill in all the required information.");
@@ -25,11 +25,11 @@ const RegisterPage = () => {
     }
 
     try {
-      setIsRegistering(true);
       await doCreateUserWithEmailAndPassword(email, password, userName);
-    } catch (error: unknown) {
+      setIsRegistering(true);
+    } catch (error) {
       if (error instanceof FirebaseError) {
-        if (error.code === "auth/email-already-exists") {
+        if (error.code === "auth/email-already-in-use") {
           setErrorMessage("This email is already in use.");
         } else if (error.code === "auth/weak-password") {
           setErrorMessage("Password should be at least 6 characters.");

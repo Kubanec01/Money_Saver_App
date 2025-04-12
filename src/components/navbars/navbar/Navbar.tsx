@@ -8,7 +8,6 @@ import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { MdRestartAlt } from "react-icons/md";
-import { useAuthContext } from "../../../hooks/context/authContext";
 import UserSettingsBar from "../../../features/userSettingsBar/UserSettingsBar";
 import { ImBackward } from "react-icons/im";
 
@@ -17,7 +16,6 @@ export const Navbar = () => {
   const { currency } = useCurrencyContext();
   const [isCurrencyMenuOpen, setIsCurrencyMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const { currentUser } = useAuthContext();
 
   const { t } = useTranslation();
 
@@ -38,15 +36,19 @@ export const Navbar = () => {
             style={{
               backdropFilter: "blur(2px)",
             }}
-            className="flex overflow-hidden select-none md:justify-start justify-center items-center md:w-[104px] w-[40px] h-[42px] rounded-[30px] md:ml-2 sm:ml-7 ml-4 md:gap-1 bg-[#71bcf55b]"
+            className={`  
+            ${isUserMenuOpen ? "bg-[#ffffff27]" : "bg-spaceBlue300"}
+            flex overflow-hidden select-none md:justify-start justify-center items-center md:w-[104px] w-[40px] h-[42px] rounded-[30px] md:ml-2 sm:ml-7 ml-4 md:gap-1`}
           >
+            {/* USER ICON */}
             <span
               className={`
               ${isUserMenuOpen ? "-translate-x-10" : "translate-x-0"}
-              text-[#ffffff] md:ml-2 transition-all duration-300 ease-in-out`}
+              text-customWhite md:ml-2 transition-all duration-300 ease-in-out`}
             >
               <FaUserCircle size={30} />
             </span>
+            {/* USER TEXT */}
             <h1
               className={`
               ${isUserMenuOpen ? "translate-x-16" : "translate-x-0"}
@@ -54,10 +56,11 @@ export const Navbar = () => {
             >
               {t("components.navbar.accountButton.title")}
             </h1>
+            {/* OPEN MENU USER ICON */}
             <span
               className={`
               ${isUserMenuOpen ? "-translate-y-0" : "-translate-y-32"}
-              text-[#ffffff] transition-all duration-300 ease-in-out -ml-[46%]`}
+              text-customWhite transition-all duration-300 ease-in-out -ml-[46%]`}
             >
               <ImBackward size={27} />
             </span>
