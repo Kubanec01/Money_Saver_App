@@ -16,7 +16,8 @@ const ResetPasswordForm = () => {
       await doPasswordReset(st.email);
       st.setSuccessMessage("Password reset email send.");
     } catch (error) {
-      if (error instanceof FirebaseError)
+      if (error instanceof FirebaseError) {
+        st.setIsInvalid(true);
         switch (error.code) {
           case "auth/invalid-email":
             st.setErrorMessage("Invalid email format");
@@ -25,55 +26,60 @@ const ResetPasswordForm = () => {
             st.setErrorMessage("No user found with this email.");
             break;
           default:
-            st.setErrorMessage("Something went wrong. Please try again.");
+            st.setErrorMessage("Please enter a valid email.");
         }
+      }
     }
   };
+
+  const placeHolder = st.isInvalid ? st.errorMessage : "Email...";
 
   return (
     <section className="w-full h-full flex justify-center items-center">
       <div
-        // style={{
-        //   boxShadow: " 0 0 20px 8px #4317b26a",
-        // }}
-        className="w-[500px] h-[270px] rounded-[10px] p-5 border-[2px] bg-[#13131374] border-[#504f4f92]"
-      >
-        <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          console.log('form submit is submited submit brother')
+        style={{
+          boxShadow: " 0 0 20px 2px #4317b26a",
         }}
-        >
+        className="w-[500px] h-[270px] rounded-[10px] p-5 border-[2px] bg-[#131313a4] border-neonPurple -mt-16"
+      >
+        <form onSubmit={onSubmit}>
           <div>
             <h1
-              className="text-2xl text-white relative
+              className="text-2xl text-pastelViolet relative
             after:absolute after:w-full after:h-[2px] after:bg-[#ffffff5a] after:-bottom-2 after:left-0 after:rounded-xl
             "
             >
               Forgot Your Password?
             </h1>
-            <p className="text-[17px] text-white mt-[24px]">
+            <p className="text-[17px] text-spaceWhite mt-[26px]">
               Don't worry. Please enter your email and we will send you a
               message to reset your password.
             </p>
           </div>
           <input
-            className={`${inputStyles.darkInputStyle} !h-[48px] !border-[2px] mt-2 !text-lg`}
+            className={`
+            ${inputStyles.darkInputStyle} 
+            ${st.isInvalid && "placeholder:text-errorColor border-errorColor"}
+            !h-[48px] !border-[2px] mt-2 !text-lg`}
             type="email"
-            placeholder="Email..."
+            placeholder={placeHolder}
+            onChange={(e) => {
+              st.setEmail(e.target.value);
+              st.setIsInvalid(false);
+            }}
           />
           <div className="w-full flex justify-end items-center gap-2 mt-4">
             {/* BACK BUTTON */}
             <Link
-              className="border h-[39px] w-[100px] rounded-[6px] text-[white] text-[17px] font-light flex justify-center items-center text-center"
-              to="//"
+              className="h-[39px] pt-1 w-[100px] rounded-[5px] text-[white] bg-[#434343] hover:bg-[#545454] text-[17px] font-light flex justify-center items-center text-center"
+              to="/"
             >
               Go Back
             </Link>
             {/* SEND BUTTON */}
             <button
               type="submit"
-              className="border h-[39px] w-[100px] rounded-[6px] text-[white] text-[17px] font-light flex justify-center items-center text-center"
+              className="h-[39px] py-2 w-[100px] rounded-[5px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 text-[17px] font-light"
             >
               Send It
             </button>

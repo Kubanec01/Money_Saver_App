@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 import RoutingProtection from "../firebase/features/RoutingProtection";
 import ForgotPasswordPage from "../pages/auth/forgotPasswordPage/ForgotPasswordPage";
+import LoadingPage from "../pages/loadingPage/LoadingPage";
 
 const HomePage = lazy(() => import("../pages/homePage/HomePage"));
 const InfoPage = lazy(() => import("../pages/infoPage/InfoPage"));
@@ -13,7 +14,7 @@ const Error404Page = lazy(() => import("../pages/404/404Error/NotFoundPage"));
 
 export const MainRoutes = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoadingPage />}>
       <Routes>
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/" element={<LoginPage />} />

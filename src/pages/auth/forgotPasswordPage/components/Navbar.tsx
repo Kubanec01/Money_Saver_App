@@ -13,7 +13,7 @@ const Navbar = () => {
 
     if (!st.email || !st.password) {
       st.setErrorMessage("Please enter your email and password.");
-      st.setIsLoginInvalid(true);
+      st.setIsInvalid(true);
       return;
     }
 
@@ -23,7 +23,7 @@ const Navbar = () => {
         await doSignInWithEmailAndPassword(st.email, st.password);
       } catch (error: unknown) {
         st.setErrorMessage("Wrong email or password.");
-        st.setIsLoginInvalid(true);
+        st.setIsInvalid(true);
       } finally {
         st.setIsSigningIn(false);
       }
@@ -54,7 +54,7 @@ const Navbar = () => {
             onChange={(e) => st.setPassword(e.target.value)}
           />
           <button
-            className="w-[90px] h-[60%] rounded-[6px] text-[white] bg-loginButton hover:bg-loginButtonHover font-bold text-lg"
+            className="w-[90px] h-[60%] rounded-[6px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 font-bold text-lg"
             type="submit"
           >
             Log In
@@ -65,7 +65,7 @@ const Navbar = () => {
       <section className="mx-auto mt-2">
         <div
           className={`
-          ${st.isLoginInvalid ? "block" : "hidden"}
+          ${st.isInvalid ? "block" : "hidden"}
           w-[90%] max-w-[700px] mx-auto h-[34px] rounded-[14px] bg-[#282828] flex justify-center items-center`}
         >
           <p className="overflow-hidden mx-auto text-lg text-errorColor text-center">

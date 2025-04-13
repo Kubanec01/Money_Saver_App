@@ -7,7 +7,7 @@ const ForgotPasswordPage = () => {
       style={{
         backdropFilter: "blur(5px)",
       }}
-      className="w-full h-[100vh] z-[900] bg-[#ffffff0e]"
+      className="w-full h-[100vh] z-[900] bg-[#2d2d2d39]"
     >
       <Navbar />
       <ResetPasswordForm />
