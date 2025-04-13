@@ -99,7 +99,7 @@ const RegisterPage = () => {
               >
                 Sign Up
               </button>
-              <Link to="//" className="text-[#d1cdf5] text-xl hover:underline">
+              <Link to="/" className="text-[#d1cdf5] text-xl hover:underline">
                 I have an account
               </Link>
             </section>

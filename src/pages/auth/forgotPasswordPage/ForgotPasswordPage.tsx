@@ -1,17 +1,18 @@
-import Navbar from "./components/Navbar"
-
-
+import Navbar from "./components/Navbar";
+import ResetPasswordForm from "./components/ResetPasswordForm";
 
 const ForgotPasswordPage = () => {
   return (
-    <>
-     <Navbar /> 
-     {/* BODY SECTION */}
-     <section>
-        <div></div>
-     </section>
-    </>
-  )
-}
+    <main
+      style={{
+        backdropFilter: "blur(5px)",
+      }}
+      className="w-full h-[100vh] z-[900] bg-[#ffffff0e]"
+    >
+      <Navbar />
+      <ResetPasswordForm />
+    </main>
+  );
+};
 
-export default ForgotPasswordPage
+export default ForgotPasswordPage;
