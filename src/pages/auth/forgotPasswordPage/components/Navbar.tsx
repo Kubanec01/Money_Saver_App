@@ -1,71 +1,57 @@
-import { FirebaseError } from "firebase/app";
 import { authStates } from "../../../../firebase/features/authStates";
 import { doSignInWithEmailAndPassword } from "../../../../firebase/auth";
+import { Link } from "react-router";
+import { inputStyles } from "../../../../styles/inputStyles";
 
 const Navbar = () => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    isSigningIn,
-    setIsSigningIn,
-    errorMessage,
-    setErrorMessage,
-  } = authStates();
+  // STATES
+  const st = authStates();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrorMessage("");
+    st.setErrorMessage("");
 
-    if (!email || !password) {
-      setErrorMessage("Please enter your email and password.");
+    if (!st.email || !st.password) {
+      st.setErrorMessage("Please enter your email and password.");
+      st.setIsLoginInvalid(true);
       return;
     }
 
-    if (!isSigningIn) {
-      setIsSigningIn(true);
+    if (!st.isSigningIn) {
+      st.setIsSigningIn(true);
       try {
-        await doSignInWithEmailAndPassword(email, password);
+        await doSignInWithEmailAndPassword(st.email, st.password);
       } catch (error: unknown) {
-        if (error instanceof FirebaseError)
-          if (error.code === "auth/user-not-found") {
-            setErrorMessage("No user found with this email");
-          } else if (error.code === "auth/invalid-password") {
-            setErrorMessage("Incorrect password.");
-          } else {
-            setErrorMessage("Wrong email or password.");
-          }
+        st.setErrorMessage("Wrong email or password.");
+        st.setIsLoginInvalid(true);
       } finally {
-        setIsSigningIn(false);
+        st.setIsSigningIn(false);
       }
     }
   };
 
   // STYLES
-  const inputStyle =
-    "bg-transparent border-[2px] border-[#ffffff76] focus:border-neonPurple focus:outline-none h-[60%] w-[240px] rounded-[6px] text-white pl-2";
 
   return (
     <div className="w-full fixed h-auto">
       {/* LOGIN FORM */}
-      <section className="w-[40%] max-w-[1200px] mx-auto rounded-[14px] h-[74px] mt-4 px-3 bg-[#323131]">
+      <section className="w-[40%] z-[1000] max-w-[800px] mx-auto rounded-[14px] h-[70px] mt-4 px-3 bg-[#2f2e2e]">
         {/* LOGIN FORM */}
         <form
-          className="w-full h-full flex justify-between items-center px-[70px]"
-          action=""
+          className="w-[80%] mx-auto h-full flex justify-between items-center gap-2"
+          onSubmit={onSubmit}
         >
           <input
-            className={inputStyle}
+            className={inputStyles.lightInputStyle}
             placeholder="Email..."
             type="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => st.setEmail(e.target.value)}
           />
           <input
-            className={inputStyle}
+            className={inputStyles.lightInputStyle}
             placeholder="Password..."
             type="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => st.setPassword(e.target.value)}
           />
           <button
             className="w-[90px] h-[60%] rounded-[6px] text-[white] bg-loginButton hover:bg-loginButtonHover font-bold text-lg"
@@ -76,8 +62,19 @@ const Navbar = () => {
         </form>
       </section>
       {/* ERROR MESSAGE */}
-      <section>
-        {/* tu vyskoci vhyba v pripade, ze sa nieco pokazi. Bude to pravdepodobne cerveny text v sedom ramceku */}
+      <section className="mx-auto mt-2">
+        <div
+          className={`
+          ${st.isLoginInvalid ? "block" : "hidden"}
+          w-[90%] max-w-[700px] mx-auto h-[34px] rounded-[14px] bg-[#282828] flex justify-center items-center`}
+        >
+          <p className="overflow-hidden mx-auto text-lg text-errorColor text-center">
+            {st.errorMessage}{" "}
+            <Link className="underline" to="//">
+              Return to the Login page?
+            </Link>
+          </p>
+        </div>
       </section>
     </div>
   );

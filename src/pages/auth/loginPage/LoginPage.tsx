@@ -5,11 +5,10 @@ import { doSignInWithEmailAndPassword } from "../../../firebase/auth";
 import { useAuthContext } from "../../../hooks/context/authContext/authContext";
 import { FirebaseError } from "firebase/app";
 import { authStates } from "../../../firebase/features/authStates";
+import { inputStyles } from "../../../styles/inputStyles";
 
 
 // STYLES
-const inputStyle =
-  "w-full h-[60px] pl-2 bg-transparent rounded-[4px] border-[3px] border-[#6b6a6adc] focus:border-neonPurple focus:outline-none caret-[#6b6a6adc] text-xl text-[#c1bfbf]";
 
 const LoginPage = () => {
   const { userLoggedIn } = useAuthContext();
@@ -35,9 +34,9 @@ const LoginPage = () => {
     }
 
     if (!isSigningIn) {
-      setIsSigningIn(true);
       try {
         await doSignInWithEmailAndPassword(email, password);
+        setIsSigningIn(true);
       } catch (error: unknown) {
         if (error instanceof FirebaseError)
           if (error.code === "auth/user-not-found") {
@@ -100,7 +99,7 @@ const LoginPage = () => {
                       setErrorMessage("");
                     }}
                     placeholder="Email..."
-                    className={inputStyle}
+                    className={inputStyles.darkInputStyle}
                   />
                   <input
                     type="password"
@@ -109,7 +108,7 @@ const LoginPage = () => {
                       setErrorMessage("");
                     }}
                     placeholder="Password..."
-                    className={inputStyle}
+                    className={inputStyles.darkInputStyle}
                   />
                   <p className="text-errorColor font-semibold">
                     {errorMessage}
@@ -121,9 +120,12 @@ const LoginPage = () => {
                     Log In
                   </button>
 
-                  <button className="text-[#d1cdf5] text-lg hover:underline mt-1">
+                  <Link
+                    to="/forgot-password"
+                    className="text-[#d1cdf5] text-lg hover:underline mt-1"
+                  >
                     Forgot Password
-                  </button>
+                  </Link>
                 </section>
                 <section className="w-[52%] flex flex-col items-center justify-end mt-7">
                   <Link
