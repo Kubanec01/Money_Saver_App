@@ -8,7 +8,7 @@ export const authStates = () => {
   const [userName, setUserName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
-  const [isLoginInvalid, setIsLoginInvalid] = useState(false);
+  const [isInvalid, setIsInvalid] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
   return {
@@ -26,8 +26,8 @@ export const authStates = () => {
     setConfirmPassword,
     isRegistering,
     setIsRegistering,
-    setIsLoginInvalid,
-    isLoginInvalid,
+    isInvalid,
+    setIsInvalid,
     setSuccessMessage,
     successMessage,
   };

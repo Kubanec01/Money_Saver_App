@@ -53,7 +53,12 @@ const RegisterPage = () => {
         }}
         className="w-full h-[100vh] flex justify-center items-center relative"
       >
-        <div className="border-[3px] border-neonPurple rounded-[14px] w-[90%] max-w-[430px] p-5">
+        <div
+          style={{
+            boxShadow: " 0 0 20px 10px #4317b26a",
+          }}
+          className="border-[3px] border-neonPurple rounded-[14px] w-[90%] max-w-[430px] p-5"
+        >
           <h1
             className="text-spaceWhite mx-auto text-center text-3xl relative
         after:absolute after:w-[80%] after:border-[1px] after:border-spaceBlue after:-bottom-3 after:left-[50%] after:translate-x-[-50%]  
@@ -99,7 +104,10 @@ const RegisterPage = () => {
               >
                 Sign Up
               </button>
-              <Link to="/" className="text-[#d1cdf5] text-xl hover:underline">
+              <Link
+                to="/"
+                className="text-pastelViolet text-xl hover:underline"
+              >
                 I have an account
               </Link>
             </section>
