@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import { inputStyles } from "../../../../styles/inputStyles";
+import { inputStyles } from "../../../../../styles/inputStyles";
 import { FormEvent } from "react";
-import { authStates } from "../../../../firebase/features/authStates";
-import { doPasswordReset } from "../../../../firebase/auth";
+import { authStates } from "../../../../../firebase/features/authStates";
+import { doPasswordReset } from "../../../../../firebase/auth";
 import { FirebaseError } from "firebase/app";
 
 const ResetPasswordForm = () => {
@@ -14,10 +14,12 @@ const ResetPasswordForm = () => {
 
     try {
       await doPasswordReset(st.email);
+      st.setPasswordWasSent(true);
       st.setSuccessMessage("Password reset email send.");
     } catch (error) {
       if (error instanceof FirebaseError) {
         st.setIsInvalid(true);
+        st.setPasswordWasSent(false);
         switch (error.code) {
           case "auth/invalid-email":
             st.setErrorMessage("Invalid email format");
@@ -40,7 +42,7 @@ const ResetPasswordForm = () => {
         style={{
           boxShadow: " 0 0 20px 2px #4317b26a",
         }}
-        className="w-[500px] h-[270px] rounded-[10px] p-5 border-[2px] bg-[#131313a4] border-neonPurple -mt-16"
+        className="w-[500px] rounded-[10px] p-5 border-[2px] bg-[#131313a4] border-neonPurple -mt-16"
       >
         <form onSubmit={onSubmit}>
           <div>
@@ -51,10 +53,17 @@ const ResetPasswordForm = () => {
             >
               Forgot Your Password?
             </h1>
-            <p className="text-[17px] text-spaceWhite mt-[26px]">
-              Don't worry. Please enter your email and we will send you a
-              message to reset your password.
-            </p>
+            {!st.passwordWasSent ? (
+              <p className="text-lg text-[#47db30] font-semibold mt-[26px]">
+                Email was sent. If nothing arrives in 5 minutes, please check your spam or
+                try again.
+              </p>
+            ) : (
+              <p className="text-[17px] text-spaceWhite mt-[26px]">
+                Don't worry. Please enter your email and we will send you a
+                message to reset your password.
+              </p>
+            )}
           </div>
           <input
             className={`
