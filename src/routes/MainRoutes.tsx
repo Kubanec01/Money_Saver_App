@@ -1,16 +1,21 @@
 import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 import RoutingProtection from "../firebase/features/RoutingProtection";
-import ForgotPasswordPage from "../pages/auth/forgotPasswordPage/ForgotPasswordPage";
 import LoadingPage from "../pages/loadingPage/LoadingPage";
 
+// LAZY PAGES
 const HomePage = lazy(() => import("../pages/homePage/HomePage"));
 const InfoPage = lazy(() => import("../pages/infoPage/InfoPage"));
 const LoginPage = lazy(() => import("../pages/auth/loginPage/LoginPage"));
 const RegisterPage = lazy(
   () => import("../pages/auth/registerPage/RegisterPage")
 );
+const ForgotPasswordPage = lazy(
+  () => import("../pages/auth/forgotPasswordPage/ForgotPasswordPage")
+);
 const Error404Page = lazy(() => import("../pages/404/404Error/NotFoundPage"));
+
+
 
 export const MainRoutes = () => {
   return (

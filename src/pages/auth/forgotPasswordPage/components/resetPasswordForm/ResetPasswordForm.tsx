@@ -53,7 +53,7 @@ const ResetPasswordForm = () => {
             >
               Forgot Your Password?
             </h1>
-            {!st.passwordWasSent ? (
+            {st.passwordWasSent ? (
               <p className="text-lg text-[#47db30] font-semibold mt-[26px]">
                 Email was sent. If nothing arrives in 5 minutes, please check your spam or
                 try again.

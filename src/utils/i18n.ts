@@ -1,6 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { title } from "process";
+import NotFoundPage from "../pages/404/404Error/NotFoundPage";
 
 // the translations
 // (tip move them in a JSON file and import them,
@@ -34,6 +36,50 @@ const resources = {
           leftBtn: "Roger that, over",
           rightBtn: "What?! Tell me more",
         },
+      },
+      auth: {
+        buttons: {
+          logIn: "Log In",
+          goBack: "Go Back",
+          sentIt: "Send It",
+          forgotPassword: "Forgot Password",
+          createNewAccount: "Create New Account",
+          haveAnAccount: "I have an account",
+        },
+        messages: {
+          errors: {
+            enterEmailAndPassword: "Please enter your email and password.",
+            wrongEmailOrPassword: "Wrong email or password.",
+            ReturnToLoginPage: "Return to the Login page?",
+            noUserFound: "No user found with this email",
+            incorrectPassword: "Incorrect password.",
+            fillAllInformation: "Please fill in all the required information.",
+            passwordsDoNotMatch: "Passwords do not match.",
+            emailsIsInUse: "This email is already in use.",
+            weakPassword: "Password should be at least 6 characters.",
+            unknownError: "Something went wrong, please try again later.",
+          },
+          success: {
+            resetPasswordSent:
+              "Email was sent. If nothing arrives in 5 minutes, please check your spam or try again.",
+          },
+        },
+      },
+      loginPage: {
+        title: "Money Saver",
+        desc: "Your money. Your mission. Let’s launch it into something greater.",
+      },
+      forgotPasswordPage: {
+        title: "Forgot Your Password?",
+        desc: "Don't worry. Please enter your email and we will send you a message to reset your password.",
+      },
+      registerPage: {
+        title: "Creating New Account",
+      },
+      NotFoundPage: {
+        title: "Page Not Found",
+        desc: "Oops! The page you're looking for doesn't exist. It might have been moved or deleted.",
+        button: "Go To Homepage",
       },
       hero: {
         title: "Greetings Capt.",
