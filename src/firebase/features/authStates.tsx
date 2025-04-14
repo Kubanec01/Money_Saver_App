@@ -10,6 +10,7 @@ export const authStates = () => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [isInvalid, setIsInvalid] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [passwordWasSent, setPasswordWasSent] = useState(false);
 
   return {
     email,
@@ -30,5 +31,7 @@ export const authStates = () => {
     setIsInvalid,
     setSuccessMessage,
     successMessage,
+    setPasswordWasSent,
+    passwordWasSent,
   };
 };
