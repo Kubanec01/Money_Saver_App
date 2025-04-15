@@ -38,7 +38,8 @@ export const Navbar = () => {
             }}
             className={`  
             ${isUserMenuOpen ? "bg-[#ffffff27]" : "bg-spaceBlue300"}
-            flex overflow-hidden select-none md:justify-start justify-center items-center md:w-[104px] w-[40px] h-[42px] rounded-[30px] md:ml-2 sm:ml-7 ml-4 md:gap-1`}
+            flex overflow-hidden select-none md:justify-start justify-center items-center md:w-[104px]
+            w-[40px] h-[42px] rounded-[30px] md:ml-2 sm:ml-7 ml-4 md:gap-1 active:scale-90 duration-150 ease-in-out`}
           >
             {/* USER ICON */}
             <span
