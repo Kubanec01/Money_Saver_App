@@ -2,7 +2,6 @@ import { auth } from "./firebaseConfig";
 
 import {
   createUserWithEmailAndPassword,
-  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   updatePassword,
@@ -51,10 +50,3 @@ export const doPasswordChange = (password: string) => {
   return null;
 };
 
-// export const doSendEmailVerification = () => {
-//   if (auth.currentUser) {
-//     return sendEmailVerification(auth.currentUser, {
-//       url: `${window.location.origin}/home`,
-//     });
-//   }
-// };

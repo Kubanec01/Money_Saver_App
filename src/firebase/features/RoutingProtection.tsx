@@ -5,7 +5,7 @@ import { useAuthContext } from "../../hooks/context/authContext/authContext";
 const RoutingProtection = () => {
   const { userLoggedIn } = useAuthContext();
 
-  return userLoggedIn ? <Outlet /> : <Navigate to="//" />;
+  return userLoggedIn ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default RoutingProtection;
