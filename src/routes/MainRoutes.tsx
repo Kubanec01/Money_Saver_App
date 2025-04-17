@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 import RoutingProtection from "../firebase/features/RoutingProtection";
 import LoadingPage from "../pages/loadingPage/LoadingPage";
-import VerifyPassword from "../pages/passwordChange/components/VerifyPassword";
+import VerifyPassword from "../pages/passwordChange/components/SetNewPassword";
 
 // LAZY PAGES
 const HomePage = lazy(() => import("../pages/homePage/HomePage"));
@@ -18,7 +18,7 @@ const Error404Page = lazy(() => import("../pages/404/404Error/NotFoundPage"));
 const PasswordChangePage = lazy(
   () => import("../pages/passwordChange/PasswordChangePage")
 );
-const VerifyPasswordPage = lazy(() => import('../pages/passwordChange/components/VerifyPassword'))
+const VerifyPasswordPage = lazy(() => import('../pages/passwordChange/components/SetNewPassword'))
 
 export const MainRoutes = () => {
   return (

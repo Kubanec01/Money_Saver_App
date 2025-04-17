@@ -14,12 +14,12 @@ const ResetPasswordForm = () => {
 
     try {
       await doPasswordReset(st.email);
-      st.setPasswordWasSent(true);
+      st.setWasDataSent(true);
       st.setSuccessMessage("Password reset email send.");
     } catch (error) {
       if (error instanceof FirebaseError) {
         st.setIsInvalid(true);
-        st.setPasswordWasSent(false);
+        st.setWasDataSent(false);
         switch (error.code) {
           case "auth/invalid-email":
             st.setErrorMessage("Invalid email format");
@@ -53,10 +53,10 @@ const ResetPasswordForm = () => {
             >
               Forgot Your Password?
             </h1>
-            {st.passwordWasSent ? (
+            {st.wasDataSent ? (
               <p className="text-lg text-[#47db30] font-semibold mt-[26px]">
-                Email was sent. If nothing arrives in 5 minutes, please check your spam or
-                try again.
+                Email was sent. If nothing arrives in 5 minutes, please check
+                your spam or try again.
               </p>
             ) : (
               <p className="text-[17px] text-spaceWhite mt-[26px]">
