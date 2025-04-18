@@ -8,7 +8,7 @@ import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { MdRestartAlt } from "react-icons/md";
-import UserSettingsBar from "../../../features/userSettingsBar/UserSettingsBar";
+import UserSettingsBar from "../../../pages/homePage/components/userSettingsBar/UserSettingsBar";
 import { ImBackward } from "react-icons/im";
 
 export const Navbar = () => {
