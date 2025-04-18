@@ -5,6 +5,8 @@ import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./budgetBar.module.scss";
 
 export const BudgetBar = () => {
+
+
   const { budget, setBudget } = useFinanceSaverContext();
   const { valueChange } = useValueIntoState(setBudget, "budget");
 

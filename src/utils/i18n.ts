@@ -37,12 +37,17 @@ const resources = {
       },
       auth: {
         buttons: {
+          // AUTH PAGES
           logIn: "Log In",
           goBack: "Go Back",
           sentIt: "Send It",
           forgotPassword: "Forgot Password",
           createNewAccount: "Create New Account",
           haveAnAccount: "I have an account",
+          // USER BUTTON
+          user: "User",
+          changePassword: "Change Password",
+          logOut: "Log Out",
         },
         messages: {
           errors: {

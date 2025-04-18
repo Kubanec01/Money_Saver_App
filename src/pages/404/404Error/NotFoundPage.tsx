@@ -21,13 +21,13 @@ const NotFoundPage = () => {
         >
           404
         </h1>
-        <h2 className="-mt-12 text-3xl font-semibold text-[#5e50ba]">Page Not Found</h2>
-        <p className="w-[50%] text-center text-xl font-medium mt-6">
+        <h2 className="-mt-12 text-3xl font-semibold text-[#483c95]">Page Not Found</h2>
+        <p className="w-[50%] text-center text-xl font-medium mt-2 text-[#2b2360]">
           Oops! The page you're looking for doesn't exist. It might have been
           moved or deleted.
         </p>
         <Link 
-        className="bg-[#6959cd] px-7 py-2 rounded-[6px] text-lg text-white mt-4 hover:scale-[102%]"
+        className="bg-[#6959cd] px-7 py-2 rounded-[6px] text-lg text-white mt-8 hover:scale-[102%]"
         to="/">Go To Homepage</Link>
       </section>
     </div>
