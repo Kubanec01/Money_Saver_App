@@ -2,39 +2,40 @@ import React, { useState } from "react";
 import { Link, Navigate } from "react-router";
 import { doCreateUserWithEmailAndPassword } from "../../../firebase/auth";
 import { FirebaseError } from "firebase/app";
+import ShowAndHidePasswordIcon from "../../../firebase/features/ShowAndHidePassword";
+import { authStates } from "../../../firebase/features/authStates";
 
 const RegisterPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [isRegistering, setIsRegistering] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const st = authStates();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrorMessage("");
+    st.setErrorMessage("");
 
-    if (!email || !password || !confirmPassword || !userName) {
-      setErrorMessage("Please fill in all the required information.");
+    if (!st.email || !st.password || !st.confirmPassword || !st.userName) {
+      st.setErrorMessage("Please fill in all the required information.");
       return;
     }
-    if (password !== confirmPassword) {
-      setErrorMessage("Passwords do not match.");
+    if (st.password !== st.confirmPassword) {
+      st.setErrorMessage("Passwords do not match.");
       return;
     }
 
     try {
-      await doCreateUserWithEmailAndPassword(email, password, userName);
-      setIsRegistering(true);
+      await doCreateUserWithEmailAndPassword(
+        st.email,
+        st.password,
+        st.userName
+      );
+      st.setIsRegistering(true);
     } catch (error) {
       if (error instanceof FirebaseError) {
         if (error.code === "auth/email-already-in-use") {
-          setErrorMessage("This email is already in use.");
+          st.setErrorMessage("This email is already in use.");
         } else if (error.code === "auth/weak-password") {
-          setErrorMessage("Password should be at least 6 characters.");
+          st.setErrorMessage("Password should be at least 6 characters.");
         } else {
-          setErrorMessage("Something went wrong, please try again later.");
+          st.setErrorMessage("Something went wrong, please try again later.");
         }
       }
     }
@@ -46,7 +47,7 @@ const RegisterPage = () => {
 
   return (
     <>
-      {isRegistering && <Navigate to="/home" replace={true} />}
+      {st.isRegistering && <Navigate to="/home" replace={true} />}
       <div
         style={{
           backdropFilter: "blur(5px)",
@@ -73,31 +74,43 @@ const RegisterPage = () => {
                 type="text"
                 placeholder="Name..."
                 className={`${inputStyles} mb-5`}
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => st.setUserName(e.target.value)}
               />
               {/* EMAIL */}
               <input
                 type="email"
                 placeholder="Enter your email..."
                 className={inputStyles}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => st.setEmail(e.target.value)}
               />
               {/* PASSWORD */}
-              <input
-                type="password"
-                placeholder="Create a password..."
-                className={inputStyles}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Confirm your password..."
-                className={inputStyles}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-              <p className="text-lg text-errorColor">{errorMessage}</p>
+              <span className="w-full relative">
+                <input
+                  type={st.isPasswordHidden ? "password" : "text"}
+                  placeholder="Create a password..."
+                  className={inputStyles}
+                  onChange={(e) => st.setPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  onClick={() => st.setIsPasswordHidden((e) => !e)}
+                >
+                  <ShowAndHidePasswordIcon
+                    isPasswordHidden={st.isPasswordHidden}
+                  />
+                </button>
+              </span>
+              <span className="w-full relative">
+                <input
+                  type={st.isPasswordHidden ? "password" : "text"}
+                  placeholder="Confirm your password..."
+                  className={inputStyles}
+                  onChange={(e) => st.setConfirmPassword(e.target.value)}
+                />
+              </span>
+              <p className="text-xl text-errorColor">{st.errorMessage}</p>
             </section>
-            <section className="flex flex-col justify-center items-center mt-[34px] gap-4">
+            <section className="flex flex-col justify-center items-center mt-[44px] gap-4">
               <button
                 type="submit"
                 className="text-[#ffffffeb] w-full h-[52px] bg-[#4c3bc9] hover:bg-[#5747d2] rounded-[4px] text-2xl"

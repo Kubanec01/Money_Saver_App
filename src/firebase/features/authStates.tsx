@@ -12,6 +12,7 @@ export const authStates = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [wasDataSent, setWasDataSent] = useState(false);
   const [newPassword, setNewPassword] = useState("");
+  const [isPasswordHidden, setIsPasswordHidden] = useState(true)
 
   return {
     email,
@@ -36,5 +37,7 @@ export const authStates = () => {
     wasDataSent,
     setNewPassword,
     newPassword,
+    isPasswordHidden,
+    setIsPasswordHidden,
   };
 };

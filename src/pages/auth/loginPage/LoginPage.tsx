@@ -6,6 +6,7 @@ import { useAuthContext } from "../../../hooks/context/authContext/authContext";
 import { FirebaseError } from "firebase/app";
 import { authStates } from "../../../firebase/features/authStates";
 import { inputStyles } from "../../../styles/inputStyles";
+import ShowAndHidePasswordIcon from "../../../firebase/features/ShowAndHidePassword";
 
 
 // STYLES
@@ -13,41 +14,32 @@ import { inputStyles } from "../../../styles/inputStyles";
 const LoginPage = () => {
   const { userLoggedIn } = useAuthContext();
 
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    isSigningIn,
-    setIsSigningIn,
-    errorMessage,
-    setErrorMessage,
-  } = authStates();
+  const st = authStates();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrorMessage("");
+    st.setErrorMessage("");
 
-    if (!email || !password) {
-      setErrorMessage("Please enter your email and password.");
+    if (!st.email || !st.password) {
+      st.setErrorMessage("Please enter your email and password.");
       return;
     }
 
-    if (!isSigningIn) {
+    if (!st.isSigningIn) {
       try {
-        await doSignInWithEmailAndPassword(email, password);
-        setIsSigningIn(true);
+        await doSignInWithEmailAndPassword(st.email, st.password);
+        st.setIsSigningIn(true);
       } catch (error: unknown) {
         if (error instanceof FirebaseError)
           if (error.code === "auth/user-not-found") {
-            setErrorMessage("No user found with this email");
+            st.setErrorMessage("No user found with this email");
           } else if (error.code === "auth/invalid-password") {
-            setErrorMessage("Incorrect password.");
+            st.setErrorMessage("Incorrect password.");
           } else {
-            setErrorMessage("Wrong email or password.");
+            st.setErrorMessage("Wrong email or password.");
           }
       } finally {
-        setIsSigningIn(false);
+        st.setIsSigningIn(false);
       }
     }
   };
@@ -95,27 +87,37 @@ const LoginPage = () => {
                   <input
                     type="email"
                     onChange={(e) => {
-                      setEmail(e.target.value);
-                      setErrorMessage("");
+                      st.setEmail(e.target.value);
+                      st.setErrorMessage("");
                     }}
                     placeholder="Email..."
                     className={inputStyles.darkInputStyle}
                   />
-                  <input
-                    type="password"
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                      setErrorMessage("");
-                    }}
-                    placeholder="Password..."
-                    className={inputStyles.darkInputStyle}
-                  />
+                  <span className="w-full relative">
+                    <input
+                      type={st.isPasswordHidden ? "password" : "text"}
+                      onChange={(e) => {
+                        st.setPassword(e.target.value);
+                        st.setErrorMessage("");
+                      }}
+                      placeholder="Password..."
+                      className={inputStyles.darkInputStyle}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => st.setIsPasswordHidden((e) => !e)}
+                    >
+                      <ShowAndHidePasswordIcon
+                        isPasswordHidden={st.isPasswordHidden}
+                      />
+                    </button>
+                  </span>
                   <p className="text-errorColor font-semibold">
-                    {errorMessage}
+                    {st.errorMessage}
                   </p>
                   <button
                     type="submit"
-                    className="text-[#ffffffeb] w-full h-[56px] bg-purpleButton500 hover:bg-purpleButton300 rounded-[4px] text-2xl"
+                    className="text-[#ffffffeb] w-full mt-2 h-[56px] bg-purpleButton500 hover:bg-purpleButton300 rounded-[4px] text-2xl"
                   >
                     Log In
                   </button>
