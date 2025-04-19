@@ -1,15 +1,19 @@
 import { Link } from "react-router";
 import { inputStyles } from "../../../styles/inputStyles";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { authStates } from "../../../firebase/features/authStates";
 import { doPasswordChange } from "../../../firebase/auth";
 import { auth } from "../../../firebase/firebaseConfig";
 import { EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import image1 from "../../../assets/correct-mark-img.png";
+import ShowAndHidePasswordIcon from "../../../firebase/features/ShowAndHidePassword";
+import { passwordVisibility } from "../../../features/passwordVisibility";
 
 const SetNewPassword = () => {
+  // STATES
   const st = authStates();
+  const [isCurrPasswordHidden, setIsCurrPasswordHidden] = useState(true);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -88,7 +92,7 @@ const SetNewPassword = () => {
               </>
             ) : (
               <div className="flex flex-col justify-center items-start gap-7 py-6">
-                {/* CONFIRM PASSWORD */}
+                {/* CURRENT PASSWORD */}
                 <div className="w-full">
                   <label
                     htmlFor="current-password"
@@ -96,12 +100,23 @@ const SetNewPassword = () => {
                   >
                     Current Password
                   </label>
-                  <input
-                    id="current-password"
-                    onChange={(e) => st.setPassword(e.target.value)}
-                    className={inputStyles.darkInputStyle}
-                    type="text"
-                  />
+                  <span className="w-full relative">
+                    <input
+                      id="current-password"
+                      onChange={(e) => st.setPassword(e.target.value)}
+                      className={inputStyles.darkInputStyle}
+                      type={passwordVisibility(isCurrPasswordHidden)}
+                    />
+                    <button
+                      onClick={() => setIsCurrPasswordHidden((e) => !e)}
+                      type="button"
+                    >
+                      <ShowAndHidePasswordIcon
+                        isPasswordHidden={isCurrPasswordHidden}
+                        class="!top-0"
+                      />
+                    </button>
+                  </span>
                 </div>
                 {/* NEW PASSWORD */}
                 <div className="w-full">
@@ -111,12 +126,23 @@ const SetNewPassword = () => {
                   >
                     New Password
                   </label>
-                  <input
-                    id="new-password"
-                    onChange={(e) => st.setNewPassword(e.target.value)}
-                    className={inputStyles.darkInputStyle}
-                    type="text"
-                  />
+                  <span className="w-full relative">
+                    <input
+                      id="new-password"
+                      onChange={(e) => st.setNewPassword(e.target.value)}
+                      className={inputStyles.darkInputStyle}
+                      type={passwordVisibility(st.isPasswordHidden)}
+                    />
+                    <button
+                      onClick={() => st.setIsPasswordHidden((e) => !e)}
+                      type="button"
+                    >
+                      <ShowAndHidePasswordIcon
+                        isPasswordHidden={st.isPasswordHidden}
+                        class="!top-0"
+                      />
+                    </button>
+                  </span>
                 </div>
                 {/* CONFIRM PASSWORD */}
                 <div className="w-full">
@@ -130,16 +156,18 @@ const SetNewPassword = () => {
                     id="confirm-password"
                     onChange={(e) => st.setConfirmPassword(e.target.value)}
                     className={inputStyles.darkInputStyle}
-                    type="text"
+                    type={passwordVisibility(st.isPasswordHidden)}
                   />
                 </div>
               </div>
             )}
-            <div className="w-full mt-[10px]">
+            {/* ERROR MESSAGE */}
+            <section className="w-full mt-[10px]">
               <p className="text-errorColor text-2xl text-center">
                 {st.errorMessage}
               </p>
-            </div>
+            </section>
+            {/* BUTTONS  */}
             {st.wasDataSent ? (
               <div className="w-full mt-6">
                 <Link
