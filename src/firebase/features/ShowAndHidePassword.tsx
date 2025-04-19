@@ -3,6 +3,7 @@ import { FaRegEye } from "react-icons/fa6";
 
 interface ShowAndHidePasswordIconProps {
   isPasswordHidden: boolean;
+  class?: string
 }
 
 const ShowAndHidePasswordIcon = (props: ShowAndHidePasswordIconProps) => {
@@ -13,9 +14,9 @@ const ShowAndHidePasswordIcon = (props: ShowAndHidePasswordIconProps) => {
   return (
     <>
       {props.isPasswordHidden ? (
-        <FaRegEyeSlash className={iconStyle} size={size} />
+        <FaRegEyeSlash className={`${iconStyle} ${props.class}`} size={size} />
       ) : (
-        <FaRegEye className={iconStyle} size={size} />
+        <FaRegEye className={`${iconStyle} ${props.class}`} size={size} />
       )}
     </>
   );
