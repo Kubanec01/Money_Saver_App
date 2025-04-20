@@ -20,6 +20,9 @@ export default {
         purpleButton300: "#5747d2",
         pastelViolet: "#d1cdf5",
       },
+      boxShadow: {
+        customPurple: "0 0 20px 8px #4317b26a",
+      },
     },
   },
   plugins: [],

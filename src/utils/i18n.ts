@@ -49,6 +49,14 @@ const resources = {
           changePassword: "Change Password",
           logOut: "Log Out",
         },
+        placeholders: {
+          name: "Name...",
+          email: "Email...",
+          password: "Password...",
+          enterEmail: "Enter your email...",
+          createPassword: "Create a password...",
+          confirmPassword: "Confirm your password...",
+        },
         messages: {
           errors: {
             enterEmailAndPassword: "Please enter your email and password.",

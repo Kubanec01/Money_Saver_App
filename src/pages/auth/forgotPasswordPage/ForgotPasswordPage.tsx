@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import LoginNavbar from "../../../components/navbars/LoginNavbar";
 import ResetPasswordForm from "./components/resetPasswordForm/ResetPasswordForm";
 
 const ForgotPasswordPage = () => {
@@ -9,7 +9,7 @@ const ForgotPasswordPage = () => {
       }}
       className="w-full h-[100vh] z-[900] bg-[#2d2d2d39]"
     >
-      <Navbar />
+      <LoginNavbar />
       <ResetPasswordForm />
     </main>
   );
