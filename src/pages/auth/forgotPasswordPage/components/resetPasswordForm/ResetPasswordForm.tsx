@@ -38,28 +38,23 @@ const ResetPasswordForm = () => {
 
   return (
     <section className="w-full h-full flex justify-center items-center">
-      <div
-        style={{
-          boxShadow: " 0 0 20px 2px #4317b26a",
-        }}
-        className="w-[500px] rounded-[10px] p-5 border-[2px] bg-[#131313a4] border-neonPurple -mt-16"
-      >
+      <div className="lg:shadow-customPurple md:w-[500px] w-[280px] rounded-[10px] p-5 lg:border-[2px] border-[1px] bg-[#131313a4] lg:border-neonPurple border-[#ffffff6e] -mt-16">
         <form onSubmit={onSubmit}>
           <div>
             <h1
-              className="text-2xl text-pastelViolet relative
+              className="md:text-2xl text-lg text-pastelViolet relative
             after:absolute after:w-full after:h-[2px] after:bg-[#ffffff5a] after:-bottom-2 after:left-0 after:rounded-xl
             "
             >
               Forgot Your Password?
             </h1>
             {st.wasDataSent ? (
-              <p className="text-lg text-[#47db30] font-semibold mt-[26px]">
+              <p className="md:text-lg text text-[#47db30] font-semibold lg:mt-[26px] mt-[16px] lg:mb-0 mb-6">
                 Email was sent. If nothing arrives in 5 minutes, please check
                 your spam or try again.
               </p>
             ) : (
-              <p className="text-[17px] text-spaceWhite mt-[26px]">
+              <p className="md:text-[17px] text-sm text-spaceWhite lg:mt-[26px] mt-[16px] lg:mb-0 mb-6">
                 Don't worry. Please enter your email and we will send you a
                 message to reset your password.
               </p>
@@ -69,7 +64,7 @@ const ResetPasswordForm = () => {
             className={`
             ${inputStyles.darkInputStyle} 
             ${st.isInvalid && "placeholder:text-errorColor border-errorColor"}
-            !h-[48px] !border-[2px] mt-2 !text-lg`}
+            md:!h-[48px] !h-[40px] !border-[1px] mt-2 md:!text-lg !text-sm`}
             type="email"
             placeholder={placeHolder}
             onChange={(e) => {
@@ -80,7 +75,7 @@ const ResetPasswordForm = () => {
           <div className="w-full flex justify-end items-center gap-2 mt-4">
             {/* BACK BUTTON */}
             <Link
-              className="h-[39px] pt-1 w-[100px] rounded-[5px] text-[white] bg-[#434343] hover:bg-[#545454] text-[17px] font-light flex justify-center items-center text-center"
+              className="lg:h-[39px] h-[32px] lg:pt-1 lg:w-[100px] w-[80px] rounded-[5px] text-[white] bg-[#434343] hover:bg-[#545454] lg:text-[17px] text-[15px] font-light flex justify-center items-center text-center"
               to="/"
             >
               Go Back
@@ -88,7 +83,7 @@ const ResetPasswordForm = () => {
             {/* SEND BUTTON */}
             <button
               type="submit"
-              className="h-[39px] py-2 w-[100px] rounded-[5px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 text-[17px] font-light"
+              className="lg:h-[39px] h-[32px] lg:py-2 py-1 lg:w-[100px] w-[80px] rounded-[5px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 lg:text-[17px] text-[15px] font-light"
             >
               Send It
             </button>

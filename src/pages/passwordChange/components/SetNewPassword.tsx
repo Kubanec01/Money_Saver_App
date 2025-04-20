@@ -7,7 +7,7 @@ import { auth } from "../../../firebase/firebaseConfig";
 import { EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import image1 from "../../../assets/correct-mark-img.png";
-import ShowAndHidePasswordIcon from "../../../firebase/features/ShowAndHidePassword";
+import ShowAndHidePasswordIcon from "../../../firebase/features/ShowAndHidePasswordBtn";
 import { passwordVisibility } from "../../../features/passwordVisibility";
 
 const SetNewPassword = () => {
@@ -58,18 +58,17 @@ const SetNewPassword = () => {
     }
   };
 
+  // STYLES
+  const labelStyle = "lg:text-[23px] text-[14px] tracking-wider text-[white]";
+  const showAndHideBtnStyle = "xl:top-0 top-[1px] md:right-5 right-3";
+
   return (
     <section className="w-full h-[100vh] flex justify-center items-center">
-      <div
-        style={{
-          boxShadow: " 0 0 20px 10px #4317b26a",
-        }}
-        className="w-[90%] max-w-[500px] border-[2px] border-neonPurple bg-[#131313a4] rounded-[14px] px-2 py-[50px]"
-      >
+      <div className="md:shadow-customPurple lg:w-[500px] md:w-[400px] w-[280px] lg:border-[2px] md:border-[1px] md:border-neonPurple bg-[#131313a4] rounded-[14px] px-2 py-[50px]">
         <div className="w-full flex justify-center items-center">
           <h1
-            className="text-4xl text-spaceBlue font-semibold relative
-          after:absolute after:w-[160%] after:h-[2px] after:bg-spaceBlue after:-bottom-4 after:left-[50%] after:-translate-x-[50%] 
+            className="lg:text-4xl text-2xl text-spaceBlue font-semibold relative
+          after:absolute lg:after:w-[160%] after:w-[130%] after:h-[2px] after:bg-spaceBlue lg:after:-bottom-4 after:-bottom-2 after:left-[50%] after:-translate-x-[50%] 
           "
           >
             Change Password
@@ -81,11 +80,11 @@ const SetNewPassword = () => {
               <>
                 <div className="h-[300px] flex flex-col justify-center items-center">
                   <img
-                    className="object-cover aspect-square w-[110px] opacity-95"
+                    className="object-cover aspect-square lg:w-[110px] w-[80px] opacity-95"
                     src={image1}
                     alt="correct-mark"
                   />
-                  <h1 className="text-customWhite300 text-3xl w-[80%] text-center font-semibold mt-2">
+                  <h1 className="text-customWhite300 lg:text-3xl text-xl md:w-[80%] w-[90%] text-center font-semibold mt-2">
                     {st.successMessage}
                   </h1>
                 </div>
@@ -94,66 +93,52 @@ const SetNewPassword = () => {
               <div className="flex flex-col justify-center items-start gap-7 py-6">
                 {/* CURRENT PASSWORD */}
                 <div className="w-full">
-                  <label
-                    htmlFor="current-password"
-                    className="text-[23px] tracking-wider text-[white] mb-10"
-                  >
+                  <label htmlFor="current-password" className={labelStyle}>
                     Current Password
                   </label>
                   <span className="w-full relative">
                     <input
                       id="current-password"
+                      placeholder="Enter your current password..."
                       onChange={(e) => st.setPassword(e.target.value)}
                       className={inputStyles.darkInputStyle}
                       type={passwordVisibility(isCurrPasswordHidden)}
                     />
-                    <button
+                    <ShowAndHidePasswordIcon
+                      isPasswordHidden={isCurrPasswordHidden}
                       onClick={() => setIsCurrPasswordHidden((e) => !e)}
-                      type="button"
-                    >
-                      <ShowAndHidePasswordIcon
-                        isPasswordHidden={isCurrPasswordHidden}
-                        class="!top-0"
-                      />
-                    </button>
+                      class={showAndHideBtnStyle}
+                    />
                   </span>
                 </div>
                 {/* NEW PASSWORD */}
                 <div className="w-full">
-                  <label
-                    htmlFor="new-password"
-                    className="text-[23px] tracking-wider text-[white]"
-                  >
+                  <label htmlFor="new-password" className={labelStyle}>
                     New Password
                   </label>
                   <span className="w-full relative">
                     <input
                       id="new-password"
+                      placeholder="Set new Password..."
                       onChange={(e) => st.setNewPassword(e.target.value)}
                       className={inputStyles.darkInputStyle}
                       type={passwordVisibility(st.isPasswordHidden)}
                     />
-                    <button
+                    <ShowAndHidePasswordIcon
+                      isPasswordHidden={st.isPasswordHidden}
                       onClick={() => st.setIsPasswordHidden((e) => !e)}
-                      type="button"
-                    >
-                      <ShowAndHidePasswordIcon
-                        isPasswordHidden={st.isPasswordHidden}
-                        class="!top-0"
-                      />
-                    </button>
+                      class={showAndHideBtnStyle}
+                    />
                   </span>
                 </div>
                 {/* CONFIRM PASSWORD */}
                 <div className="w-full">
-                  <label
-                    htmlFor="confirm-password"
-                    className="text-[23px] tracking-wider text-[white]"
-                  >
+                  <label htmlFor="confirm-password" className={labelStyle}>
                     Confirm Password
                   </label>
                   <input
                     id="confirm-password"
+                    placeholder="Confirm your new password..."
                     onChange={(e) => st.setConfirmPassword(e.target.value)}
                     className={inputStyles.darkInputStyle}
                     type={passwordVisibility(st.isPasswordHidden)}
@@ -162,8 +147,8 @@ const SetNewPassword = () => {
               </div>
             )}
             {/* ERROR MESSAGE */}
-            <section className="w-full mt-[10px]">
-              <p className="text-errorColor text-2xl text-center">
+            <section className="w-full md:mt-[10px]">
+              <p className="text-errorColor md:text-2xl text-center">
                 {st.errorMessage}
               </p>
             </section>
@@ -172,15 +157,15 @@ const SetNewPassword = () => {
               <div className="w-full mt-6">
                 <Link
                   to="/home"
-                  className="text-[#ffffffeb] flex justify-center items-center w-full h-[56px] bg-purpleButton500 hover:bg-purpleButton300 rounded-[10px] text-2xl"
+                  className="text-[#ffffffeb] flex justify-center items-center md:w-full w-[90%] mx-auto lg:h-[56px] md:h-[46px] h-[40px] bg-purpleButton500 hover:bg-purpleButton300 rounded-[10px] lg:text-2xl md:text-xl text-lg"
                 >
                   Go Back
                 </Link>
               </div>
             ) : (
-              <div className="w-full mx-auto mt-12 flex justify-end items-center gap-3 ">
+              <div className="w-full mx-auto md:mt-12 mt-8 flex md:justify-end justify-center items-center gap-3 ">
                 <Link
-                  className="h-[46px] pt-1 w-[120px] rounded-[5px] text-[white] bg-[#434343] hover:bg-[#545454] text-[20px] font-light flex justify-center items-center text-center"
+                  className="lg:h-[46px] h-[36px] pt-1 lg:w-[120px] w-[100px] rounded-[5px] text-[white] bg-[#434343] hover:bg-[#545454] lg:text-[20px] font-light flex justify-center items-center text-center"
                   to="/home"
                 >
                   Go Back
@@ -188,7 +173,7 @@ const SetNewPassword = () => {
                 {/* SEND BUTTON */}
                 <button
                   type="submit"
-                  className="h-[46px] py-[10px] w-[120px] rounded-[5px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 text-[20px] font-light"
+                  className="lg:h-[46px] h-[36px] lg:py-[10px] py-[8px] lg:w-[120px] w-[100px] rounded-[5px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 lg:text-[20px] font-light"
                 >
                   Send It
                 </button>
