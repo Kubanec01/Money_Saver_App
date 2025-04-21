@@ -4,6 +4,9 @@ import { FormEvent } from "react";
 import { authStates } from "../../../../../firebase/features/authStates";
 import { doPasswordReset } from "../../../../../firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { t } from "i18next";
+import { errorMess, plHol, successMess } from "../../../../../utils/authLabels";
+errorMess;
 
 const ResetPasswordForm = () => {
   const st = authStates();
@@ -15,26 +18,23 @@ const ResetPasswordForm = () => {
     try {
       await doPasswordReset(st.email);
       st.setWasDataSent(true);
-      st.setSuccessMessage("Password reset email send.");
+      st.setSuccessMessage(successMess.passwordResetEmailSent);
     } catch (error) {
       if (error instanceof FirebaseError) {
         st.setIsInvalid(true);
         st.setWasDataSent(false);
         switch (error.code) {
-          case "auth/invalid-email":
-            st.setErrorMessage("Invalid email format");
-            break;
           case "auth/user-not-found":
-            st.setErrorMessage("No user found with this email.");
+            st.setErrorMessage(errorMess.noUserFound);
             break;
           default:
-            st.setErrorMessage("Please enter a valid email.");
+            st.setErrorMessage(errorMess.enterEmail);
         }
       }
     }
   };
 
-  const placeHolder = st.isInvalid ? st.errorMessage : "Email...";
+  const placeHolder = st.isInvalid ? st.errorMessage : `${plHol.email}`;
 
   return (
     <section className="w-full h-full flex justify-center items-center">
@@ -46,17 +46,15 @@ const ResetPasswordForm = () => {
             after:absolute after:w-full after:h-[2px] after:bg-[#ffffff5a] after:-bottom-2 after:left-0 after:rounded-xl
             "
             >
-              Forgot Your Password?
+              {t("forgotPasswordPage.title")}
             </h1>
             {st.wasDataSent ? (
               <p className="md:text-lg text text-[#47db30] font-semibold lg:mt-[26px] mt-[16px] lg:mb-0 mb-6">
-                Email was sent. If nothing arrives in 5 minutes, please check
-                your spam or try again.
+                {t("auth.messages.success.resetPasswordSent")}
               </p>
             ) : (
               <p className="md:text-[17px] text-sm text-spaceWhite lg:mt-[26px] mt-[16px] lg:mb-0 mb-6">
-                Don't worry. Please enter your email and we will send you a
-                message to reset your password.
+                {t("forgotPasswordPage.desc")}
               </p>
             )}
           </div>
@@ -78,14 +76,14 @@ const ResetPasswordForm = () => {
               className="lg:h-[39px] h-[32px] lg:pt-1 lg:w-[100px] w-[80px] rounded-[5px] text-[white] bg-[#434343] hover:bg-[#545454] lg:text-[17px] text-[15px] font-light flex justify-center items-center text-center"
               to="/"
             >
-              Go Back
+              {t("auth.buttons.goBack")}
             </Link>
             {/* SEND BUTTON */}
             <button
               type="submit"
               className="lg:h-[39px] h-[32px] lg:py-2 py-1 lg:w-[100px] w-[80px] rounded-[5px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 lg:text-[17px] text-[15px] font-light"
             >
-              Send It
+              {t("auth.buttons.sendIt")}
             </button>
           </div>
         </form>

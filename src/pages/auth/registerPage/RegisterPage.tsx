@@ -4,7 +4,7 @@ import { FirebaseError } from "firebase/app";
 import { authStates } from "../../../firebase/features/authStates";
 import ShowAndHidePasswordBtn from "../../../firebase/features/ShowAndHidePasswordBtn";
 import { t } from "i18next";
-import { plHol } from "../../../utils/authLabels";
+import { plHol, errorMess } from "../../../utils/authLabels";
 
 const RegisterPage = () => {
   const st = authStates();
@@ -14,11 +14,11 @@ const RegisterPage = () => {
     st.setErrorMessage("");
 
     if (!st.email || !st.password || !st.confirmPassword || !st.userName) {
-      st.setErrorMessage("Please fill in all the required information.");
+      st.setErrorMessage(errorMess.fillAllInformation);
       return;
     }
     if (st.password !== st.confirmPassword) {
-      st.setErrorMessage("Passwords do not match.");
+      st.setErrorMessage(errorMess.passwordsDoNotMatch);
       return;
     }
 
@@ -32,11 +32,11 @@ const RegisterPage = () => {
     } catch (error) {
       if (error instanceof FirebaseError) {
         if (error.code === "auth/email-already-in-use") {
-          st.setErrorMessage("This email is already in use.");
+          st.setErrorMessage(errorMess.emailsIsInUse);
         } else if (error.code === "auth/weak-password") {
-          st.setErrorMessage("Password should be at least 6 characters.");
+          st.setErrorMessage(errorMess.weakPassword);
         } else {
-          st.setErrorMessage("Something went wrong, please try again later.");
+          st.setErrorMessage(errorMess.unknownError);
         }
       }
     }
@@ -110,13 +110,13 @@ const RegisterPage = () => {
                 type="submit"
                 className="text-[#ffffffeb] xl:w-full lg:w-[90%] w-[80%] xl:h-[52px] lg:h-[46px] h-[34px] bg-[#4c3bc9] hover:bg-[#5747d2] lg:rounded-[4px] rounded-[20px] lg:text-2xl text-lg"
               >
-                Sign Up
+                {t("auth.buttons.signUp")}
               </button>
               <Link
                 to="/"
                 className="text-pastelViolet xl:text-xl lg:text-lg hover:underline"
               >
-                I have an account
+                {t("auth.buttons.haveAnAccount")}
               </Link>
             </section>
           </form>

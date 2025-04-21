@@ -9,6 +9,8 @@ import { FirebaseError } from "firebase/app";
 import image1 from "../../../assets/correct-mark-img.png";
 import ShowAndHidePasswordIcon from "../../../firebase/features/ShowAndHidePasswordBtn";
 import { passwordVisibility } from "../../../features/passwordVisibility";
+import { errorMess, plHol, successMess } from "../../../utils/authLabels";
+import { t } from "i18next";
 
 const SetNewPassword = () => {
   // STATES
@@ -26,12 +28,12 @@ const SetNewPassword = () => {
     }
 
     if (!st.password || !st.newPassword || !st.confirmPassword) {
-      st.setErrorMessage("Please fill in all the required information.");
+      st.setErrorMessage(errorMess.fillAllInformation);
       return;
     }
 
     if (st.newPassword !== st.confirmPassword) {
-      st.setErrorMessage("Passwords do not match.");
+      st.setErrorMessage(errorMess.passwordsDoNotMatch);
       return;
     }
 
@@ -41,18 +43,16 @@ const SetNewPassword = () => {
 
       await doPasswordChange(st.newPassword);
       st.setWasDataSent(true);
-      st.setSuccessMessage("The password was successfully changed.");
+      st.setSuccessMessage(successMess.passwordWasChanged);
       st.setErrorMessage("");
     } catch (error) {
       if (error instanceof FirebaseError) {
         switch (error.code) {
           case "auth/weak-password":
-            st.setErrorMessage("Password is too weak.");
+            st.setErrorMessage(errorMess.weakPassword);
             break;
           default:
-            st.setErrorMessage(
-              "Something went wrong. Is your current password correct?"
-            );
+            st.setErrorMessage(errorMess.unknownErrorChangePassword);
         }
       }
     }
@@ -71,7 +71,7 @@ const SetNewPassword = () => {
           after:absolute lg:after:w-[160%] after:w-[130%] after:h-[2px] after:bg-spaceBlue lg:after:-bottom-4 after:-bottom-2 after:left-[50%] after:-translate-x-[50%] 
           "
           >
-            Change Password
+            {t("changePasswordPage.title")}
           </h1>
         </div>
         <div className="mt-10 mx-auto w-[86%]">
@@ -94,12 +94,12 @@ const SetNewPassword = () => {
                 {/* CURRENT PASSWORD */}
                 <div className="w-full">
                   <label htmlFor="current-password" className={labelStyle}>
-                    Current Password
+                    {t("auth.labels.currPassword")}
                   </label>
                   <span className="w-full relative">
                     <input
                       id="current-password"
-                      placeholder="Enter your current password..."
+                      placeholder={plHol.enterCurrentPassword}
                       onChange={(e) => st.setPassword(e.target.value)}
                       className={inputStyles.darkInputStyle}
                       type={passwordVisibility(isCurrPasswordHidden)}
@@ -114,12 +114,12 @@ const SetNewPassword = () => {
                 {/* NEW PASSWORD */}
                 <div className="w-full">
                   <label htmlFor="new-password" className={labelStyle}>
-                    New Password
+                    {t("auth.labels.newPassword")}
                   </label>
                   <span className="w-full relative">
                     <input
                       id="new-password"
-                      placeholder="Set new Password..."
+                      placeholder={plHol.setNewPassword}
                       onChange={(e) => st.setNewPassword(e.target.value)}
                       className={inputStyles.darkInputStyle}
                       type={passwordVisibility(st.isPasswordHidden)}
@@ -134,11 +134,11 @@ const SetNewPassword = () => {
                 {/* CONFIRM PASSWORD */}
                 <div className="w-full">
                   <label htmlFor="confirm-password" className={labelStyle}>
-                    Confirm Password
+                    {t("auth.labels.confirmPassword")}
                   </label>
                   <input
                     id="confirm-password"
-                    placeholder="Confirm your new password..."
+                    placeholder={plHol.confirmYourCurrPassword}
                     onChange={(e) => st.setConfirmPassword(e.target.value)}
                     className={inputStyles.darkInputStyle}
                     type={passwordVisibility(st.isPasswordHidden)}
@@ -159,7 +159,7 @@ const SetNewPassword = () => {
                   to="/home"
                   className="text-[#ffffffeb] flex justify-center items-center md:w-full w-[90%] mx-auto lg:h-[56px] md:h-[46px] h-[40px] bg-purpleButton500 hover:bg-purpleButton300 rounded-[10px] lg:text-2xl md:text-xl text-lg"
                 >
-                  Go Back
+                  {t("auth.buttons.goBack")}
                 </Link>
               </div>
             ) : (
@@ -168,14 +168,14 @@ const SetNewPassword = () => {
                   className="lg:h-[46px] h-[36px] pt-1 lg:w-[120px] w-[100px] rounded-[5px] text-[white] bg-[#434343] hover:bg-[#545454] lg:text-[20px] font-light flex justify-center items-center text-center"
                   to="/home"
                 >
-                  Go Back
+                  {t("auth.buttons.goBack")}
                 </Link>
                 {/* SEND BUTTON */}
                 <button
                   type="submit"
                   className="lg:h-[46px] h-[36px] lg:py-[10px] py-[8px] lg:w-[120px] w-[100px] rounded-[5px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 lg:text-[20px] font-light"
                 >
-                  Send It
+                  {t("auth.buttons.sendIt")}
                 </button>
               </div>
             )}
@@ -187,5 +187,3 @@ const SetNewPassword = () => {
 };
 
 export default SetNewPassword;
-
-// ! nezabudni dorobit podciarknutie v title za pomoci after:
