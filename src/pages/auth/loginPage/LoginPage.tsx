@@ -8,7 +8,8 @@ import { authStates } from "../../../firebase/features/authStates";
 import { inputStyles } from "../../../styles/inputStyles";
 import { t } from "i18next";
 import ShowAndHidePasswordBtn from "../../../firebase/features/ShowAndHidePasswordBtn";
-import { plHol } from "../../../utils/authLabels";
+import { errorMess, plHol } from "../../../utils/authLabels";
+
 
 // STYLES
 
@@ -22,7 +23,7 @@ const LoginPage = () => {
     st.setErrorMessage("");
 
     if (!st.email || !st.password) {
-      st.setErrorMessage("Please enter your email and password.");
+      st.setErrorMessage(errorMess.enterEmailAndPassword);
       return;
     }
 
@@ -34,13 +35,13 @@ const LoginPage = () => {
         if (error instanceof FirebaseError) {
           switch (error.code) {
             case "auth/user-not-found":
-              st.setErrorMessage("No user found with this email");
+              st.setErrorMessage(errorMess.noUserFound);
               break;
             case "auth/invalid-password":
-              st.setErrorMessage("Incorrect password.");
+              st.setErrorMessage(errorMess.incorrectPassword);
               break;
             default:
-              st.setErrorMessage("Wrong email or password.");
+              st.setErrorMessage(errorMess.wrongEmailOrPassword);
           }
         }
       } finally {

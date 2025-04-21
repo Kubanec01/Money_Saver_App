@@ -30,7 +30,7 @@ export const Navbar = () => {
         className={`${style.body} w-[900px] sm:h-[80px] h-[74px] flex justify-between items-center mx-auto mt-[24px] border-[2px] border-neonPurple rounded-[16px]`}
       >
         {/* LEFT */}
-        <section className="h-full md:w-[26%] flex justify-start lg:pl-6 items-center relative">
+        <section className="h-full md:w-[26%] flex justify-start pl-6 items-center relative">
           <button
             onClick={() => setIsUserMenuOpen((v) => !v)}
             style={{

@@ -2,6 +2,8 @@ import { authStates } from "../../firebase/features/authStates";
 import { doSignInWithEmailAndPassword } from "../../firebase/auth";
 import { Link } from "react-router";
 import { inputStyles } from "../../styles/inputStyles";
+import { errorMess, plHol } from "../../utils/authLabels";
+import { t } from "i18next";
 
 const LoginNavbar = () => {
   // STATES
@@ -12,7 +14,7 @@ const LoginNavbar = () => {
     st.setErrorMessage("");
 
     if (!st.email || !st.password) {
-      st.setErrorMessage("Please enter your email and password.");
+      st.setErrorMessage(errorMess.enterEmailAndPassword);
       st.setIsInvalid(true);
       return;
     }
@@ -22,7 +24,7 @@ const LoginNavbar = () => {
       try {
         await doSignInWithEmailAndPassword(st.email, st.password);
       } catch (error: unknown) {
-        st.setErrorMessage("Wrong email or password.");
+        st.setErrorMessage(errorMess.wrongEmailOrPassword);
         st.setIsInvalid(true);
       } finally {
         st.setIsSigningIn(false);
@@ -41,13 +43,13 @@ const LoginNavbar = () => {
         >
           <input
             className={`${inputStyles.lightInputStyle} lg:text-base text-sm`}
-            placeholder="Email..."
+            placeholder={plHol.email}
             type="email"
             onChange={(e) => st.setEmail(e.target.value)}
           />
           <input
             className={`${inputStyles.lightInputStyle} lg:text-base text-sm`}
-            placeholder="Password..."
+            placeholder={plHol.password}
             type="password"
             onChange={(e) => st.setPassword(e.target.value)}
           />
@@ -55,7 +57,7 @@ const LoginNavbar = () => {
             className="w-[90px] h-[60%] rounded-[6px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 font-bold lg:text-lg text-sm"
             type="submit"
           >
-            Log In
+            {t("auth.buttons.logIn")}
           </button>
         </form>
       </div>
@@ -69,7 +71,7 @@ const LoginNavbar = () => {
           <p className="overflow-hidden mx-auto text-errorColor text-center lg:text-base text-sm">
             {st.errorMessage}{" "}
             <Link className="underline" to="//">
-              Return to the Login page?
+              {t("auth.messages.errors.ReturnToLoginPage")}
             </Link>
           </p>
         </div>

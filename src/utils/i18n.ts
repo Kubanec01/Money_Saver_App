@@ -40,7 +40,8 @@ const resources = {
           // AUTH PAGES
           logIn: "Log In",
           goBack: "Go Back",
-          sentIt: "Send It",
+          signUp: "Sign Up",
+          sendIt: "Send It",
           forgotPassword: "Forgot Password",
           createNewAccount: "Create New Account",
           haveAnAccount: "I have an account",
@@ -56,10 +57,20 @@ const resources = {
           enterEmail: "Enter your email...",
           createPassword: "Create a password...",
           confirmPassword: "Confirm your password...",
+          enterCurrentPassword: "Enter your current password...",
+          setNewPassword: "Set new Password...",
+          confirmYourCurrPassword: "Confirm your new password...",
+        },
+        labels: {
+          currPassword: "Current Password",
+          newPassword: "New Password",
+          confirmPassword: "Confirm Password",
         },
         messages: {
           errors: {
             enterEmailAndPassword: "Please enter your email and password.",
+            enterEmail: "Please enter a valid email.",
+            passwordIsTooWeak: "Password is too weak.",
             wrongEmailOrPassword: "Wrong email or password.",
             ReturnToLoginPage: "Return to the Login page?",
             noUserFound: "No user found with this email",
@@ -69,10 +80,14 @@ const resources = {
             emailsIsInUse: "This email is already in use.",
             weakPassword: "Password should be at least 6 characters.",
             unknownError: "Something went wrong, please try again later.",
+            unknownErrorChangePassword:
+              "Something went wrong. Is your current password correct?",
           },
           success: {
             resetPasswordSent:
               "Email was sent. If nothing arrives in 5 minutes, please check your spam or try again.",
+            passwordResetEmailSent: "Password reset email send.",
+            passwordWasChanged: "The password was successfully changed.",
           },
         },
       },
@@ -86,6 +101,9 @@ const resources = {
       },
       registerPage: {
         title: "Creating New Account",
+      },
+      changePasswordPage: {
+        title: "Change Password",
       },
       NotFoundPage: {
         title: "Page Not Found",
