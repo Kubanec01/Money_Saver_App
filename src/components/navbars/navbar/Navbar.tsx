@@ -27,10 +27,10 @@ export const Navbar = () => {
           backdropFilter: "blur(5px)",
           boxShadow: " 0 0 20px 14px #4317b26a",
         }}
-        className={`${style.body} w-[900px] sm:h-[80px] h-[74px] flex justify-between items-center mx-auto mt-[24px] border-[2px] border-neonPurple rounded-[16px]`}
+        className={`${style.body} w-[900px] md:h-[80px] h-[70px] flex justify-between items-center mx-auto mt-[24px] border-[2px] border-neonPurple rounded-[16px]`}
       >
         {/* LEFT */}
-        <section className="h-full md:w-[26%] flex justify-start pl-6 items-center relative">
+        <section className="h-full md:w-[26%] flex justify-start md:pl-6 pl-2 items-center relative">
           <button
             onClick={() => setIsUserMenuOpen((v) => !v)}
             style={{
@@ -44,7 +44,7 @@ export const Navbar = () => {
             {/* USER ICON */}
             <span
               className={`
-              ${isUserMenuOpen ? "-translate-x-10" : "translate-x-0"}
+              ${isUserMenuOpen ? "md:-translate-x-10" : "translate-x-0"}
               text-customWhite md:ml-2 transition-all duration-300 ease-in-out`}
             >
               <FaUserCircle size={30} />
@@ -61,7 +61,7 @@ export const Navbar = () => {
             <span
               className={`
               ${isUserMenuOpen ? "-translate-y-0" : "-translate-y-32"}
-              text-customWhite transition-all duration-300 ease-in-out -ml-[46%]`}
+              text-customWhite transition-all duration-300 ease-in-out -ml-[46%] md:block hidden`}
             >
               <ImBackward size={27} />
             </span>
@@ -114,4 +114,3 @@ export const Navbar = () => {
   );
 };
 
-// ! ked bude bar Opened tak treba nastavit aqby sa zmenila frba celeho use buttonu, uvidime este na aku farbu ale pravdepodobne modra a button sa zmensi aby to aj pekne korespondovalo s icon do back arrow

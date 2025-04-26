@@ -8,6 +8,8 @@ import {
 } from "react";
 import { useLocalStoredValues } from "../useLocalStoredValues";
 import { localStoredKeys } from "../../data/storedValuesKeys";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
 type FinanceSaverContextProps = {
   budget: string;
@@ -37,6 +39,8 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
     data.budget.key,
     data.budget.initialValue
   );
+
+  // TESTING
   const [goal, setGoal] = useLocalStoredValues<string>(
     data.goal.key,
     data.goal.initialValue
