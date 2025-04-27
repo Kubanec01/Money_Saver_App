@@ -2,7 +2,7 @@ import { Link, Navigate } from "react-router";
 import img1 from "../../../assets/astronaut-img.png";
 import style from "./loginPage.module.scss";
 import { doSignInWithEmailAndPassword } from "../../../firebase/auth";
-import { useAuthContext } from "../../../hooks/context/authContext/authContext";
+import { useAuthContext } from "../../../hooks/auth/authContext/authContext";
 import { FirebaseError } from "firebase/app";
 import { authStates } from "../../../firebase/features/authStates";
 import { inputStyles } from "../../../styles/inputStyles";

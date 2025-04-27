@@ -11,7 +11,7 @@ import { useLocalStoredValues } from "../useLocalStoredValues";
 import { localStoredKeys } from "../../data/storedValuesKeys";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import { useAuthContext } from "./authContext/authContext";
+import { useAuthContext } from "../auth/authContext/authContext";
 
 type FinanceSaverContextProps = {
   budget: string;
@@ -73,7 +73,7 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
 
           setBudget(firestoreBudget);
         } else {
-          console.log("No budget found in Firestore");
+          console.log("No data found in Firestore");
         }
       } catch (error) {
         console.error("Error fetching Firestore data: ", error);

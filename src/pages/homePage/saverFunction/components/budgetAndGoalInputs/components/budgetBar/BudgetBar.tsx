@@ -1,12 +1,43 @@
+import { useEffect, useState } from "react";
 import { HandleKeyDown } from "../../../../../../../features/HandleKeyDown";
 import { HandleOnWheel } from "../../../../../../../features/HandleOnWheel";
-import { useFinanceSaverContext } from "../../../../../../../hooks/context/FinanceContext";
 import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./budgetBar.module.scss";
+import { useAuthContext } from "../../../../../../../hooks/auth/authContext/authContext";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../../../../../../../firebase/firebaseConfig";
 
 export const BudgetBar = () => {
-  const { budgetDocValue, setBudget } = useFinanceSaverContext();
-  const { valueChange } = useValueIntoState(setBudget, "budget");
+  const { userId } = useAuthContext();
+  const [budget, setBudget] = useState("0");
+
+  const { valueChange } = useValueIntoState((newValue: string) => {
+    setBudget(newValue);
+
+    if (!userId) return;
+    const budgetRef = doc(db, "testUsers", userId);
+
+    setDoc(budgetRef, { budget: newValue }, { merge: true });
+  });
+
+  useEffect(() => {
+    if (!userId) return;
+    const budgetRef = doc(db, "testUsers", userId);
+
+    const getUserRef = async () => {
+      try {
+        const userDoc = await getDoc(budgetRef);
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          const budgetFirestore = data.budget;
+          setBudget(budgetFirestore);
+        }
+      } catch (error) {
+        console.error("Error fetching budget:", error);
+      }
+    };
+    getUserRef();
+  }, [userId]);
 
   return (
     <div
@@ -24,7 +55,7 @@ export const BudgetBar = () => {
         <input
           onWheel={HandleOnWheel}
           onKeyDown={HandleKeyDown}
-          value={budgetDocValue}
+          value={budget}
           onChange={valueChange}
           id="budget"
           style={{

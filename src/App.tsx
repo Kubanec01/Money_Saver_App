@@ -1,5 +1,5 @@
 import { BgAnimation } from "./components/BgAnimation";
-import { AuthProvider } from "./hooks/context/authContext/authContext";
+import { AuthProvider } from "./hooks/auth/authContext/authContext";
 import { CurrencyContextProvider } from "./hooks/context/CurrencyContext";
 import { ExpensesAndResultsBarProvider } from "./hooks/context/ExpensesAndResultsBarContext";
 import { FinanceSaverProvider } from "./hooks/context/FinanceContext";

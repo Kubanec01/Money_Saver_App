@@ -1,7 +1,7 @@
 import { SettingBarType } from "../../../../features/currencySettingBar/CurrencySettingBar";
 import { t } from "i18next";
 import { signOutFunction } from "../../../../firebase/features/signOutFunction";
-import { useAuthContext } from "../../../../hooks/context/authContext/authContext";
+import { useAuthContext } from "../../../../hooks/auth/authContext/authContext";
 import { Link } from "react-router";
 
 export const UserSettingsBar = ({ isOpen }: SettingBarType) => {
