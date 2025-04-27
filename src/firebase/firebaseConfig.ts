@@ -1,16 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import {
-  addDoc,
-  arrayUnion,
-  collection,
-  doc,
-  getDoc,
-  getFirestore,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -31,20 +22,20 @@ const db = getFirestore(app);
 
 export { app, auth, db };
 
-const usersRef = doc(db, "users", "user123");
+// const usersRef = doc(db, "users", "user123");
 
-const setNumber = (n: number) => {
-  setDoc(usersRef, { budget: n }, { merge: true });
-};
+// const setNumber = (n: number) => {
+//   setDoc(usersRef, { budget: n }, { merge: true });
+// };
 
-setNumber(1000);
+// setNumber(1000);
 
-const userDoc = await getDoc(usersRef);
+// const userDoc = await getDoc(usersRef);
 
-if (userDoc.exists()){
-  const data = userDoc.data()
-  const budget = data.budget
-  console.log(budget)
-} else {
-  console.log('document is undefiend muaaaaah!')
-}
+// if (userDoc.exists()) {
+//   const data = userDoc.data();
+//   const budget = data.budget;
+//   console.log(budget);
+// } else {
+//   console.log("document is undefiend muaaaaah!");
+// }

@@ -43,7 +43,7 @@ export const MissingBudgetModal = () => {
         >
           {t("components.missingBudgetModal.leftBtn")}
         </button>
-        <Link onClick={closeModal} to="info" type="submit" className={button}>
+        <Link onClick={closeModal} to="/info" type="submit" className={button}>
           {t("components.missingBudgetModal.rightBtn")}
         </Link>
       </div>

@@ -4,12 +4,14 @@ import {
   SetStateAction,
   useCallback,
   useContext,
+  useEffect,
   useState,
 } from "react";
 import { useLocalStoredValues } from "../useLocalStoredValues";
 import { localStoredKeys } from "../../data/storedValuesKeys";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
+import { useAuthContext } from "./authContext/authContext";
 
 type FinanceSaverContextProps = {
   budget: string;
@@ -21,6 +23,7 @@ type FinanceSaverContextProps = {
   activeModal: string | null;
   openModal: (id: string) => void;
   closeModal: () => void;
+  budgetDocValue: string;
 };
 
 const FinanceSaverContext = createContext<FinanceSaverContextProps | undefined>(
@@ -34,13 +37,56 @@ type ChildrenProps = {
 export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
   // LOCAL STORED DATA
   const data = localStoredKeys;
+  const { userId } = useAuthContext();
 
   const [budget, setBudget] = useLocalStoredValues<string>(
     data.budget.key,
     data.budget.initialValue
   );
 
-  // TESTING
+  const [budgetDocValue, setBudgetDocValue] = useState<string>(budget);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+
+    const budgetRef = doc(db, "users", userId);
+
+    const setBudgetRef = async (v: string) => {
+      try {
+        await setDoc(budgetRef, { budget: v }, { merge: true });
+
+        setBudget(v);
+      } catch (error) {
+        console.error("Error updating Firestore: ", error);
+      }
+    };
+
+    const getBudgetDoc = async () => {
+      try {
+        const userDoc = await getDoc(budgetRef);
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          const firestoreBudget = data.budget;
+          setBudgetDocValue(firestoreBudget);
+
+          setBudget(firestoreBudget);
+        } else {
+          console.log("No budget found in Firestore");
+        }
+      } catch (error) {
+        console.error("Error fetching Firestore data: ", error);
+      }
+    };
+
+    getBudgetDoc();
+
+    if (budget !== budgetDocValue) {
+      setBudgetRef(budget);
+    }
+  }, [userId, budget, setBudget]);
+
   const [goal, setGoal] = useLocalStoredValues<string>(
     data.goal.key,
     data.goal.initialValue
@@ -72,6 +118,7 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
         activeModal,
         openModal,
         closeModal,
+        budgetDocValue,
       }}
     >
       {children}
