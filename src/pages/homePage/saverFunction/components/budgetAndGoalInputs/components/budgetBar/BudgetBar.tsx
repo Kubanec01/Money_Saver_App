@@ -5,9 +5,7 @@ import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./budgetBar.module.scss";
 
 export const BudgetBar = () => {
-
-
-  const { budget, setBudget } = useFinanceSaverContext();
+  const { budgetDocValue, setBudget } = useFinanceSaverContext();
   const { valueChange } = useValueIntoState(setBudget, "budget");
 
   return (
@@ -26,7 +24,7 @@ export const BudgetBar = () => {
         <input
           onWheel={HandleOnWheel}
           onKeyDown={HandleKeyDown}
-          value={budget}
+          value={budgetDocValue}
           onChange={valueChange}
           id="budget"
           style={{
