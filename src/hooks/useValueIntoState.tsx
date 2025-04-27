@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 
-export default (setValue: (e: string) => void, key: string) => {
-
+export default (setValue: (e: string) => void) => {
   const valueChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       let eventValue = e.target.value;
@@ -18,9 +17,8 @@ export default (setValue: (e: string) => void, key: string) => {
         setValue(eventValue);
       }
     },
-    [setValue, key]
+    [setValue]
   );
-
 
   return { valueChange };
 };
