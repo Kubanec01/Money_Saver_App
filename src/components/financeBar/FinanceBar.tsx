@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
 import { HandleKeyDown } from "../../features/HandleKeyDown";
 import { HandleOnWheel } from "../../features/HandleOnWheel";
+import { getBudgetValue } from "../../hooks/firestore/getBudgetValue";
 
 type FinanceBarProps = {
   id: string;
@@ -14,7 +15,8 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const { setExpensesSum, budget, openModal } = useFinanceSaverContext();
+  const { budget } = getBudgetValue();
+  const { setExpensesSum, openModal } = useFinanceSaverContext();
   const { updateExpense, expenses } = useExpensesAndResultsBarContext();
   const [expenseValue, setExpenseValue] = useState("");
 

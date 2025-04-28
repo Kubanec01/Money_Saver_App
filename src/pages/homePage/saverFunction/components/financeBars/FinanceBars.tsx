@@ -1,9 +1,8 @@
-import { useTranslation } from "react-i18next";
 import { FinanceBar } from "../../../../../components/financeBar/FinanceBar";
 import style from "./financeBars.module.scss";
+import { t } from "i18next";
 
 export const FinanceBars = () => {
-  const { t } = useTranslation();
 
   return (
     <div

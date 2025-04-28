@@ -15,14 +15,14 @@ export const BudgetBar = () => {
     setBudget(newValue);
 
     if (!userId) return;
-    const budgetRef = doc(db, "testUsers", userId);
+    const budgetRef = doc(db, "users", userId);
 
     setDoc(budgetRef, { budget: newValue }, { merge: true });
   });
 
   useEffect(() => {
     if (!userId) return;
-    const budgetRef = doc(db, "testUsers", userId);
+    const budgetRef = doc(db, "users", userId);
 
     const getUserRef = async () => {
       try {
