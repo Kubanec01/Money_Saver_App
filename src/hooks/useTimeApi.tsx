@@ -16,6 +16,7 @@ interface TimeData {
   dstActive: boolean;
 }
 
+// ! url of api is turned off cause better testing
 export const useTimeApi = () => {
   const [timeData, setTimeData] = useState<TimeData | null>(null);
 
@@ -23,7 +24,7 @@ export const useTimeApi = () => {
     const getData = async () => {
       try {
         const resp = await fetch(
-          "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
+          // "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
           {
             headers: {
               accept: "application/json",
