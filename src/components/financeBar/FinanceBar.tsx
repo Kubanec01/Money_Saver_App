@@ -2,11 +2,14 @@ import style from "./financeBar.module.scss";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
-import { useCallback, useState } from "react";
+import { SetStateAction, useCallback, useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
 import { HandleKeyDown } from "../../features/HandleKeyDown";
 import { HandleOnWheel } from "../../features/HandleOnWheel";
-import { useGetDataDocs } from "../../hooks/firestore/useGetDataDocs";
+import { useFinanceDataContext } from "../../hooks/context/FinanceDataContext";
+import { useAuthContext } from "../../hooks/auth/authContext/authContext";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
 type FinanceBarProps = {
   id: string;
@@ -15,10 +18,21 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const { budget } = useGetDataDocs();
-  const { setExpensesSum, openModal } = useFinanceSaverContext();
+  const { budget, expensesSum, setExpensesSum } = useFinanceDataContext();
+  const { userId } = useAuthContext();
+  // const { setExpensesSum, openModal } = useFinanceSaverContext();
+  const { openModal } = useFinanceSaverContext();
   const { updateExpense, expenses } = useExpensesAndResultsBarContext();
   const [expenseValue, setExpenseValue] = useState("");
+
+  const setExpensesDoc = (value: number) => {
+    if (!userId) return;
+
+    const ref = doc(db, "users", userId);
+    setDoc(ref, { expenses: value }, { merge: true });
+  };
+
+  setExpensesDoc(expensesSum);
 
   // Variables
   let expenseValueNum = Number(expenseValue);

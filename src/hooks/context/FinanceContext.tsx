@@ -12,8 +12,8 @@ import { localStoredKeys } from "../../data/storedValuesKeys";
 type FinanceSaverContextProps = {
   // budget: string;
   // setBudget: (value: string) => void;
-  goal: string;
-  setGoal: (value: string) => void;
+  // goal: string;
+  // setGoal: (value: string) => void;
   expensesSum: number;
   setExpensesSum: Dispatch<SetStateAction<number>>;
   activeModal: string | null;
@@ -37,10 +37,10 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
   //   data.budget.key,
   //   data.budget.initialValue
   // );
-  const [goal, setGoal] = useLocalStoredValues<string>(
-    data.goal.key,
-    data.goal.initialValue
-  );
+  // const [goal, setGoal] = useLocalStoredValues<string>(
+  //   data.goal.key,
+  //   data.goal.initialValue
+  // );
   const [expensesSum, setExpensesSum] = useLocalStoredValues<number>(
     data.expensesSum.key,
     data.expensesSum.initialValue
@@ -61,8 +61,8 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
       value={{
         // budget,
         // setBudget,
-        goal,
-        setGoal,
+        // goal,
+        // setGoal,
         expensesSum,
         setExpensesSum,
         activeModal,
