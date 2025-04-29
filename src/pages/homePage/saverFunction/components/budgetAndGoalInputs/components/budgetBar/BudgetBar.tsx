@@ -2,10 +2,10 @@ import { HandleKeyDown } from "../../../../../../../features/HandleKeyDown";
 import { HandleOnWheel } from "../../../../../../../features/HandleOnWheel";
 import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./budgetBar.module.scss";
-import { useGetDataDocs } from "../../../../../../../hooks/firestore/useGetDataDocs";
+import { useFinanceDataContext } from "../../../../../../../hooks/context/FinanceDataContext";
 
 export const BudgetBar = () => {
-  const { budget, setBudget } = useGetDataDocs();
+  const { budget, setBudget } = useFinanceDataContext();
 
   const { valueChange } = useValueIntoState({
     firestoreFieldName: "budget",

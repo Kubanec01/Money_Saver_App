@@ -1,12 +1,12 @@
 import { HandleOnWheel } from "../../../../../../../features/HandleOnWheel";
 import useValueIntoState from "../../../../../../../hooks/useValueIntoState";
 import style from "./goalBar.module.scss";
-import { useGetDataDocs } from "../../../../../../../hooks/firestore/useGetDataDocs";
+import { useFinanceDataContext } from "../../../../../../../hooks/context/FinanceDataContext";
 
 export const GoalBar = () => {
   // const { goal, setGoal } = useFinanceSaverContext();
   // const { valueChange } = useValueIntoState(setGoal);
-  const { goal, setGoal } = useGetDataDocs();
+  const { goal, setGoal } = useFinanceDataContext();
 
   const { valueChange } = useValueIntoState({
     firestoreFieldName: "goal",
