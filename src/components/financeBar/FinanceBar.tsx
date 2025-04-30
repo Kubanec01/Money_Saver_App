@@ -34,6 +34,8 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
 
   setExpensesDoc(expensesSum);
 
+  console.log("This is function expensesSum", expensesSum);
+
   // Variables
   let expenseValueNum = Number(expenseValue);
 

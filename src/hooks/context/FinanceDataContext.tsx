@@ -36,6 +36,8 @@ export const FinanceDataContextProvider = ({
   const [goal, setGoal] = useState("0");
   const [expensesSum, setExpensesSum] = useState(0);
 
+  console.log('This is context expenseSum', expensesSum)
+
   useEffect(() => {
     if (!userId) return;
 
@@ -78,6 +80,7 @@ export const FinanceDataContextProvider = ({
         console.error("Error fetching expenses Firestore Data:", error);
       }
     };
+    getExpensesRef()
   }, [userId]);
 
   return (
