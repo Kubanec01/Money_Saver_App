@@ -10,7 +10,8 @@ interface FinanceCharts {
 export const FinanceReview = ({ currency }: FinanceCharts) => {
   const { budget } = useFinanceDataContext();
   // const { budget, expensesSum } = useFinanceSaverContext();
-  const { expensesSum } = useFinanceSaverContext();
+  // const { expensesSum } = useFinanceSaverContext();
+  const { expensesSum } = useFinanceDataContext();
   const { expenses } = useExpensesAndResultsBarContext();
 
   const budgetNum = Number(budget);

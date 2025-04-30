@@ -14,8 +14,8 @@ type FinanceSaverContextProps = {
   // setBudget: (value: string) => void;
   // goal: string;
   // setGoal: (value: string) => void;
-  expensesSum: number;
-  setExpensesSum: Dispatch<SetStateAction<number>>;
+  // expensesSum: number;
+  // setExpensesSum: Dispatch<SetStateAction<number>>;
   activeModal: string | null;
   openModal: (id: string) => void;
   closeModal: () => void;
@@ -41,10 +41,10 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
   //   data.goal.key,
   //   data.goal.initialValue
   // );
-  const [expensesSum, setExpensesSum] = useLocalStoredValues<number>(
-    data.expensesSum.key,
-    data.expensesSum.initialValue
-  );
+  // const [expensesSum, setExpensesSum] = useLocalStoredValues<number>(
+  //   data.expensesSum.key,
+  //   data.expensesSum.initialValue
+  // );
 
   // MODAL
   const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -63,8 +63,8 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
         // setBudget,
         // goal,
         // setGoal,
-        expensesSum,
-        setExpensesSum,
+        // expensesSum,
+        // setExpensesSum,
         activeModal,
         openModal,
         closeModal,
