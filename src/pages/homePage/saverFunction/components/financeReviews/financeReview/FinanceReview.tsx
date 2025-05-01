@@ -2,6 +2,7 @@ import { useFinanceSaverContext } from "../../../../../../hooks/context/FinanceC
 import { ReviewCart } from "./components/ReviewCart";
 import { useExpensesAndResultsBarContext } from "../../../../../../hooks/context/ExpensesAndResultsBarContext";
 import { useFinanceDataContext } from "../../../../../../hooks/context/FinanceDataContext";
+import { useExpensesAndResultsDataContext } from "../../../../../../hooks/context/ExpensesAndResultsDataContext";
 
 interface FinanceCharts {
   currency: string;
@@ -12,7 +13,9 @@ export const FinanceReview = ({ currency }: FinanceCharts) => {
   // const { budget, expensesSum } = useFinanceSaverContext();
   // const { expensesSum } = useFinanceSaverContext();
   const { expensesSum } = useFinanceDataContext();
-  const { expenses } = useExpensesAndResultsBarContext();
+  // const { expenses } = useExpensesAndResultsBarContext();
+  // const { expenses } = useExpensesAndResultsBarContext();
+  const { expenses } = useExpensesAndResultsDataContext();
 
   const budgetNum = Number(budget);
   const expensesNum = Number(expensesSum);
@@ -25,9 +28,7 @@ export const FinanceReview = ({ currency }: FinanceCharts) => {
     const savedMoney = budgetNum - expensesNum;
     const result = Math.floor((savedMoney / budgetNum) * 100);
 
-    if (isNaN(result) || !isFinite(result)) {
-      return 0;
-    }
+    if (isNaN(result) || !isFinite(result) || isNaN(budgetNum)) return 0;
 
     return result;
   };
