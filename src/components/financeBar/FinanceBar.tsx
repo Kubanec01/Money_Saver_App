@@ -10,6 +10,7 @@ import { useFinanceDataContext } from "../../hooks/context/FinanceDataContext";
 import { useAuthContext } from "../../hooks/auth/authContext/authContext";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
+import { useExpensesAndResultsDataContext } from "../../hooks/context/ExpensesAndResultsDataContext";
 
 type FinanceBarProps = {
   id: string;
@@ -22,19 +23,18 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   const { userId } = useAuthContext();
   // const { setExpensesSum, openModal } = useFinanceSaverContext();
   const { openModal } = useFinanceSaverContext();
-  const { updateExpense, expenses } = useExpensesAndResultsBarContext();
+  // const { updateExpense, expenses } = useExpensesAndResultsBarContext();
+  const { updateExpense, expenses } = useExpensesAndResultsDataContext();
   const [expenseValue, setExpenseValue] = useState("");
 
   const setExpensesDoc = (value: number) => {
-    if (!userId) return;
+    if (!userId || value === undefined) return;
 
     const ref = doc(db, "users", userId);
     setDoc(ref, { expenses: value }, { merge: true });
   };
 
   setExpensesDoc(expensesSum);
-
-  console.log("This is function expensesSum", expensesSum);
 
   // Variables
   let expenseValueNum = Number(expenseValue);

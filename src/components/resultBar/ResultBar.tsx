@@ -1,4 +1,5 @@
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
+import { useExpensesAndResultsDataContext } from "../../hooks/context/ExpensesAndResultsDataContext";
 import style from "./resultBar.module.scss";
 
 type ResultBarProps = {
@@ -8,7 +9,10 @@ type ResultBarProps = {
 };
 
 export const ResultBar = ({ id, name, currency }: ResultBarProps) => {
-  const { expenses } = useExpensesAndResultsBarContext();
+  // const { expenses } = useExpensesAndResultsBarContext();
+  const { expenses } = useExpensesAndResultsDataContext();
+
+  console.log(expenses)
 
   return (
     <div

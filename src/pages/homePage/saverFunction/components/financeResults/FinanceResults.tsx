@@ -2,11 +2,10 @@ import { Trans, useTranslation } from "react-i18next";
 import { ResultBar } from "../../../../../components/resultBar/ResultBar";
 import { useCurrencyContext } from "../../../../../hooks/context/CurrencyContext";
 import style from "./financeResults.module.scss";
+import { t } from "i18next";
 
 export const FinanceResults = () => {
   const { currency } = useCurrencyContext();
-
-  const { t } = useTranslation();
 
   return (
     <div className="mt-[160px] xl:w-[88%] mx-auto">
