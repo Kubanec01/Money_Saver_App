@@ -29,7 +29,7 @@ export const GoalBar = () => {
         <input
           id="goal"
           onWheel={HandleOnWheel}
-          value={goal}
+          value={goal ?? "0"}
           onChange={valueChange}
           style={{
             borderBottom: "3px solid rgba(255, 255, 255, 0.7)",
