@@ -11,9 +11,7 @@ type ResultBarProps = {
 export const ResultBar = ({ id, name, currency }: ResultBarProps) => {
   // const { expenses } = useExpensesAndResultsBarContext();
   const { expenses } = useExpensesAndResultsDataContext();
-
-  console.log(expenses)
-
+  
   return (
     <div
       id={id}

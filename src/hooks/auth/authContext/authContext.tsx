@@ -1,5 +1,5 @@
 import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "../../../firebase/firebaseConfig";
+import { auth, db } from "../../../firebase/firebaseConfig";
 
 import {
   createContext,
@@ -8,6 +8,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 interface AuthContextType {
   currentUser: User | null;
@@ -30,10 +31,35 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   async function initializeUser(user: User | null) {
+    const ensureUSerDocExists = async (userId: string) => {
+      const ref = doc(db, "users", userId);
+      const snapshot = await getDoc(ref);
+
+      if (!snapshot.exists()) {
+        await setDoc(ref, {
+          budget: "0",
+          goal: "0",
+          expenses: 0,
+          expensesData: {},
+        });
+      } else {
+        const data = snapshot.data();
+        const updates: any = {};
+        if (data.budget === undefined) updates.budget = "0";
+        if (data.goal === undefined) updates.goal = "0";
+        if (data.expenses === undefined) updates.expenses = 0;
+        if (data.expenseData === undefined) updates.expenseData = {};
+
+        if (Object.keys(updates).length > 0) {
+          await setDoc(ref, updates, { merge: true });
+        }
+      }
+    };
     if (user) {
       setCurrentUser({ ...user });
       setUserLoggedIn(true);
       setUserId(user.uid);
+      ensureUSerDocExists(user.uid);
     } else {
       setCurrentUser(null);
       setUserId(null);

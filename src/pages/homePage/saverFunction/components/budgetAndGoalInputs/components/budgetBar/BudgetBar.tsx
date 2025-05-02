@@ -12,6 +12,7 @@ export const BudgetBar = () => {
     setValue: setBudget,
   });
 
+
   return (
     <div
       className={`${style.body} xl:w-[400px] lg:w-[340px] md:w-[300px] sm:w-[60%] w-[90%] lg:h-[140px] md:h-[124px] h-[110px] rounded-[20px]`}
