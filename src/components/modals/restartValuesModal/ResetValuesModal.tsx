@@ -7,31 +7,55 @@ import { useExpensesAndResultsBarContext } from "../../../hooks/context/Expenses
 import { useTranslation } from "react-i18next";
 import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext";
 import { t } from "i18next";
+import { firestoreInitialData } from "../../../data/firestoreDataValues";
+import { useAuthContext } from "../../../hooks/auth/authContext/authContext";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../../../firebase/firebaseConfig";
+import { useExpensesAndResultsDataContext } from "../../../hooks/context/ExpensesAndResultsDataContext";
 
 export const ResetValuesModal = () => {
   // const { closeModal, setBudget, setGoal, setExpensesSum } =
   //   useFinanceSaverContext();
   const { closeModal, setBudget, setGoal, setExpensesSum } =
     useFinanceDataContext();
-  const { setExpenses } = useExpensesAndResultsBarContext();
+  const { userId } = useAuthContext();
 
-  // LOCAL STORED KEYS
-  const data = localStoredKeys;
-  const ResetData = Object(
-    Object.values(localStoredKeys).map((obj) => Object.values(obj)[0])
-  );
+  // const { setExpenses } = useExpensesAndResultsBarContext();
+  const { setExpenses } = useExpensesAndResultsDataContext();
+  
+  // // LOCAL STORED KEYS
+  // const data = localStoredKeys;
+  // const ResetData = Object(
+  //   Object.values(localStoredKeys).map((obj) => Object.values(obj)[0])
+  // );
+
+  // DATA
+  const data = firestoreInitialData;
 
   // STYLES
   const button =
     "sm:border-[2px] border-[1px] rounded-[10px] border-white text-white xl:text-lg p-2";
 
-  const resetValues = () => {
-    resetStoredValues({ keys: ResetData });
-    setExpenses(data.expenses.initialValue);
-    setExpensesSum(data.expensesSum.initialValue);
-    setBudget(data.budget.initialValue);
-    setGoal(data.goal.initialValue);
-    closeModal();
+  const resetValues = async () => {
+    if (!userId) return;
+
+    try {
+      const ref = doc(db, "users", userId);
+      const updates: any = {
+        budget: data.budget,
+        goal: data.goal,
+        expenses: data.expenses,
+        expenseData: data.expenseData,
+      };
+      await setDoc(ref, updates, { merge: true });
+      setBudget(data.budget);
+      setGoal(data.goal);
+      setExpensesSum(data.expenses);
+      setExpenses(data.expenseData);
+      closeModal()
+    } catch (error) {
+      console.error("Failed to reset values and update Firestore:", error);
+    }
   };
 
   return (

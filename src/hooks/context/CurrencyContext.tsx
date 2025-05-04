@@ -9,8 +9,8 @@ import { localStoredKeys } from "../../data/storedValuesKeys";
 import { useLocalStoredValues } from "../useLocalStoredValues";
 
 type CurrencyContextType = {
-  currency: string;
-  setCurrency: Dispatch<SetStateAction<string>>;
+  // currency: string;
+  // setCurrency: Dispatch<SetStateAction<string>>;
 };
 
 const currencyContext = createContext<CurrencyContextType | undefined>(
@@ -31,7 +31,10 @@ export const CurrencyContextProvider = ({
   );
 
   return (
-    <currencyContext.Provider value={{ currency, setCurrency }}>
+    <currencyContext.Provider value={{ 
+      // currency, 
+      // setCurrency
+       }}>
       {children}
     </currencyContext.Provider>
   );

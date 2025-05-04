@@ -1,6 +1,7 @@
 import { BgAnimation } from "./components/BgAnimation";
 import { AuthProvider } from "./hooks/auth/authContext/authContext";
 import { CurrencyContextProvider } from "./hooks/context/CurrencyContext";
+import { CurrencyDataContextProvider } from "./hooks/context/CurrencyDataContext";
 import { ExpensesAndResultsBarProvider } from "./hooks/context/ExpensesAndResultsBarContext";
 import { ExpensesAndResultsDataContextProvider } from "./hooks/context/ExpensesAndResultsDataContext";
 import { FinanceSaverProvider } from "./hooks/context/FinanceContext";
@@ -12,19 +13,21 @@ function App() {
   return (
     <>
       <AuthProvider>
-          <FinanceDataContextProvider>
-        <ExpensesAndResultsDataContextProvider>
+        <FinanceDataContextProvider>
+          <ExpensesAndResultsDataContextProvider>
             <ExpensesAndResultsBarProvider>
               <FinanceSaverProvider>
-                <CurrencyContextProvider>
-                  <UseScrollToTop />
-                  <BgAnimation />
-                  <MainRoutes />
-                </CurrencyContextProvider>
+                <CurrencyDataContextProvider>
+                  <CurrencyContextProvider>
+                    <UseScrollToTop />
+                    <BgAnimation />
+                    <MainRoutes />
+                  </CurrencyContextProvider>
+                </CurrencyDataContextProvider>
               </FinanceSaverProvider>
             </ExpensesAndResultsBarProvider>
-        </ExpensesAndResultsDataContextProvider>
-          </FinanceDataContextProvider>
+          </ExpensesAndResultsDataContextProvider>
+        </FinanceDataContextProvider>
       </AuthProvider>
     </>
   );

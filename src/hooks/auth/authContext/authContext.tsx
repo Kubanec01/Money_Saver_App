@@ -41,6 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           goal: "0",
           expenses: 0,
           expenseData: {},
+          currency: "eur",
         });
       } else {
         const data = snapshot.data();
@@ -50,6 +51,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (data.goal === undefined) updates.goal = "0";
         if (data.expenses === undefined) updates.expenses = 0;
         if (data.expenseData === undefined) updates.expenseData = {};
+        if (data.currency === undefined) updates.currency = "eur";
 
         if (Object.keys(updates).length > 0) {
           await setDoc(ref, updates, { merge: true });

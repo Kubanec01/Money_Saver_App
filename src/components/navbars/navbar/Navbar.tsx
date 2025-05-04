@@ -10,10 +10,14 @@ import { Link } from "react-router";
 import { MdRestartAlt } from "react-icons/md";
 import UserSettingsBar from "../../../pages/homePage/components/userSettingsBar/UserSettingsBar";
 import { ImBackward } from "react-icons/im";
+import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext";
+import { useCurrencyDataContext } from "../../../hooks/context/CurrencyDataContext";
 
 export const Navbar = () => {
-  const { openModal } = useFinanceSaverContext();
-  const { currency } = useCurrencyContext();
+  // const { openModal } = useFinanceSaverContext();
+  const { openModal } = useFinanceDataContext();
+  // const { currency } = useCurrencyContext();
+  const { currency } = useCurrencyDataContext();
   const [isCurrencyMenuOpen, setIsCurrencyMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
@@ -113,4 +117,3 @@ export const Navbar = () => {
     </div>
   );
 };
-
