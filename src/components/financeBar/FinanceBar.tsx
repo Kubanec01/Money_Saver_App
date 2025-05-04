@@ -19,10 +19,10 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const { budget, expensesSum, setExpensesSum } = useFinanceDataContext();
+  const { budget, expensesSum, setExpensesSum, openModal } = useFinanceDataContext();
   const { userId } = useAuthContext();
   // const { setExpensesSum, openModal } = useFinanceSaverContext();
-  const { openModal } = useFinanceSaverContext();
+  // const { openModal } = useFinanceSaverContext();
   // const { updateExpense, expenses } = useExpensesAndResultsBarContext();
   const { updateExpense, expenses } = useExpensesAndResultsDataContext();
   const [expenseValue, setExpenseValue] = useState("");

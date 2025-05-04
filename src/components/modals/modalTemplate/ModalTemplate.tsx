@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useRef } from "react";
 import style from "./modal.module.scss";
 import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
+import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext";
 
 type ModalTemplateType = {
   id: string;
@@ -11,7 +12,8 @@ type ModalTemplateType = {
 
 export const ModalTemplate = ({ id, children, bgImage, modalBodyStyle }: ModalTemplateType) => {
   const modalRef = useRef<HTMLDialogElement>(null);
-  const { activeModal } = useFinanceSaverContext();
+  // const { activeModal } = useFinanceSaverContext();
+  const { activeModal } = useFinanceDataContext();
 
   useEffect(() => {
     if (activeModal === id) {

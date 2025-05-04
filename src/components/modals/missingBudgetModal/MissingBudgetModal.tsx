@@ -3,10 +3,13 @@ import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import image1 from "../../../assets/universe-bg-img.jpg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext";
+import { t } from "i18next";
 
 export const MissingBudgetModal = () => {
-  const { closeModal } = useFinanceSaverContext();
-  const { t } = useTranslation();
+  // const { closeModal } = useFinanceSaverContext();
+  const { closeModal } = useFinanceDataContext();
+  
 
   // STYLES
   const button =
