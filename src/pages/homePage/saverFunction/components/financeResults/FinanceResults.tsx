@@ -3,9 +3,11 @@ import { ResultBar } from "../../../../../components/resultBar/ResultBar";
 import { useCurrencyContext } from "../../../../../hooks/context/CurrencyContext";
 import style from "./financeResults.module.scss";
 import { t } from "i18next";
+import { useCurrencyDataContext } from "../../../../../hooks/context/CurrencyDataContext";
 
 export const FinanceResults = () => {
-  const { currency } = useCurrencyContext();
+  // const { currency } = useCurrencyContext();
+  const { currency } = useCurrencyDataContext();
 
   return (
     <div className="mt-[160px] xl:w-[88%] mx-auto">

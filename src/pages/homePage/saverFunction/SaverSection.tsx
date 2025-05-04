@@ -4,10 +4,12 @@ import { FinanceReview } from "./components/financeReviews/financeReview/Finance
 import { FinanceResults } from "./components/financeResults/FinanceResults";
 import { useTranslation } from "react-i18next";
 import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
+import { useCurrencyDataContext } from "../../../hooks/context/CurrencyDataContext";
 
 export const SaverSection = () => {
   const { t } = useTranslation();
-  const {currency} = useCurrencyContext()
+  // const {currency} = useCurrencyContext()
+  const {currency} = useCurrencyDataContext()
 
   return (
     <div className="border-white w-[90%] max-w-[1300px] mx-auto md:mt-[200px] mt-[140px]">

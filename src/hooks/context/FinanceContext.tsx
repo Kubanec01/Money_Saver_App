@@ -47,14 +47,14 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
   // );
 
   // MODAL
-  const [activeModal, setActiveModal] = useState<string | null>(null);
-  const openModal = useCallback((id: string) => {
-    setActiveModal(id);
-  }, []);
+  // const [activeModal, setActiveModal] = useState<string | null>(null);
+  // const openModal = useCallback((id: string) => {
+  //   setActiveModal(id);
+  // }, []);
 
-  const closeModal = useCallback(() => {
-    setActiveModal(null);
-  }, []);
+  // const closeModal = useCallback(() => {
+  //   setActiveModal(null);
+  // }, []);
 
   return (
     <FinanceSaverContext.Provider

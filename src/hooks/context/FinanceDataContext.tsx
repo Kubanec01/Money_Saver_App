@@ -40,52 +40,6 @@ export const FinanceDataContextProvider = ({
   const [goal, setGoal] = useState("0");
   const [expensesSum, setExpensesSum] = useState(0);
 
-  // useEffect(() => {
-  //   if (!userId) return;
-
-  //   const ref = doc(db, "users", userId);
-
-  //   const getBudgetRef = async () => {
-  //     try {
-  //       const userDoc = await getDoc(ref);
-  //       if (userDoc.exists()) {
-  //         const data = userDoc.data();
-  //         setBudget(data.budget);
-  //       } else {
-  //         setDoc(ref, { budget: "0" });
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching budget Firestore Data:", error);
-  //     }
-  //   };
-  //   getBudgetRef();
-
-  //   const getGoalRef = async () => {
-  //     try {
-  //       const docRef = await getDoc(ref);
-  //       if (docRef.exists()) {
-  //         const data = docRef.data();
-  //         setGoal(data.goal);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching goal Firestore Data:", error);
-  //     }
-  //   };
-  //   getGoalRef();
-
-  //   const getExpensesRef = async () => {
-  //     try {
-  //       const userDoc = await getDoc(ref);
-  //       if (userDoc.exists()) {
-  //         const data = userDoc.data();
-  //         setExpensesSum(data.expenses);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching expenses Firestore Data:", error);
-  //     }
-  //   };
-  //   getExpensesRef();
-  // }, [userId]);
 
   useEffect(() => {
     if (!userId || loading) return;

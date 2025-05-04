@@ -1,4 +1,4 @@
-export const firestoreDataValues = {
+export const firestoreInitialData = {
   budget: "0",
   goal: "0",
   expenses: 0,

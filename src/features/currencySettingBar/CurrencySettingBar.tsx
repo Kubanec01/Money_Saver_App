@@ -1,6 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
 import { currencyData } from "../../data/curencyData";
 import { useCurrencyContext } from "../../hooks/context/CurrencyContext";
+import { useCurrencyDataContext } from "../../hooks/context/CurrencyDataContext";
+import { useAuthContext } from "../../hooks/auth/authContext/authContext";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
 export type SettingBarType = {
   isOpen: boolean;
@@ -8,7 +12,20 @@ export type SettingBarType = {
 };
 
 export const CurrencySettingBar = ({ isOpen, setIsOpen }: SettingBarType) => {
-  const { setCurrency } = useCurrencyContext();
+  // const { setCurrency } = useCurrencyContext();
+  const { setCurrency } = useCurrencyDataContext();
+  const { userId } = useAuthContext();
+
+  const setCurrencyData = async (value: string) => {
+    if (!userId) return;
+    try {
+      const ref = doc(db, "users", userId);
+      setDoc(ref, { currency: value }, { merge: true });
+    } catch (error) {
+      console.log("Failed Setting Currency Data:", error);
+    }
+    setCurrency(value)
+  };
 
   // DATA
   const data = currencyData;
@@ -30,7 +47,7 @@ export const CurrencySettingBar = ({ isOpen, setIsOpen }: SettingBarType) => {
             <li key={i.id} className={listItemStyle}>
               <button
                 onClick={() => {
-                  setCurrency(i.curr);
+                  setCurrencyData(i.curr);
                   setIsOpen((v) => !v);
                 }}
                 className={buttonStyle}
