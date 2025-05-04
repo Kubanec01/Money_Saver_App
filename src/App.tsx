@@ -12,8 +12,8 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <ExpensesAndResultsDataContextProvider>
           <FinanceDataContextProvider>
+        <ExpensesAndResultsDataContextProvider>
             <ExpensesAndResultsBarProvider>
               <FinanceSaverProvider>
                 <CurrencyContextProvider>
@@ -23,8 +23,8 @@ function App() {
                 </CurrencyContextProvider>
               </FinanceSaverProvider>
             </ExpensesAndResultsBarProvider>
-          </FinanceDataContextProvider>
         </ExpensesAndResultsDataContextProvider>
+          </FinanceDataContextProvider>
       </AuthProvider>
     </>
   );

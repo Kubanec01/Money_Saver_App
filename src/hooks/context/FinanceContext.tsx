@@ -16,9 +16,9 @@ type FinanceSaverContextProps = {
   // setGoal: (value: string) => void;
   // expensesSum: number;
   // setExpensesSum: Dispatch<SetStateAction<number>>;
-  activeModal: string | null;
-  openModal: (id: string) => void;
-  closeModal: () => void;
+  // activeModal: string | null;
+  // openModal: (id: string) => void;
+  // closeModal: () => void;
 };
 
 const FinanceSaverContext = createContext<FinanceSaverContextProps | undefined>(
@@ -65,9 +65,9 @@ export const FinanceSaverProvider = ({ children }: ChildrenProps) => {
         // setGoal,
         // expensesSum,
         // setExpensesSum,
-        activeModal,
-        openModal,
-        closeModal,
+        // activeModal,
+        // openModal,
+        // closeModal,
       }}
     >
       {children}

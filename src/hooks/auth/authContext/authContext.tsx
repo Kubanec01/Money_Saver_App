@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   async function initializeUser(user: User | null) {
-    const ensureUSerDocExists = async (userId: string) => {
+    const ensureUserDocExists = async (userId: string) => {
       const ref = doc(db, "users", userId);
       const snapshot = await getDoc(ref);
 
@@ -40,11 +40,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           budget: "0",
           goal: "0",
           expenses: 0,
-          expensesData: {},
+          expenseData: {},
         });
       } else {
         const data = snapshot.data();
         const updates: any = {};
+
         if (data.budget === undefined) updates.budget = "0";
         if (data.goal === undefined) updates.goal = "0";
         if (data.expenses === undefined) updates.expenses = 0;
@@ -55,17 +56,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
       }
     };
+
     if (user) {
-      setCurrentUser({ ...user });
-      setUserLoggedIn(true);
-      setUserId(user.uid);
-      ensureUSerDocExists(user.uid);
+      setLoading(true);
+      const uid = user.uid;
+
+      try {
+        await ensureUserDocExists(uid);
+        setCurrentUser(user);
+        setUserLoggedIn(true);
+        setUserId(uid);
+      } catch (error) {
+        console.error("Error initializing user:", error);
+      } finally {
+        setLoading(false);
+      }
     } else {
       setCurrentUser(null);
-      setUserId(null);
       setUserLoggedIn(false);
+      setUserId(null);
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   const value: AuthContextType = {

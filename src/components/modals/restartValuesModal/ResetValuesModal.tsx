@@ -5,12 +5,15 @@ import { localStoredKeys } from "../../../data/storedValuesKeys";
 import { resetStoredValues } from "../../../features/resetStoredValues";
 import { useExpensesAndResultsBarContext } from "../../../hooks/context/ExpensesAndResultsBarContext";
 import { useTranslation } from "react-i18next";
+import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext";
+import { t } from "i18next";
 
 export const ResetValuesModal = () => {
+  // const { closeModal, setBudget, setGoal, setExpensesSum } =
+  //   useFinanceSaverContext();
   const { closeModal, setBudget, setGoal, setExpensesSum } =
-    useFinanceSaverContext();
+    useFinanceDataContext();
   const { setExpenses } = useExpensesAndResultsBarContext();
-  const { t } = useTranslation();
 
   // LOCAL STORED KEYS
   const data = localStoredKeys;

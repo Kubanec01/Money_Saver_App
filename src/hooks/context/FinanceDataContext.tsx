@@ -3,12 +3,13 @@ import {
   Dispatch,
   ReactNode,
   SetStateAction,
+  useCallback,
   useContext,
   useEffect,
   useState,
 } from "react";
 import { useAuthContext } from "../auth/authContext/authContext";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 
 type FinanceDataContextProps = {
@@ -18,7 +19,9 @@ type FinanceDataContextProps = {
   goal: string;
   setExpensesSum: Dispatch<SetStateAction<number>>;
   expensesSum: number;
-  loading: boolean;
+  activeModal: string | null;
+  openModal: (id: string) => void;
+  closeModal: () => void;
 };
 
 // CREATE CONTEXT
@@ -32,11 +35,10 @@ export const FinanceDataContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const { userId } = useAuthContext();
+  const { userId, loading } = useAuthContext();
   const [budget, setBudget] = useState("0");
   const [goal, setGoal] = useState("0");
   const [expensesSum, setExpensesSum] = useState(0);
-  const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
   //   if (!userId) return;
@@ -86,10 +88,9 @@ export const FinanceDataContextProvider = ({
   // }, [userId]);
 
   useEffect(() => {
-    if (!userId) return;
+    if (!userId || loading) return;
 
     const fetchingAllData = async () => {
-      setLoading(true);
       try {
         const ref = doc(db, "users", userId);
         const snapshot = await getDoc(ref);
@@ -102,12 +103,21 @@ export const FinanceDataContextProvider = ({
         }
       } catch (error) {
         console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
       }
     };
     fetchingAllData();
-  }, [userId]);
+  }, [userId, loading]);
+
+  // MODAL
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+
+  const openModal = useCallback((id: string) => {
+    setActiveModal(id);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setActiveModal(null);
+  }, []);
 
   return (
     <FinanceDataContext.Provider
@@ -118,7 +128,9 @@ export const FinanceDataContextProvider = ({
         setBudget,
         goal,
         setGoal,
-        loading,
+        activeModal,
+        openModal,
+        closeModal,
       }}
     >
       {children}
