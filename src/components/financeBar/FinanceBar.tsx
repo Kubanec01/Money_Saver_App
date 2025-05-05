@@ -19,7 +19,8 @@ type FinanceBarProps = {
 };
 
 export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
-  const { budget, expensesSum, setExpensesSum, openModal } = useFinanceDataContext();
+  const { budget, expensesSum, setExpensesSum, openModal } =
+    useFinanceDataContext();
   const { userId } = useAuthContext();
   // const { setExpensesSum, openModal } = useFinanceSaverContext();
   // const { openModal } = useFinanceSaverContext();
@@ -32,8 +33,8 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
 
     const ref = doc(db, "users", userId);
     setDoc(ref, { expenses: value }, { merge: true });
+    console.log('this is function')
   };
-
   setExpensesDoc(expensesSum);
 
   // Variables
@@ -68,6 +69,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
       operation === "increase" ? expenseValueNum : -expenseValueNum;
     setExpensesSum((prevSum) => prevSum + updatedSum);
     updateExpense(id, newValue);
+    setExpensesDoc(expensesSum);
     setExpenseValue("");
   };
 

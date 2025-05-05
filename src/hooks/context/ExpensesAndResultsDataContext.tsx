@@ -10,6 +10,7 @@ import {
 import { useAuthContext } from "../auth/authContext/authContext";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
+import { firestoreInitialData } from "../../data/firestoreDataValues";
 
 type ExpensesAndResultsDataContextType = {
   updateExpense: (id: string, value: number) => void;
@@ -26,8 +27,9 @@ export const ExpensesAndResultsDataContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
+  const initialData = firestoreInitialData
   const { userId } = useAuthContext();
-  const [expenses, setExpenses] = useState<{ [key: string]: number }>({});
+  const [expenses, setExpenses] = useState<{ [key: string]: number }>(initialData.expenseData);
 
   const updateExpense = (id: string, value: number) => {
     if (!userId || value === undefined) return;
