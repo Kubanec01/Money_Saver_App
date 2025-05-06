@@ -105,10 +105,13 @@ const resources = {
       changePasswordPage: {
         title: "Change Password",
       },
-      NotFoundPage: {
+      notFoundPage: {
         title: "Page Not Found",
         desc: "Oops! The page you're looking for doesn't exist. It might have been moved or deleted.",
         button: "Go To Homepage",
+      },
+      loadingPage: {
+        title: "Loading...",
       },
       hero: {
         title: "Greetings Capt.",
