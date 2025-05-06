@@ -24,7 +24,7 @@ export const useTimeApi = () => {
     const getData = async () => {
       try {
         const resp = await fetch(
-          // "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
+          "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
           {
             headers: {
               accept: "application/json",
