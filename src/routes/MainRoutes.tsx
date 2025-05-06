@@ -17,7 +17,9 @@ const Error404Page = lazy(() => import("../pages/404/404Error/NotFoundPage"));
 const PasswordChangePage = lazy(
   () => import("../pages/passwordChange/PasswordChangePage")
 );
-const VerifyPasswordPage = lazy(() => import('../pages/passwordChange/components/SetNewPassword'))
+const VerifyPasswordPage = lazy(
+  () => import("../pages/passwordChange/components/SetNewPassword")
+);
 
 export const MainRoutes = () => {
   return (
@@ -29,11 +31,8 @@ export const MainRoutes = () => {
         <Route element={<RoutingProtection />}>
           <Route path="home" element={<HomePage />} />
           <Route path="info" element={<InfoPage />} />
-          <Route
-            path="change-password"
-            element={<PasswordChangePage />}
-          >
-            <Route path="verify" element={<VerifyPasswordPage/>} />
+          <Route path="change-password" element={<PasswordChangePage />}>
+            <Route path="verify" element={<VerifyPasswordPage />} />
           </Route>
         </Route>
         <Route path="*" element={<Error404Page />} />
