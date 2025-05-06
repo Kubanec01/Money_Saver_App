@@ -5,13 +5,9 @@ import { motion } from "motion/react";
 import { LifeLine } from "react-loading-indicators";
 import { useScreenWidthValue } from "../../../../../../hooks/useScreenWidthValue";
 
-
 export const DateGenerator = () => {
   const data = useTimeApi();
-  const screenWidth = useScreenWidthValue()
-  console.log('this is screen width', screenWidth)
-
-
+  const screenWidth = useScreenWidthValue();
 
   return (
     <motion.div
@@ -30,7 +26,7 @@ export const DateGenerator = () => {
     >
       <div className="w-full">
         <div className="flex items-center justify-center">
-          <div className="flex items-center justify-center text-customWhite300 md:text-5xl sm:text-3xl text-2xl font-medium">
+          <div className="flex items-center justify-center text-customWhite300 lg:text-5xl md:text-4xl text-2xl font-medium">
             {data ? (
               <>
                 {data.date}
@@ -42,8 +38,12 @@ export const DateGenerator = () => {
               </>
             ) : (
               <>
-                <span className="lg:w-full md:w-[80%] w-[70%] flex justify-center items-center overflow-hidden opacity-90">
-                  <LifeLine color="#ffffff" size="medium" />
+                <span className="lg:w-full md:w-[80%] flex justify-center items-center overflow-hidden opacity-85">
+                  {screenWidth > 770 ? (
+                    <LifeLine color="#ffffff" size="medium" />
+                  ) : (
+                    <LifeLine color="#ffffff" size="small" />
+                  )}
                 </span>
               </>
             )}

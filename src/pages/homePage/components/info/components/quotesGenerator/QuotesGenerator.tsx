@@ -38,7 +38,7 @@ export const QuotesGenerator = () => {
         className={`${style.quoteText} text-customWhite w-full h-full flex flex-col justify-between p-6`}
       >
         {/* QUOTE TEXT */}
-        <h1 className="md:text-4xl sm:text-2xl text-xl md:w-[97%] font-medium">{data.text}🔥</h1>
+        <h1 className="lg:text-4xl md:text-3xl sm:text-2xl text-xl md:w-[97%] font-medium">{data.text}🔥</h1>
         {/* AUTHOR TEXT */}
         <div className="sm:text-xl text-customWhite">
           <p>• {data.author} •</p>
