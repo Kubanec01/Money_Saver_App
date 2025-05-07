@@ -23,16 +23,16 @@ export const TimeGenerator = () => {
         hidden: { opacity: 0, filter: "blur(8px)" },
         visible: { opacity: 1, filter: "blur(0px)" },
       }}
-      className={`${style.body} md:w-[98%] sm:w-[48%] w-full flex justify-center items-center rounded-[20px] h-[47%] md:p-3 p-[13.1px]`}
+      className={`${style.body} md:w-[98%] sm:w-[48%] w-full flex justify-center items-center rounded-[20px] h-[47%] md:p-3 p-[17.1px]`}
     >
       {/* NUMBER */}
-      <div className="w-full flex items-center justify-center mt-[5px]">
+      <div className="w-full flex items-center justify-center">
         {data ? (
           <div
-          className="flex justify-center items-center md:gap-4 gap-2"
+          className="flex justify-center items-center"
           >
             <div className="h-full flex items-center justify-center">
-              <h1 className="text-customWhite300 md:text-5xl sm:text-3xl text-2xl font-medium md:w-[155px] sm:w-[100px] w-[80px]">{`${data.hour}:${data.minute}:${data.seconds}`}</h1>
+              <h1 className="text-customWhite300 lg:text-5xl md:text-4xl text-2xl font-medium">{`${data.dayOfWeek}`}</h1>
             </div>
             <div className="h-full flex items-center">
               <img
@@ -57,6 +57,3 @@ export const TimeGenerator = () => {
     </motion.div>
   );
 };
-
-
-// ! toto pravdepodobne zmenit na ine APi. Nemam sajnu ake, asi teplota slnka alebo ja neviem. Nieco do temy al cas nie, to je strasne zle fetchovat a pracovat s tym ako s cislami

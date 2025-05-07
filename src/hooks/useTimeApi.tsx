@@ -24,7 +24,7 @@ export const useTimeApi = () => {
     const getData = async () => {
       try {
         const resp = await fetch(
-          "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
+          // "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
           {
             headers: {
               accept: "application/json",
@@ -40,29 +40,6 @@ export const useTimeApi = () => {
     };
 
     getData();
-
-    const intervalId = setInterval(() => {
-      setTimeData((prevData) => {
-        if (prevData) {
-          const updatedTimeData = {
-            ...prevData,
-            seconds: (prevData.seconds + 1) % 60,
-            minute:
-              prevData.seconds === 59
-                ? (prevData.minute + 1) % 60
-                : prevData.minute,
-            hour:
-              prevData.minute === 59 && prevData.seconds === 59
-                ? (prevData.hour + 1) % 24
-                : prevData.hour,
-          };
-          return updatedTimeData;
-        }
-        return prevData;
-      });
-    }, 1000);
-
-    return () => clearInterval(intervalId);
   }, []);
 
   return timeData;
