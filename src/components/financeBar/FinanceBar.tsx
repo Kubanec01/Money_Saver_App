@@ -2,7 +2,7 @@ import style from "./financeBar.module.scss";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
 import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
-import { SetStateAction, useCallback, useState } from "react";
+import { SetStateAction, useCallback, useEffect, useState } from "react";
 import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
 import { HandleKeyDown } from "../../features/HandleKeyDown";
 import { HandleOnWheel } from "../../features/HandleOnWheel";
@@ -28,17 +28,25 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   const { updateExpense, expenses } = useExpensesAndResultsDataContext();
   const [expenseValue, setExpenseValue] = useState("");
 
-  const setExpensesDoc = (value: number) => {
-    if (!userId || value === undefined) return;
-
-    const ref = doc(db, "users", userId);
-    setDoc(ref, { expenses: value }, { merge: true });
-    console.log('this is function')
-  };
-  setExpensesDoc(expensesSum);
-
   // Variables
   let expenseValueNum = Number(expenseValue);
+  const currBarDataValue = expenses[id] || 0;
+
+  // FUNCTIONS
+  const setExpensesDoc = async (value: number) => {
+    if (!userId || value === undefined) return;
+
+    try {
+      const ref = doc(db, "users", userId);
+      setDoc(ref, { expenses: value }, { merge: true });
+      console.log("this is function", value);
+    } catch (error) {
+      console.error("Failed Setting Expenses in financeBar:", error);
+    }
+  };
+  useEffect(() => {
+    setExpensesDoc(expensesSum);
+  }, [expensesSum]);
 
   const handleMoneyValue = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,8 +65,13 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
       return openModal("missing-budget-modal");
     }
 
+    if (operation === "decrease" && (Number(expensesSum) <= 0 || currBarDataValue <= 0)) return
+
+    if (operation === "decrease" && (expenseValueNum > expensesSum || expenseValueNum > currBarDataValue)) return;
+
+
     const expenseChange = Number(expenseValue);
-    const currentExpense = expenses[id] || 0;
+    const currentExpense = currBarDataValue;
 
     const newValue =
       operation === "increase"
@@ -69,7 +82,6 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
       operation === "increase" ? expenseValueNum : -expenseValueNum;
     setExpensesSum((prevSum) => prevSum + updatedSum);
     updateExpense(id, newValue);
-    setExpensesDoc(expensesSum);
     setExpenseValue("");
   };
 
