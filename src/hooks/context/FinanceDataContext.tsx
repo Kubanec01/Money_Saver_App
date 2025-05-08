@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { useAuthContext } from "../auth/authContext/authContext";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { firestoreInitialData } from "../../data/firestoreDataValues";
 
@@ -43,7 +43,7 @@ export const FinanceDataContextProvider = ({
   const [budget, setBudget] = useState(initialData.budget);
   const [goal, setGoal] = useState(initialData.goal);
   const [expensesSum, setExpensesSum] = useState(initialData.expenses);
-  console.log('this is expensesSum', expensesSum)
+  console.log("this is expensesSum", expensesSum);
 
   useEffect(() => {
     if (!userId || loading) return;
@@ -52,12 +52,11 @@ export const FinanceDataContextProvider = ({
       try {
         const ref = doc(db, "users", userId);
         const snapshot = await getDoc(ref);
-
         if (snapshot.exists()) {
           const data = snapshot.data();
+          setExpensesSum(data.expenses ?? initialData.expenses);
           setBudget(data.budget ?? initialData.budget);
           setGoal(data.goal ?? initialData.goal);
-          setExpensesSum(data.expenses ?? initialData.expenses);
         }
       } catch (error) {
         console.error("Error fetching data:", error);

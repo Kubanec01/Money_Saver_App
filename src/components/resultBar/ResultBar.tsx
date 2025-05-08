@@ -11,7 +11,15 @@ type ResultBarProps = {
 export const ResultBar = ({ id, name, currency }: ResultBarProps) => {
   // const { expenses } = useExpensesAndResultsBarContext();
   const { expenses } = useExpensesAndResultsDataContext();
-  
+
+  const value = (v: number) => {
+    if (v > 1) {
+      return v;
+    }
+
+    return 0;
+  };
+
   return (
     <div
       id={id}
@@ -22,7 +30,7 @@ export const ResultBar = ({ id, name, currency }: ResultBarProps) => {
           {name}:
         </h1>
         <h2 className="md:text-3xl sm:text-3xl text-2xl text-spaceWhite ml-2">
-          {expenses[id] || 0}{" "}
+          {value(expenses[id])}{" "}
           <span className="text-spaceWhite">{currency}</span>
         </h2>
       </div>

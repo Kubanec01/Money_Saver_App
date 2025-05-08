@@ -27,12 +27,14 @@ export const ExpensesAndResultsDataContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const initialData = firestoreInitialData
+  const initialData = firestoreInitialData;
   const { userId } = useAuthContext();
-  const [expenses, setExpenses] = useState<{ [key: string]: number }>(initialData.expenseData);
+  const [expenses, setExpenses] = useState<{ [key: string]: number }>(
+    initialData.expenseData
+  );
 
   const updateExpense = (id: string, value: number) => {
-    if (!userId || value === undefined) return;
+    if (!userId || value === undefined || value < 0) return;
 
     const ref = doc(db, "users", userId);
 
