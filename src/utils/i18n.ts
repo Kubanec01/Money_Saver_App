@@ -72,7 +72,7 @@ const resources = {
             enterEmail: "Please enter a valid email.",
             passwordIsTooWeak: "Password is too weak.",
             wrongEmailOrPassword: "Wrong email or password.",
-            ReturnToLoginPage: "Return to the Login page?",
+            returnToLoginPage: "Return to the Login page?",
             noUserFound: "No user found with this email",
             incorrectPassword: "Incorrect password.",
             fillAllInformation: "Please fill in all the required information.",
@@ -234,6 +234,85 @@ const resources = {
           rightBtn: "Čo?! Povedz mi viac",
         },
       },
+      auth: {
+        buttons: {
+          // AUTH PAGES
+          logIn: "Prihlásiť sa",
+          goBack: "Späť",
+          signUp: "Zaregistrovať sa",
+          sendIt: "Odoslať",
+          forgotPassword: "Zabudnuté heslo",
+          createNewAccount: "Vytvoriť nový účet",
+          haveAnAccount: "Už mám účet",
+          // USER BUTTON
+          user: "Používateľ",
+          changePassword: "Zmeniť heslo",
+          logOut: "Odhlásiť sa",
+        },
+        placeholders: {
+          name: "Meno...",
+          email: "Email...",
+          password: "Heslo...",
+          enterEmail: "Zadajte svoj email...",
+          createPassword: "Vytvorte heslo...",
+          confirmPassword: "Potvrďte heslo...",
+          enterCurrentPassword: "Zadajte aktuálne heslo...",
+          setNewPassword: "Nastavte nové heslo...",
+          confirmYourCurrPassword: "Potvrďte nové heslo...",
+        },
+        labels: {
+          currPassword: "Aktuálne heslo",
+          newPassword: "Nové heslo",
+          confirmPassword: "Potvrdenie hesla",
+        },
+        messages: {
+          errors: {
+            enterEmailAndPassword: "Zadajte, prosím, email a heslo.",
+            enterEmail: "Zadajte platný email.",
+            passwordIsTooWeak: "Heslo je príliš slabé.",
+            wrongEmailOrPassword: "Nesprávny email alebo heslo.",
+            ReturnToLoginPage: "Vrátiť sa na prihlasovaciu stránku?",
+            noUserFound: "Používateľ s týmto emailom neexistuje.",
+            incorrectPassword: "Nesprávne heslo.",
+            fillAllInformation: "Vyplňte, prosím, všetky požadované údaje.",
+            passwordsDoNotMatch: "Heslá sa nezhodujú.",
+            emailsIsInUse: "Tento email sa už používa.",
+            weakPassword: "Heslo musí mať aspoň 6 znakov.",
+            unknownError: "Niečo sa pokazilo. Skúste to neskôr.",
+            unknownErrorChangePassword:
+              "Niečo sa pokazilo. Je vaše aktuálne heslo správne?",
+          },
+          success: {
+            resetPasswordSent:
+              "Email bol odoslaný. Ak nedorazí do 5 minút, skontrolujte spam alebo skúste znova.",
+            passwordResetEmailSent: "Email na obnovenie hesla bol odoslaný.",
+            passwordWasChanged: "Heslo bolo úspešne zmenené.",
+          },
+        },
+      },
+      loginPage: {
+        title: "Money Saver",
+        desc: "Tvoje peniaze. Tvoja misia. Poďme ich posunúť na vyššiu úroveň.",
+      },
+      forgotPasswordPage: {
+        title: "Zabudli ste heslo?",
+        desc: "Žiadny problém. Zadajte svoj email a pošleme vám správu na obnovenie hesla.",
+      },
+      registerPage: {
+        title: "Vytvorenie nového účtu",
+      },
+      changePasswordPage: {
+        title: "Zmena hesla",
+      },
+      notFoundPage: {
+        title: "Stránka nebola nájdená",
+        desc: "Ups! Stránka, ktorú hľadáte, neexistuje. Možno bola presunutá alebo vymazaná.",
+        button: "Prejsť na domovskú stránku",
+      },
+      loadingPage: {
+        title: "Načítava sa...",
+      },
+
       hero: {
         title: "Zdravím, kapitán.",
         subTitle1: "Dnešná misia:",
@@ -313,7 +392,7 @@ const resources = {
           },
           spentBar: {
             title: "Minuté",
-            desc: "Pásik „Minulé“ zobrazuje celkovú sumu peňazí, ktorú ste minuli zo svojho rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
+            desc: "Pásik „Minuté“ zobrazuje celkovú sumu peňazí, ktorú ste minuli zo svojho rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
           },
           funOtherBar: {
             title: "Zábava/Iné",
