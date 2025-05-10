@@ -1,6 +1,6 @@
 import { authStates } from "../../firebase/features/authStates";
 import { doSignInWithEmailAndPassword } from "../../firebase/auth";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { inputStyles } from "../../styles/inputStyles";
 import { errorMess, plHol } from "../../utils/authLabels";
 import { t } from "i18next";
@@ -8,6 +8,8 @@ import { t } from "i18next";
 const LoginNavbar = () => {
   // STATES
   const st = authStates();
+
+  const navigate = useNavigate();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +25,7 @@ const LoginNavbar = () => {
       st.setIsSigningIn(true);
       try {
         await doSignInWithEmailAndPassword(st.email, st.password);
+        navigate("/");
       } catch (error: unknown) {
         st.setErrorMessage(errorMess.wrongEmailOrPassword);
         st.setIsInvalid(true);
@@ -71,7 +74,7 @@ const LoginNavbar = () => {
           <p className="overflow-hidden mx-auto text-errorColor text-center lg:text-base text-sm">
             {st.errorMessage}{" "}
             <Link className="underline" to="//">
-              {t("auth.messages.errors.ReturnToLoginPage")}
+              {t("auth.messages.errors.returnToLoginPage")}
             </Link>
           </p>
         </div>
