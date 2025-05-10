@@ -19,7 +19,7 @@ export const UserSettingsBar = ({ isOpen }: SettingBarType) => {
       className="absolute top-[64px] rounded-[10px] bg-[#272626] left-[2px] md:w-[170px] w-[130px] md:h-[174px] h-[144px]"
     >
       <ul className="w-full h-full flex flex-col justify-between py-3 px-3 items-center select-none">
-        <li className={`${baseBtnStyle} text-spaceBlue`}>
+        <li className={`${baseBtnStyle} text-spaceBlue overflow-hidden`}>
           <h1>
             {t("auth.buttons.user")}:{" "}
             <span className="uppercase font-medium">

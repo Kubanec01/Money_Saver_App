@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { doCreateUserWithEmailAndPassword } from "../../../firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { authStates } from "../../../firebase/features/authStates";
@@ -8,6 +8,7 @@ import { plHol, errorMess } from "../../../utils/authLabels";
 
 const RegisterPage = () => {
   const st = authStates();
+  const navigate = useNavigate();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,6 +30,7 @@ const RegisterPage = () => {
         st.userName
       );
       st.setIsRegistering(true);
+      navigate("/");
     } catch (error) {
       if (error instanceof FirebaseError) {
         if (error.code === "auth/email-already-in-use") {
@@ -70,6 +72,7 @@ const RegisterPage = () => {
                 type="text"
                 placeholder={plHol.name}
                 className={`${inputStyles} mb-5`}
+                maxLength={16}
                 onChange={(e) => st.setUserName(e.target.value)}
               />
               {/* EMAIL */}

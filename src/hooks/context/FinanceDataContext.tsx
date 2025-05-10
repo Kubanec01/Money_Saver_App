@@ -43,7 +43,6 @@ export const FinanceDataContextProvider = ({
   const [budget, setBudget] = useState(initialData.budget);
   const [goal, setGoal] = useState(initialData.goal);
   const [expensesSum, setExpensesSum] = useState(initialData.expenses);
-  console.log("this is expensesSum", expensesSum);
 
   useEffect(() => {
     if (!userId || loading) return;
