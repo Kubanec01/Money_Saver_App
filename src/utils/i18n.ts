@@ -114,7 +114,7 @@ const resources = {
         title: "Loading...",
       },
       hero: {
-        title: "Greetings Capt.",
+        title: "Greetings",
         subTitle1: "Today's Mission:",
         subTitle2: "Save Your Money",
         desc: "This app is here to help you improve your saving habits, boost your financial literacy, and provide you with essential everyday info. Join us on a journey where we'll take your finances to the next level and save money on an intergalactic scale!",

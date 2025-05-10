@@ -1,9 +1,7 @@
 import style from "./financeBar.module.scss";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
-import { useFinanceSaverContext } from "../../hooks/context/FinanceContext";
-import { SetStateAction, useCallback, useEffect, useState } from "react";
-import { useExpensesAndResultsBarContext } from "../../hooks/context/ExpensesAndResultsBarContext";
+import { useCallback, useEffect, useState } from "react";
 import { HandleKeyDown } from "../../features/HandleKeyDown";
 import { HandleOnWheel } from "../../features/HandleOnWheel";
 import { useFinanceDataContext } from "../../hooks/context/FinanceDataContext";
@@ -22,9 +20,6 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
   const { budget, expensesSum, setExpensesSum, openModal } =
     useFinanceDataContext();
   const { userId } = useAuthContext();
-  // const { setExpensesSum, openModal } = useFinanceSaverContext();
-  // const { openModal } = useFinanceSaverContext();
-  // const { updateExpense, expenses } = useExpensesAndResultsBarContext();
   const { updateExpense, expenses } = useExpensesAndResultsDataContext();
   const [expenseValue, setExpenseValue] = useState("");
 
@@ -39,7 +34,6 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     try {
       const ref = doc(db, "users", userId);
       setDoc(ref, { expenses: value }, { merge: true });
-      console.log("this is function", value);
     } catch (error) {
       console.error("Failed Setting Expenses in financeBar:", error);
     }
@@ -65,10 +59,17 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
       return openModal("missing-budget-modal");
     }
 
-    if (operation === "decrease" && (Number(expensesSum) <= 0 || currBarDataValue <= 0)) return
+    if (
+      operation === "decrease" &&
+      (Number(expensesSum) <= 0 || currBarDataValue <= 0)
+    )
+      return;
 
-    if (operation === "decrease" && (expenseValueNum > expensesSum || expenseValueNum > currBarDataValue)) return;
-
+    if (
+      operation === "decrease" &&
+      (expenseValueNum > expensesSum || expenseValueNum > currBarDataValue)
+    )
+      return;
 
     const expenseChange = Number(expenseValue);
     const currentExpense = currBarDataValue;
@@ -85,14 +86,12 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
     setExpenseValue("");
   };
 
-  const onEnterPress = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === "Enter") {
-        handleExpenseChange("increase");
-      }
-    },
-    [handleExpenseChange]
-  );
+  const onEnterPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (Number(budget) === 0) return openModal("missing-budget-modal");
+      handleExpenseChange("increase");
+    }
+  };
 
   return (
     <div id={id} className={`${style.body} flex md:w-[340px] w-[270px]`}>

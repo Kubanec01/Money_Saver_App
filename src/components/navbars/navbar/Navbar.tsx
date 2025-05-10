@@ -1,10 +1,8 @@
 import { FaUserCircle } from "react-icons/fa";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi2";
 import style from "./navbar.module.scss";
-import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import { CurrencySettingBar } from "../../../features/currencySettingBar/CurrencySettingBar";
 import { useState } from "react";
-import { useCurrencyContext } from "../../../hooks/context/CurrencyContext";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { MdRestartAlt } from "react-icons/md";
@@ -14,9 +12,7 @@ import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext
 import { useCurrencyDataContext } from "../../../hooks/context/CurrencyDataContext";
 
 export const Navbar = () => {
-  // const { openModal } = useFinanceSaverContext();
   const { openModal } = useFinanceDataContext();
-  // const { currency } = useCurrencyContext();
   const { currency } = useCurrencyDataContext();
   const [isCurrencyMenuOpen, setIsCurrencyMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);

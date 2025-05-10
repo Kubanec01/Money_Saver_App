@@ -1,6 +1,4 @@
-import { useFinanceSaverContext } from "../../../../../../hooks/context/FinanceContext";
 import { ReviewCart } from "./components/ReviewCart";
-import { useExpensesAndResultsBarContext } from "../../../../../../hooks/context/ExpensesAndResultsBarContext";
 import { useFinanceDataContext } from "../../../../../../hooks/context/FinanceDataContext";
 import { useExpensesAndResultsDataContext } from "../../../../../../hooks/context/ExpensesAndResultsDataContext";
 
@@ -10,11 +8,7 @@ interface FinanceCharts {
 
 export const FinanceReview = ({ currency }: FinanceCharts) => {
   const { budget } = useFinanceDataContext();
-  // const { budget, expensesSum } = useFinanceSaverContext();
-  // const { expensesSum } = useFinanceSaverContext();
   const { expensesSum } = useFinanceDataContext();
-  // const { expenses } = useExpensesAndResultsBarContext();
-  // const { expenses } = useExpensesAndResultsBarContext();
   const { expenses } = useExpensesAndResultsDataContext();
 
   const budgetNum = Number(budget);

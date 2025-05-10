@@ -1,10 +1,11 @@
 import style from "./hero.module.scss";
 import img1 from "../../../../assets/human-img.jpg";
 import { motion } from "motion/react";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
+import { useAuthContext } from "../../../../hooks/auth/authContext/authContext";
 
 export const Hero = () => {
-  const { t } = useTranslation();
+  const { currentUser } = useAuthContext();
 
   return (
     <div className="mx-auto w-[90%] max-w-[1100px] flex md:flex-row flex-col justify-center items-center mt-[220px]">
@@ -32,7 +33,7 @@ export const Hero = () => {
           }}
           className={`${style.title} text-white lg:text-6xl md:text-5xl sm:text-5xl text-4xl tracking-tight`}
         >
-          {t("hero.title")}
+          {t("hero.title")} {currentUser?.displayName || "Capt."}
         </motion.h1>
         <motion.h2
           initial="hidden"
