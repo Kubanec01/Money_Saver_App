@@ -4,12 +4,11 @@ import "./index.scss";
 import App from "./App.tsx";
 import "./utils/i18n.ts";
 import { BrowserRouter } from "react-router";
-import { AuthProvider } from "./hooks/auth/authContext/authContext.tsx";
 
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="Money_Saver_App">
+    <BrowserRouter basename="/Money_Saver_App/">
       <App />
     </BrowserRouter>
   </StrictMode>

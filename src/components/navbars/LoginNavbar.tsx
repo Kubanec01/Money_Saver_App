@@ -73,7 +73,7 @@ const LoginNavbar = () => {
         >
           <p className="overflow-hidden mx-auto text-errorColor text-center lg:text-base text-sm">
             {st.errorMessage}{" "}
-            <Link className="underline" to="//">
+            <Link className="underline" to="/">
               {t("auth.messages.errors.returnToLoginPage")}
             </Link>
           </p>
