@@ -1,7 +1,5 @@
 import { ModalTemplate } from "../modalTemplate/ModalTemplate";
-import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import image1 from "../../../assets/universe-bg-img.jpg";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext";
 import { t } from "i18next";
