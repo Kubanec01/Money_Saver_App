@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { useAuthContext } from "../auth/authContext/authContext";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { firestoreInitialData } from "../../data/firestoreDataValues";
 

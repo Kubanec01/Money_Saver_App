@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { currencyData } from "../../data/curencyData";
-import { useCurrencyContext } from "../../hooks/context/CurrencyContext";
+import { currencyData } from "../../data/currencyData";
 import { useCurrencyDataContext } from "../../hooks/context/CurrencyDataContext";
 import { useAuthContext } from "../../hooks/auth/authContext/authContext";
 import { doc, setDoc } from "firebase/firestore";
@@ -12,7 +11,6 @@ export type SettingBarType = {
 };
 
 export const CurrencySettingBar = ({ isOpen, setIsOpen }: SettingBarType) => {
-  // const { setCurrency } = useCurrencyContext();
   const { setCurrency } = useCurrencyDataContext();
   const { userId } = useAuthContext();
 
@@ -61,7 +59,3 @@ export const CurrencySettingBar = ({ isOpen, setIsOpen }: SettingBarType) => {
     </div>
   );
 };
-
-// dalej dorobit preklady v i18n.
-// A ak vyde cas a energia tak zacat robit explainPage, minimalne aspon spravit systematiku ROUTINGU.
-// Tieto veci MUSIA byt do stvrtku hotove aby bolo do konca vikendu hotova Responsibility

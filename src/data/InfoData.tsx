@@ -6,10 +6,9 @@ import coreCoordsImg from "../assets/api-info-img.png";
 import budgetGoalImg from "../assets/budget-goal-info-img.png";
 import financeBarsImg from "../assets/financeBars-info-img.png";
 import resultsImg from "../assets/results-info-img.png";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 export const InfoData = () => {
-  const { t } = useTranslation();
 
   const sectionsInfoData: InfoCardProps[] = [
     {

@@ -1,13 +1,15 @@
-import { Trans, useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
 import { ResultBar } from "../../../../../components/resultBar/ResultBar";
-import { useCurrencyContext } from "../../../../../hooks/context/CurrencyContext";
 import style from "./financeResults.module.scss";
 import { t } from "i18next";
 import { useCurrencyDataContext } from "../../../../../hooks/context/CurrencyDataContext";
+import { barsContentData } from "../../../../../data/barsContentData";
 
 export const FinanceResults = () => {
-  // const { currency } = useCurrencyContext();
   const { currency } = useCurrencyDataContext();
+
+  // DATA
+  const data = barsContentData;
 
   return (
     <div className="mt-[160px] xl:w-[88%] mx-auto">
@@ -33,12 +35,9 @@ export const FinanceResults = () => {
         className="justify-center mt-[44px] 2xl:w-[90%] xl:w-full md:w-[660px] w-full mx-auto grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center xl:gap-[30px] gap-[25px] relative
         after:absolute after:h-[2px] after:w-[90%] after:bg-[#ffffff7a] after:-bottom-14 after:rounded-lg"
       >
-        <ResultBar id={"rent"} name={"Rent"} currency={currency} />
-        <ResultBar id={"food"} name={"Food"} currency={currency} />
-        <ResultBar id={"car"} name={"Car"} currency={currency} />
-        <ResultBar id={"hobby"} name={"Hobby"} currency={currency} />
-        <ResultBar id={"fun"} name={"Fun"} currency={currency} />
-        <ResultBar id={"other"} name={"Other"} currency={currency} />
+        {data.map((i) => {
+          return <ResultBar id={i.id} name={i.name} currency={currency} />;
+        })}
       </div>
     </div>
   );

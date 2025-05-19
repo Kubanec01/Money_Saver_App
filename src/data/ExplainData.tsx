@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 type ExplainDataType = {
   id: number;
@@ -8,7 +8,6 @@ type ExplainDataType = {
 };
 
 export const ExplainData = () => {
-  const { t } = useTranslation();
 
   const explainData: ExplainDataType[] = [
     {

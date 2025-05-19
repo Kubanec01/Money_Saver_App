@@ -1,8 +1,11 @@
 import { FinanceBar } from "../../../../../components/financeBar/FinanceBar";
+import { barsContentData } from "../../../../../data/barsContentData";
 import style from "./financeBars.module.scss";
 import { t } from "i18next";
 
 export const FinanceBars = () => {
+  // DATA
+  const data = barsContentData;
 
   return (
     <div
@@ -17,12 +20,9 @@ export const FinanceBars = () => {
         </h1>
       </div>
       <div className="w-full md:mt-[80px] mt-[60px] text-3xl text-white grid lg:grid-cols-2 grid-cols-1 justify-items-center md:gap-[30px] gap-[40px]">
-        <FinanceBar id={"rent"} inputId="rent" text="Rent" />
-        <FinanceBar id={"hobby"} inputId="hobby" text="Hobby" />
-        <FinanceBar id={"food"} inputId="food" text="Food" />
-        <FinanceBar id={"fun"} inputId="fun" text="Fun" />
-        <FinanceBar id={"car"} inputId="car" text="Car" />
-        <FinanceBar id={"other"} inputId="other" text="Other" />
+        {data.map((i) => {
+          return <FinanceBar id={i.id} inputId={i.id} text={i.name} />;
+        })}
       </div>
       <div className="w-full md:mt-[80px] mt-[60px] mb-[20px]">
         <h3 className="text-[#ffffff69] text-center mx-auto sm:w-full w-[90%] sm:text-xl text-lg md:font-bold">

@@ -1,33 +1,19 @@
-import { useFinanceSaverContext } from "../../../hooks/context/FinanceContext";
 import { ModalTemplate } from "../modalTemplate/ModalTemplate";
 import image1 from "../../../assets/fire-universe-img.jpg";
-import { localStoredKeys } from "../../../data/storedValuesKeys";
-import { resetStoredValues } from "../../../features/resetStoredValues";
-import { useExpensesAndResultsBarContext } from "../../../hooks/context/ExpensesAndResultsBarContext";
-import { useTranslation } from "react-i18next";
 import { useFinanceDataContext } from "../../../hooks/context/FinanceDataContext";
 import { t } from "i18next";
 import { firestoreInitialData } from "../../../data/firestoreDataValues";
 import { useAuthContext } from "../../../hooks/auth/authContext/authContext";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
 import { useExpensesAndResultsDataContext } from "../../../hooks/context/ExpensesAndResultsDataContext";
 
 export const ResetValuesModal = () => {
-  // const { closeModal, setBudget, setGoal, setExpensesSum } =
-  //   useFinanceSaverContext();
   const { closeModal, setBudget, setGoal, setExpensesSum } =
     useFinanceDataContext();
   const { userId } = useAuthContext();
 
-  // const { setExpenses } = useExpensesAndResultsBarContext();
   const { setExpenses } = useExpensesAndResultsDataContext();
-  
-  // // LOCAL STORED KEYS
-  // const data = localStoredKeys;
-  // const ResetData = Object(
-  //   Object.values(localStoredKeys).map((obj) => Object.values(obj)[0])
-  // );
 
   // DATA
   const data = firestoreInitialData;
@@ -52,7 +38,7 @@ export const ResetValuesModal = () => {
       setGoal(data.goal);
       setExpensesSum(data.expenses);
       setExpenses(data.expenseData);
-      closeModal()
+      closeModal();
     } catch (error) {
       console.error("Failed to reset values and update Firestore:", error);
     }
