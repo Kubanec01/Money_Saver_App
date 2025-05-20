@@ -1,11 +1,11 @@
 import { FinanceBar } from "../../../../../components/financeBar/FinanceBar";
-import { barsContentData } from "../../../../../data/barsContentData";
+import { BarsContentData } from "../../../../../data/BarsContentData";
 import style from "./financeBars.module.scss";
 import { t } from "i18next";
 
 export const FinanceBars = () => {
   // DATA
-  const data = barsContentData;
+  const data = BarsContentData();
 
   return (
     <div
@@ -21,7 +21,9 @@ export const FinanceBars = () => {
       </div>
       <div className="w-full md:mt-[80px] mt-[60px] text-3xl text-white grid lg:grid-cols-2 grid-cols-1 justify-items-center md:gap-[30px] gap-[40px]">
         {data.map((i) => {
-          return <FinanceBar id={i.id} inputId={i.id} text={i.name} />;
+          return (
+            <FinanceBar id={i.id} key={i.id} inputId={i.id} text={i.name} />
+          );
         })}
       </div>
       <div className="w-full md:mt-[80px] mt-[60px] mb-[20px]">

@@ -23,7 +23,7 @@ const resources = {
         resetModal: {
           title:
             "You are about to reset all values! Are you sure you want to do this?",
-          desc: "By pressing the destructive button, you will reset all your values. Budget, Goal, Expenses, Results, and Graphs will have a value of zero.",
+          desc: "By pressing the destructive button, you will reset all your values. Budget, Goal, Expenses, Results, and Stats will have a value of zero.",
           leftBtn: "Delay self-destruction",
           rightBtn: "Yes, Destroy everything",
         },
@@ -157,7 +157,7 @@ const resources = {
           desc: "The results of your achievements are displayed in this table, providing you with a detailed overview of the path your expenses are taking.",
         },
         4: {
-          title: "Graphs and Percentages",
+          title: "Stats and Percentages",
           desc: "Provide a more mathematical insight into how well you’ve met your expectations. The first percentage shows how much you’ve saved, the second percentage displays the cost of essential investments, and the third percentage highlights how much you’re spending on Fun and Other activities.",
         },
       },
@@ -169,7 +169,7 @@ const resources = {
         infoCarts: {
           coreCoordsInfo: {
             title: "Core Coords Section",
-            desc: "This is your go-to motivational and info hub, packed with key-details for every great adventure. Alongside inspiring quotes, you’ll also find a handy way to keep track of time and date because every captain’s journey runs on perfect timing!",
+            desc: "This is your go-to motivational and info hub, packed with key-details for every great adventure. Alongside inspiring quotes, you’ll also find a handy way to keep track of days and date because every captain’s journey runs on perfect timing!",
           },
           budgetGoalInfo: {
             title: "Budget And Goal",
@@ -203,6 +203,16 @@ const resources = {
           desc: "If you have successfully completed your mission and a new savings period begins, you can easily delete all data by clicking this button. <span>WARNING</span>, once you confirm self-destruction, none of the data will be recoverable.",
         },
       },
+      data: {
+        barsContentData: {
+          rent: "Rent",
+          food: "Food",
+          car: "Car",
+          hobby: "Hobby",
+          fun: "Fun",
+          other: "Other",
+        },
+      },
     },
   },
   sk: {
@@ -222,7 +232,7 @@ const resources = {
         resetModal: {
           title:
             "Chystáte sa resetovať všetky hodnoty! Ste si istý, že to chcete urobiť?",
-          desc: "Stlačením deštruktívneho tlačidla resetujete všetky svoje hodnoty. Rozpočet, cieľ, výdavky, výsledky a grafy budú mať hodnotu nula.",
+          desc: "Stlačením deštruktívneho tlačidla resetujete všetky svoje hodnoty. Rozpočet, cieľ, výdavky, výsledky a štatistiky budú mať hodnotu nula.",
           leftBtn: "Oneskoriť sebadeštrukciu",
           rightBtn: "Áno, všetko zničiť",
         },
@@ -357,7 +367,7 @@ const resources = {
           desc: "Výsledky vašich dosiahnutých cieľov sú zobrazené v tejto tabuľke, ktorá vám poskytuje podrobný prehľad o ceste, ktorou vaše výdavky smerujú.",
         },
         4: {
-          title: "Grafy a percentá",
+          title: "Štatistiky a Percentá",
           desc: "Poskytujú matematický pohľad na to, ako dobre ste splnili svoje očakávania. Prvé percento ukazuje, koľko ste ušetrili, druhé percento zobrazuje náklady na nevyhnutné investície a tretie percento zdôrazňuje, koľko míňate na zábavu a iné aktivity.",
         },
       },
@@ -370,10 +380,10 @@ const resources = {
         infoCarts: {
           coreCoordsInfo: {
             title: "Sekcia hlavné súradnice",
-            desc: "Toto je váš motivačný a informačný hub, plný kľúčových informácií pre každé veľké dobrodružstvo. Okrem inšpirujúcich citátov tu nájdete aj praktický spôsob, ako sledovať čas a dátum, pretože každá kapitánova cesta sa riadi dokonalým načasovaním!",
+            desc: "Toto je váš motivačný a informačný hub, plný kľúčových informácií pre každé veľké dobrodružstvo. Okrem inšpirujúcich citátov tu nájdete aj praktický spôsob, ako sledovať dni a dátum, pretože každá kapitánova cesta sa riadi dokonalým načasovaním!",
           },
           budgetGoalInfo: {
-            title: "Rozpočet A Cieľov",
+            title: "Rozpočet A Cieľ",
             desc: "Toto je miesto, kde začína základ vášho šetriaceho dobrodružstva! V sekcii „Váš rozpočet“ nastavte sumu, ktorú plánujete dodržiavať počas zvoleného obdobia šetrenia. Toto je vaša finančná kľúčová informácia, ktorá formuje všetko ostatné na vašej ceste. Ďalej, v sekcii „Vaše ciele“, nastavte svoj cieľ šetrenia. Rozhodnite sa, koľko chcete ušetriť a na čo sa zameriavate.",
           },
           financeBarsInfo: {
@@ -388,20 +398,30 @@ const resources = {
         expensesReviewsCart: {
           savedBar: {
             title: "Ušetrené",
-            desc: "Pásik „Ušetrené“ vám ukáže, koľko peňazí ste ušetrili zo svojho pôvodného rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
+            desc: "Sekcia „Ušetrené“ vám ukáže, koľko peňazí ste ušetrili zo svojho pôvodného rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
           },
           spentBar: {
             title: "Minuté",
-            desc: "Pásik „Minuté“ zobrazuje celkovú sumu peňazí, ktorú ste minuli zo svojho rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
+            desc: "Sekcia „Minuté“ zobrazuje celkovú sumu peňazí, ktorú ste minuli zo svojho rozpočtu, a to ako v percentách, tak aj v číselnej hodnote.",
           },
           funOtherBar: {
             title: "Zábava/Iné",
-            desc: "Pásik „Zábava/Iné“ zobrazuje sumu peňazí, ktorú ste minuli konkrétne na zábavu a iné výdavky zo pásika „Minulé“. Táto hodnota je zobrazená ako číslo aj ako percento, ktoré odráža podiel tejto sumy na celkovej sume pásika „Minulé“.",
+            desc: "Sekcia „Zábava/Iné“ zobrazuje sumu peňazí, ktorú ste minuli konkrétne na zábavu a iné výdavky zo sekcie „Minuté“. Táto hodnota je zobrazená ako číslo aj ako percento, ktoré odráža podiel tejto sumy na celkovej sume sekcie „Minulé“.",
           },
         },
         resetButtonInfo: {
           title: "Tlačidlo sebadeštrukcie",
           desc: "Ak ste úspešne dokončili svoju misiu a začína nové obdobie šetrenia, môžete jednoducho vymazať všetky údaje kliknutím na toto tlačidlo. <span>UPOZORNENIE</span>, po potvrdení sebadeštrukcie už nebude možné obnoviť žiadne údaje.",
+        },
+      },
+      data: {
+        barsContentData: {
+          rent: "Nájom",
+          food: "Jedlo",
+          car: "Auto",
+          hobby: "Záľuby",
+          fun: "Zábava",
+          other: "Ostatné",
         },
       },
     },

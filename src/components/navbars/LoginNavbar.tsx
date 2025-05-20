@@ -57,7 +57,7 @@ const LoginNavbar = () => {
             onChange={(e) => st.setPassword(e.target.value)}
           />
           <button
-            className="w-[90px] h-[60%] rounded-[6px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 font-bold lg:text-lg text-sm"
+            className="w-[100px] h-[60%] rounded-[6px] text-[white] bg-purpleButton500 hover:bg-purpleButton300 font-bold lg:text-lg text-sm"
             type="submit"
           >
             {t("auth.buttons.logIn")}

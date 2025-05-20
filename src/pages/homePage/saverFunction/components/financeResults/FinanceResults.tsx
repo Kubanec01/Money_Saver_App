@@ -3,13 +3,14 @@ import { ResultBar } from "../../../../../components/resultBar/ResultBar";
 import style from "./financeResults.module.scss";
 import { t } from "i18next";
 import { useCurrencyDataContext } from "../../../../../hooks/context/CurrencyDataContext";
-import { barsContentData } from "../../../../../data/barsContentData";
+import { BarsContentData } from "../../../../../data/BarsContentData";
+
 
 export const FinanceResults = () => {
   const { currency } = useCurrencyDataContext();
 
   // DATA
-  const data = barsContentData;
+  const data = BarsContentData();
 
   return (
     <div className="mt-[160px] xl:w-[88%] mx-auto">
@@ -36,7 +37,7 @@ export const FinanceResults = () => {
         after:absolute after:h-[2px] after:w-[90%] after:bg-[#ffffff7a] after:-bottom-14 after:rounded-lg"
       >
         {data.map((i) => {
-          return <ResultBar id={i.id} name={i.name} currency={currency} />;
+          return <ResultBar id={i.id} key={i.id} name={i.name} currency={currency} />;
         })}
       </div>
     </div>
