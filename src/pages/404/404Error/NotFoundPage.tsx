@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import img1 from "../../../assets/404-img.avif";
+import { t } from "i18next";
 
 const NotFoundPage = () => {
   return (
@@ -22,17 +23,16 @@ const NotFoundPage = () => {
           404
         </h1>
         <h2 className="xl:-mt-12 lg:-mt-9 -mt-8 xl:text-3xl lg:text-2xl text-lg font-semibold text-[#483c95]">
-          Page Not Found
+          {t('notFoundPage.title')}
         </h2>
         <p className="xl:w-[50%] sm:w-[40%] w-[64%] text-center xl:text-xl lg:text-lg text-sm font-medium mt-2 text-[#2b2360]">
-          Oops! The page you're looking for doesn't exist. It might have been
-          moved or deleted.
+          {t('notFoundPage.desc')}
         </p>
         <Link
           className="bg-[#6959cd] xl:px-7 lg:px-5 px-4 py-2 rounded-[6px] xl:text-lg lg:text-base text-sm text-white xl:mt-8 lg:mt-6 mt-4 hover:scale-[102%]"
           to="/"
         >
-          Go To Homepage
+          {t('notFoundPage.button')}
         </Link>
       </section>
     </div>

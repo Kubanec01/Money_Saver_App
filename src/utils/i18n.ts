@@ -281,7 +281,7 @@ const resources = {
             enterEmail: "Zadajte platný email.",
             passwordIsTooWeak: "Heslo je príliš slabé.",
             wrongEmailOrPassword: "Nesprávny email alebo heslo.",
-            ReturnToLoginPage: "Vrátiť sa na prihlasovaciu stránku?",
+            returnToLoginPage: "Vrátiť sa na prihlasovaciu stránku?",
             noUserFound: "Používateľ s týmto emailom neexistuje.",
             incorrectPassword: "Nesprávne heslo.",
             fillAllInformation: "Vyplňte, prosím, všetky požadované údaje.",
