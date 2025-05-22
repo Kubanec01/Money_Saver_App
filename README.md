@@ -2,37 +2,39 @@
 
 ![screenshot](./src/assets/app-screenshot-img.png)
 
-Money Saver App is an ongoing project designed to help you save money and improve financial literacy. It guides you through several steps to manage your savings in a space-like atmosphere. The app includes features for tracking expenses with numbers and percentages, the ability to store values, and much more.
+
+**Money Saver App** is a modern tool designed to support personal finance management and effective money-saving habits.  
+Set your budget, categorize your expenses, and track exactly where your money goes — all in a sleek, space-themed environment.
+
+### The app allows you to:
+
+- **Define your budget** and distribute your spending across six customizable categories  
+- **Visualize your expenses** using clear numeric and percentage-based breakdowns  
+- **Gain financial insight** through three main spending areas that highlight key expenditure trends  
+- **Sign in securely** with individual user authentication and keep your data private and personalized  
+- **Access your financial data** from any device thanks to seamless cloud synchronization  
+- **Edit, reset, or delete** your data anytime to stay in full control of your finances
+
 
 
 ## 🚀 Live Demo
 
 [Check out the live demo here](https://kubanec01.github.io/Money_Saver_App/)
 
-## 🛠 Technologies Used
+## 🧭 Overview
+- [Technologies Used](#-technologies-used)
+- [Installation](#-installation)
+- [Secure & Personalized Access](#-secure-&-personalized-access)
+- [Clear Guidance with Info Page](#-clear-guidance-with-info-page)
 
-- React + Vite
-- TypeScript
-- Tailwind CSS
-- Framer Motion
+## 💻 Technologies Used
 
-## 🌟 Features
-
-- Track your expenses with numbers and percentages.
-- Save and manage values for future reference.
-- Changes are stored in the local storage, ensuring data persists even after closing the app.
-- Space-like atmosphere for an engaging user experience.
-- Responsive and fast UI built.
-- Info section on the app with a brief description and instructions on how to use the application.
-- Fetch current time and date data from an external API to display real-time information.
-- Localization support with i18n, allowing the app to be used in different languages.
-- Option to choose from 3 different currencies for a personalized financial experience.
-
-## 🚧 Planned Features (Future Features)
-
-- Integration of a backend service to enable user authentication, allowing users to create accounts and securely log in.
-- User-specific profiles, where data such as name, country, and other relevant information will be stored, allowing the app to provide a personalized experience tailored to the user’s preferences and location.
-
+- React + Vite  
+- TypeScript  
+- Firebase 
+- i18n 
+- Tailwind CSS  
+- Framer Motion  
 
 
 ## 🔧 Installation
@@ -54,4 +56,4 @@ To run the project locally, follow these steps:
 4. Run the app locally:
    - `npm run dev`
 
-Once the app is running, open your browser and go to `http://localhost:3000` to view the app in action.
+Once the app is running, open your browser and go to `http://localhost:5173/Money_Saver_App/` to view the app in action.
