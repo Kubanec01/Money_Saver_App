@@ -12,13 +12,13 @@ export const SaverSection = () => {
     <div className="border-white w-[90%] max-w-[1300px] mx-auto md:mt-[200px] mt-[140px]">
       {/* TEXT */}
       <div className="mx-auto sm:w-[68%] w-[90%]">
-        <h1 className="uppercase md:text-xl text-lg text-spaceBlue">
+        <h1 className="uppercase md:text-xl text-spaceBlue">
           {t("saverSection.title")}
         </h1>
-        <h2 className="md:text-3xl text-2xl md:w-[80%] w-[98%] font-medium mt-[6px] text-spaceWhite">
+        <h2 className="md:text-3xl text-xl md:w-[80%] w-[98%] font-medium mt-[6px] text-spaceWhite">
           {t("saverSection.desc")}
         </h2>
-        <p className="text-xl text-spaceNeonBlue mt-[10px] lg:w-[50%] md:w-[60%] w-[96%]">
+        <p className="md:text-xl text-lg text-spaceNeonBlue mt-[10px] lg:w-[50%] md:w-[60%] w-[96%]">
           {t("saverSection.subDesc")}
         </p>
       </div>

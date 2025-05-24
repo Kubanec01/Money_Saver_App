@@ -9,7 +9,7 @@ export const FinanceBars = () => {
 
   return (
     <div
-      className={`${style.body} p-2 md:w-[88%] mx-auto mt-[180px] rounded-[20px]`}
+      className={`${style.body} p-2 md:w-[88%] w-[92%] mx-auto mt-[180px] rounded-[20px]`}
     >
       <div className="w-full sm:mt-[48px] mt-[20px]">
         <h2 className="lg:text-2xl sm:text-xl text-lg uppercase text-center text-spaceBlue">

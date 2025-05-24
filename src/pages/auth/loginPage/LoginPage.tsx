@@ -59,7 +59,7 @@ const LoginPage = () => {
         }}
         className="w-full h-[100vh] z-[1000] flex justify-center items-center"
       >
-        <section className="flex lg:flex-row flex-col justify-between items-center max-w-[1080px] w-[90%] -mt-30">
+        <section className="flex lg:flex-row flex-col justify-between items-center max-w-[1080px] w-[90%]">
           {/* LEFT */}
           <div className="lg:w-[50%] flex flex-col justify-center lg:items-start items-center xl:pl-0 lg:pl-4 pl-0">
             <img
@@ -67,7 +67,7 @@ const LoginPage = () => {
               src={img1}
               alt="cosmonaut-img"
             />
-            <h1 className="text-indigo-600 xl:text-5xl md:text-4xl text-3xl font-bold xl:-mt-[84px] -mt-[74px]">
+            <h1 className="text-indigo-600 xl:text-5xl md:text-4xl text-3xl font-bold xl:-mt-[84px] md:-mt-[74px]">
               {t("loginPage.title")}
             </h1>
             <p className="text-whiteShadow500 xl:text-2xl lg:text-xl md:text-lg text-sm lg:text-left text-center xl:w-full w-[74%] md:mt-2 mt-1">
