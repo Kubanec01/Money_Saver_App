@@ -1,0 +1,1 @@
+import{n,l as s,o,p as d,q as i,v as u}from"./index-CFR7Oufl.js";const l=async(r,a,e)=>{const t=await n(s,r,a);return s.currentUser&&await o(s.currentUser,{displayName:e}),t},w=(r,a)=>d(s,r,a),P=()=>s.signOut(),m=r=>u(s,r),h=r=>s.currentUser?i(s.currentUser,r):null;export{w as a,l as b,m as c,P as d,h as e};
