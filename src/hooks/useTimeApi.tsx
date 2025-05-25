@@ -20,16 +20,15 @@ export const useTimeApi = () => {
   const [timeData, setTimeData] = useState<TimeData | null>(null);
 
   useEffect(() => {
+    const timeDataUrl = import.meta.env.VITE_TIMEDATA_API_URL;
+
     const getData = async () => {
       try {
-        const resp = await fetch(
-          "https://timeapi.io/api/time/current/zone?timeZone=Europe%2FPrague",
-          {
-            headers: {
-              accept: "application/json",
-            },
-          }
-        );
+        const resp = await fetch(timeDataUrl, {
+          headers: {
+            accept: "application/json",
+          },
+        });
 
         const data = await resp.json();
         setTimeData(data);

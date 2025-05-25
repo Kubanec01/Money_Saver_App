@@ -80,6 +80,6 @@ To run the project locally, follow these steps:
 4. Run the app locally:
    - `npm run dev`
 
-Once the app is running, open your browser and go to `http://localhost:5173/Money_Saver_App/` to view the app in action.
+Once the app is running, open your browser and go to `http://localhost:5173/` to view the app in action.
 
    
