@@ -1,14 +1,13 @@
 import { InfoCard } from "../../components/infoCard/InfoCard";
 import resultsReviewsImg from "../../assets/results-reviews-info-img.png";
 import resetBtnImg from "../../assets/reset-btn-info-img.png";
-import { Trans, useTranslation } from "react-i18next";
+import { Trans} from "react-i18next";
 import { InfoData } from "../../data/InfoData";
 import { InfoNavbar } from "../../components/navbars/infoNavbar/InfoNavbar";
 import { motion } from "motion/react";
+import { t } from "i18next";
 
 const InfoPage = () => {
-  const { t } = useTranslation();
-
   const { sectionsInfoData, expensesReviewsData } = InfoData();
 
   return (

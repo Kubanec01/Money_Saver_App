@@ -18,7 +18,7 @@ export const Hero = () => {
         />
       </div>
       {/* LEFT */}
-      <div className="h-full md:w-[50%] sm:w-[70%] w-[80%] mx-auto font-medium md:mt-0 mt-14 ">
+      <div className="h-full md:w-[50%] sm:w-[70%] w-[90%] mx-auto font-medium md:mt-0 mt-14">
         <motion.h1
           initial="hidden"
           whileInView="visible"
