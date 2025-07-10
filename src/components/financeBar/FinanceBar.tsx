@@ -105,6 +105,7 @@ export const FinanceBar = ({ id, inputId, text }: FinanceBarProps) => {
           onEnterPress(e);
         }}
         onChange={handleMoneyValue}
+        data-test-id="count"
         value={expenseValue}
         id={inputId}
         className={`${style.input} text-spaceWhite bg-transparent ml-3 sm:text-3xl text-2xl w-[60%]`}
